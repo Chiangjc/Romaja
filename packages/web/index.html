@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Korean Romanization Keyboard</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Korean Romanization Keyboard</h1>
+      <p class="subtitle">Type Korean using Roman letters — by spelling, not pronunciation.</p>
+
+      <textarea id="input" placeholder="annyeonghaseyo jeoneun haksaengibnida" rows="3" autofocus></textarea>
+
+      <div id="output" class="output" aria-live="polite"></div>
+
+      <div class="actions">
+        <button id="copy">Copy</button>
+        <button id="clear">Clear</button>
+      </div>
+
+      <section class="note">
+        <p>
+          <strong>照拼寫打，不是照發音打。</strong>
+          例：<code>hapnida</code>（合니다）不是 <code>hamnida</code>。這是 Phase 1
+          引擎的簡單試打頁面，還沒有候選選字（Phase 2）。
+        </p>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

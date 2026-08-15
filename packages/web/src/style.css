@@ -1,0 +1,90 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: #f7f7f8;
+  color: #1a1a1a;
+}
+
+main {
+  width: 100%;
+  max-width: 640px;
+  padding: 3rem 1.5rem;
+}
+
+h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+textarea:focus {
+  outline: 2px solid #4a6cf7;
+  outline-offset: 1px;
+}
+
+.output {
+  margin-top: 1rem;
+  min-height: 3rem;
+  font-size: 1.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.actions {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  font-size: 0.95rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #f0f0f0;
+}
+
+.note {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.6;
+}
+
+.note code {
+  background: #eee;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+}
