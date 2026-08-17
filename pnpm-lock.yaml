@@ -24,6 +24,32 @@ importers:
         specifier: ^2.1.0
         version: 2.1.9
 
+  packages/input-state:
+    dependencies:
+      '@romanization/engine':
+        specifier: workspace:*
+        version: link:../engine
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9
+
+  packages/web:
+    dependencies:
+      '@romanization/input-state':
+        specifier: workspace:*
+        version: link:../input-state
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vite:
+        specifier: ^5.4.0
+        version: 5.4.21
+
 packages:
 
   '@esbuild/aix-ppc64@0.21.5':

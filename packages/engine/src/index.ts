@@ -1,4 +1,4 @@
-export { toHangulCandidates, best } from "./rank.js";
+export { toHangulCandidates, best, rankedCandidatesWithSpelling, type RankedCandidate } from "./rank.js";
 export { hangulToRoman } from "./romanize.js";
 export { toHangulText } from "./text.js";
 export { compose, decompose } from "./compose.js";

@@ -1,32 +1,32 @@
 <!doctype html>
-<html lang="zh-TW">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>韓文羅馬拼音輸入法｜用英文鍵盤打韓文</title>
+    <title>Korean Romanization Keyboard – Type Korean with Roman Letters</title>
     <meta
       name="description"
-      content="不用背두벌식鍵盤位置，直接用你已經會的羅馬拼音打出韓文。免安裝、免登入，輸入的內容不會離開你的瀏覽器。"
+      content="Type Korean using the romanization you already know — no need to memorize the 두벌식 keyboard layout. No install, no login, and your text never leaves your browser."
     />
-    <!-- canonical / hreflang：等買了網域上線後再補上絕對網址 -->
-    <link rel="stylesheet" href="/src/style.css" />
+    <!-- canonical / hreflang: add absolute URLs once the domain is live -->
+    <link rel="stylesheet" href="../src/style.css" />
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <span class="site-name">韓文羅馬拼音輸入法</span>
-        <nav class="lang-switch" aria-label="語言切換">
-          <a href="/" aria-current="page">中文</a>
-          <a href="/en/">EN</a>
+        <span class="site-name">Korean Romanization Keyboard</span>
+        <nav class="lang-switch" aria-label="Language">
+          <a href="/">中文</a>
+          <a href="/en/" aria-current="page">EN</a>
         </nav>
       </header>
 
       <main>
-        <h1>用羅馬拼音打韓文</h1>
-        <p class="lede">打你已經會的羅馬拼音，自動轉成韓文，不用另外背鍵盤位置。</p>
+        <h1>Type Korean with Roman Letters</h1>
+        <p class="lede">Type the romanization you already know and it converts to Korean automatically — no keyboard layout to memorize.</p>
 
         <p class="spelling-note">
-          <strong>照拼寫打，不是照發音打：</strong>
+          <strong>Type by spelling, not by pronunciation:</strong>
           <span class="example-pair"><span class="ok">johayo</span></span>
           <span class="example-pair"><span class="no">joayo</span></span>
         </p>
@@ -37,53 +37,55 @@
           tabindex="0"
           role="textbox"
           aria-multiline="true"
-          aria-label="羅馬拼音輸入"
+          aria-label="Romanization input"
           data-placeholder="annyeonghaseyo jeoneun haksaengibnida"
         ></div>
         <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
 
         <div class="actions">
-          <button id="copy" type="button">複製</button>
-          <button id="clear" type="button">清空</button>
+          <button id="copy" type="button">Copy</button>
+          <button id="clear" type="button">Clear</button>
         </div>
 
         <div class="examples">
-          <p class="examples-label">試試看：</p>
+          <p class="examples-label">Try it:</p>
           <ul class="example-list">
             <li><button type="button" data-example="annyeonghaseyo">annyeonghaseyo</button></li>
             <li><button type="button" data-example="gaeul">gaeul</button></li>
             <li><button type="button" data-example="gamsahabnida">gamsahabnida</button></li>
-            <li><button type="button" data-example="andwae">andwae</button></li>
-            <li><button type="button" data-example="gochI">gochI</button></li>
           </ul>
         </div>
 
         <section class="section">
-          <h2>怎麼打</h2>
+          <h2>How it works</h2>
           <ol class="steps">
-            <li>打羅馬拼音，例如 <code>annyeonghaseyo</code>。</li>
+            <li>Type a romanized word, like <code>annyeonghaseyo</code>.</li>
             <li>
-              遇到有歧義的字，下面會浮出候選框：按 <code>↓</code> 切換，或直接按數字鍵
-              <code>1</code>/<code>2</code>/<code>3</code>。想指定切法就把下一個字的第一個字母打大寫，例如
-              <code>gaEul</code> 一定會切成「가」＋「을」，比打連字號快；打連字號 <code>ga-eul</code> 效果一樣，兩種都可以。
+              When a word is ambiguous, a candidate list pops up below it: press <code>↓</code> to cycle,
+              or press <code>1</code>/<code>2</code>/<code>3</code> to jump directly. To force a specific
+              split, capitalize the first letter of the next syllable — <code>gaEul</code> always splits
+              into 가 + 을, and it's faster to type than a hyphen. A hyphen (<code>ga-eul</code>) works the
+              same way if you prefer it.
             </li>
-            <li>打完按空白鍵或 <code>Enter</code> 確定，再複製貼到你要用的地方。</li>
+            <li>Press space or <code>Enter</code> to confirm, then copy and paste wherever you need it.</li>
           </ol>
         </section>
 
         <section class="section limits">
-          <h2>目前的限制</h2>
+          <h2>Current limitations</h2>
           <p>
-            預設正確率大約八成，遇到轉錯的字用 <code>↓</code> 挑對的候選就好。輸入的內容只留在你的瀏覽器裡，不會被送到任何伺服器。
+            Default accuracy is roughly 80%. When it picks the wrong reading, press <code>↓</code> to
+            choose the right candidate. Everything you type stays in your browser — nothing is sent to a
+            server.
           </p>
         </section>
 
         <section class="section">
-          <h2>羅馬字對照表</h2>
-          <p>ㄹ 不管在初聲還是終聲，打 <code>r</code> 或 <code>l</code> 都可以。</p>
+          <h2>Romanization table</h2>
+          <p>ㄹ accepts both <code>r</code> and <code>l</code>, as an initial or as a final.</p>
 
           <div class="rom-group">
-            <h3>初聲（19）</h3>
+            <h3>Initials (19)</h3>
             <div class="rom-grid">
               <span class="rom-pair"><span class="jamo">ㄱ</span><span class="latin">g</span></span>
               <span class="rom-pair"><span class="jamo">ㄲ</span><span class="latin">kk</span></span>
@@ -108,7 +110,7 @@
           </div>
 
           <div class="rom-group">
-            <h3>中聲（21）</h3>
+            <h3>Medials (21)</h3>
             <div class="rom-grid">
               <span class="rom-pair"><span class="jamo">ㅏ</span><span class="latin">a</span></span>
               <span class="rom-pair"><span class="jamo">ㅐ</span><span class="latin">ae</span></span>
@@ -135,9 +137,9 @@
           </div>
 
           <div class="rom-group">
-            <h3>終聲（28）</h3>
+            <h3>Finals (28)</h3>
             <div class="rom-grid">
-              <span class="rom-pair"><span class="jamo">（無）</span><span class="latin">–</span></span>
+              <span class="rom-pair"><span class="jamo">(none)</span><span class="latin">–</span></span>
               <span class="rom-pair"><span class="jamo">ㄱ</span><span class="latin">g</span></span>
               <span class="rom-pair"><span class="jamo">ㄲ</span><span class="latin">kk</span></span>
               <span class="rom-pair"><span class="jamo">ㄳ</span><span class="latin">gs</span></span>
@@ -170,8 +172,8 @@
         </section>
       </main>
 
-      <footer>此工具仍在開發中，功能會持續調整。</footer>
+      <footer>This tool is still under active development.</footer>
     </div>
-    <script type="module" src="/src/main.ts"></script>
+    <script type="module" src="../src/main.ts"></script>
   </body>
 </html>

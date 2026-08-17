@@ -43,3 +43,24 @@ export function best(word: string): string | null {
   const candidates = toHangulCandidates(word);
   return candidates.length > 0 ? candidates[0] : null;
 }
+
+export interface RankedCandidate {
+  hangul: string;
+  spelling: string; // 標示切法，例如 "ga-eul"
+}
+
+export function rankedCandidatesWithSpelling(word: string): RankedCandidate[] {
+  const ranked = rankCandidates(parseWord(word));
+  return ranked.map((syllables) => {
+    let pos = 0;
+    const parts = syllables.map((s) => {
+      const part = word.slice(pos, pos + s.length);
+      pos += s.length;
+      return part;
+    });
+    return {
+      hangul: toHangul(syllables),
+      spelling: parts.join("-"),
+    };
+  });
+}
