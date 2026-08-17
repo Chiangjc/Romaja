@@ -89,6 +89,8 @@ function render() {
 }
 
 editor.addEventListener("keydown", (e) => {
+  if (e.ctrlKey || e.metaKey) return; // 讓 Ctrl/Cmd 組合鍵（複製、全選…）走原生行為
+
   if (e.isComposing) {
     imeWarning.textContent = locale.imeWarning;
     return;
