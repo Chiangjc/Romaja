@@ -2,6 +2,6 @@
   "name": "romaja",
   "compatibility_date": "2026-08-25",
   "assets": {
-    "directory": "packages/web/dist"
+    "directory": "dist"
   }
 }
