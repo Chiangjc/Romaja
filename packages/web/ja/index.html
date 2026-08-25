@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>日文羅馬拼音輸入法｜用英文鍵盤打日文假名</title>
+    <title>日文羅馬拼音輸入法｜日文羅馬鍵盤，用英文鍵盤打日文假名</title>
     <meta
       name="description"
-      content="用羅馬拼音打出日文假名，規則跟手機、電腦內建的日文輸入法一樣。免安裝、免登入，輸入的內容不會離開你的瀏覽器，平假名／片假名可以隨時切換。"
+      content="日文羅馬鍵盤，用羅馬拼音打出日文假名，規則跟手機、電腦內建的日文輸入法一樣。免安裝、免登入，輸入的內容不會離開你的瀏覽器，平假名／片假名可以隨時切換。"
     />
     <link rel="canonical" href="https://latype.com/ja/" />
     <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/ja/" />
@@ -14,15 +14,63 @@
     <link rel="alternate" hreflang="x-default" href="https://latype.com/ja/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="日文羅馬拼音輸入法" />
-    <meta property="og:title" content="日文羅馬拼音輸入法｜用英文鍵盤打日文假名" />
+    <meta property="og:title" content="日文羅馬拼音輸入法｜日文羅馬鍵盤，用英文鍵盤打日文假名" />
     <meta
       property="og:description"
-      content="用羅馬拼音打出日文假名，規則跟手機、電腦內建的日文輸入法一樣。免安裝、免登入，輸入的內容不會離開你的瀏覽器，平假名／片假名可以隨時切換。"
+      content="日文羅馬鍵盤，用羅馬拼音打出日文假名，規則跟手機、電腦內建的日文輸入法一樣。免安裝、免登入，輸入的內容不會離開你的瀏覽器，平假名／片假名可以隨時切換。"
     />
     <meta property="og:url" content="https://latype.com/ja/" />
     <meta property="og:locale" content="zh_TW" />
     <meta property="og:locale:alternate" content="en_US" />
     <link rel="stylesheet" href="../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "日文鍵盤需要下載或安裝嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不用。這是網頁版工具，打開就能打字，不用切換系統輸入法。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "這跟手機、電腦內建的日文輸入法有什麼不同？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "打法規則幾乎一樣，都是羅馬字轉假名。差別在於不用先在系統裡切換或啟用日文輸入法，臨時借用別人的電腦、或系統一時叫不出日文鍵盤的時候，打開網頁就能用。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "ん要怎麼打？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "打 n。如果後面接的是母音，系統會先等一下看你是要拼成別的音節，還是真的要ん接母音，例如 kinen 會變成きねん；如果要的是ん加母音，中間要打撇號隔開，kin'en 才會是きんえん。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "促音（っ）要怎麼打？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "把下一個子音打兩次，kekkon 是けっこん，只打一次 kekon 會變成けこん。目前只認得「連續打兩個一樣的子音」這種寫法，まっちゃ要打成 maccha，打 matcha 不會自動補上っ。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "平假名跟片假名切換，會不會影響我已經打好的字？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不會。上面的按鈕只是切換顯示，不會動到你打的羅馬字或已經確定的內容，可以隨時切換。"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="page">
@@ -43,7 +91,7 @@
       <main>
         <h1>用羅馬拼音打日文</h1>
         <p class="lede">
-          打羅馬拼音，自動轉成日文假名。日文本來就有標準的羅馬字輸入規則，跟手機、電腦內建的日文輸入法幾乎一樣，不用另外學。
+          打羅馬拼音，自動轉成日文假名。日文本來就有標準的羅馬字輸入規則，跟手機、電腦內建的日文輸入法幾乎一樣，不用另外學。這個工具也有人叫它日文羅馬鍵盤。
         </p>
 
         <p class="spelling-note">
@@ -242,6 +290,52 @@
               <span class="rom-pair"><span class="jamo">りょ</span><span class="latin">ryo</span></span>
             </div>
           </div>
+        </section>
+
+        <section class="section faq">
+          <h2>常見問題</h2>
+
+          <details class="faq-item">
+            <summary>日文鍵盤需要下載或安裝嗎？</summary>
+            <p>不用。這是網頁版工具，打開就能打字，不用切換系統輸入法。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>這跟手機、電腦內建的日文輸入法有什麼不同？</summary>
+            <p>
+              打法規則幾乎一樣，都是羅馬字轉假名。差別在於不用先在系統裡切換或啟用日文輸入法，臨時借用別人的電腦、或系統一時叫不出日文鍵盤的時候，打開網頁就能用。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>ん要怎麼打？</summary>
+            <p>
+              打 <code>n</code>。如果後面接的是母音，系統會先等一下看你是要拼成別的音節，還是真的要ん接母音，例如
+              <code>kinen</code> 會變成きねん；如果要的是ん加母音，中間要打撇號隔開，<code>kin'en</code>
+              才會是きんえん。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>促音（っ）要怎麼打？</summary>
+            <p>
+              把下一個子音打兩次，<code>kekkon</code> 是けっこん，只打一次 <code>kekon</code>
+              會變成けこん。目前只認得「連續打兩個一樣的子音」這種寫法，まっちゃ要打成 <code>maccha</code>，打
+              <code>matcha</code> 不會自動補上っ。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>平假名跟片假名切換，會不會影響我已經打好的字？</summary>
+            <p>不會。上面的按鈕只是切換顯示，不會動到你打的羅馬字或已經確定的內容，可以隨時切換。</p>
+          </details>
+        </section>
+
+        <section class="section about">
+          <h2>為什麼做這個工具</h2>
+          <p>
+            韓文那邊的鍵盤問題解決之後，我想到日文雖然手機、電腦本來就有內建的羅馬字輸入法，但不是每次都能馬上叫得出來，像借用別人的電腦、或只是想臨時打幾個字。引擎邏輯剛好可以共用，就順手做了這個日文版本。
+          </p>
         </section>
       </main>
 

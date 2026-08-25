@@ -415,6 +415,42 @@ p code {
   margin: 0;
 }
 
+/* 常見問題 */
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.85rem 0;
+}
+
+.faq-item:first-of-type {
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-item summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::before {
+  content: "+ ";
+  color: var(--color-primary);
+}
+
+.faq-item[open] summary::before {
+  content: "− ";
+}
+
+.faq-item p {
+  margin: 0.6rem 0 0;
+  color: var(--color-muted);
+  font-size: 0.92rem;
+}
+
 /* 頁尾 */
 
 footer {

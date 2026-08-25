@@ -23,6 +23,54 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="zh_TW" />
     <link rel="stylesheet" href="../../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need to install anything to use this Japanese keyboard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It's a web tool — open the page and start typing, no need to switch your system input method."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from the Japanese IME built into my phone or computer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The typing rules are nearly identical — romaji converted to kana. The difference is you don't need to switch on or enable a Japanese input method first, useful when you're on someone else's computer, or your system doesn't have one ready to go."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I type ん?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Type n. If a vowel follows, it waits to see whether you meant a different syllable — kinen becomes きねん. If you really want ん before a vowel, add an apostrophe: kin'en gives きんえん."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I type the small っ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Double the next consonant — kekkon is けっこん; typing it once as kekon gives けこん instead. It only recognizes a doubled identical consonant, so まっちゃ needs the doubled-c spelling maccha — typing matcha won't insert っ automatically."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "If I switch between hiragana and katakana, does it change what I've already typed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The buttons only switch how it's displayed — they don't touch your romaji or anything already confirmed, so switching anytime is safe."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="page">
@@ -246,6 +294,60 @@
               <span class="rom-pair"><span class="jamo">りょ</span><span class="latin">ryo</span></span>
             </div>
           </div>
+        </section>
+
+        <section class="section faq">
+          <h2>FAQ</h2>
+
+          <details class="faq-item">
+            <summary>Do I need to install anything to use this Japanese keyboard?</summary>
+            <p>No. It's a web tool — open the page and start typing, no need to switch your system input method.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How is this different from the Japanese IME built into my phone or computer?</summary>
+            <p>
+              The typing rules are nearly identical — romaji converted to kana. The difference is you don't need
+              to switch on or enable a Japanese input method first, useful when you're on someone else's
+              computer, or your system doesn't have one ready to go.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I type ん?</summary>
+            <p>
+              Type <code>n</code>. If a vowel follows, it waits to see whether you meant a different syllable —
+              <code>kinen</code> becomes きねん. If you really want ん before a vowel, add an apostrophe:
+              <code>kin'en</code> gives きんえん.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I type the small っ?</summary>
+            <p>
+              Double the next consonant — <code>kekkon</code> is けっこん; typing it once as
+              <code>kekon</code> gives けこん instead. It only recognizes a doubled identical consonant, so
+              まっちゃ needs the doubled-c spelling <code>maccha</code> — typing <code>matcha</code> won't insert
+              っ automatically.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>If I switch between hiragana and katakana, does it change what I've already typed?</summary>
+            <p>
+              No. The buttons only switch how it's displayed — they don't touch your romaji or anything already
+              confirmed, so switching anytime is safe.
+            </p>
+          </details>
+        </section>
+
+        <section class="section about">
+          <h2>Why I built this</h2>
+          <p>
+            Once the Korean keyboard problem was solved, I realized Japanese already has a built-in romaji input
+            method, but it isn't always ready right when you need it — someone else's computer, or a quick
+            one-off word. The engine was already there, so I reused it to build this Japanese version too.
+          </p>
         </section>
       </main>
 

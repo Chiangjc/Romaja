@@ -23,6 +23,54 @@
     <meta property="og:locale" content="en_US" />
     <meta property="og:locale:alternate" content="zh_TW" />
     <link rel="stylesheet" href="../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Do I need to install anything to use this Korean keyboard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. It's a web tool — open the page and start typing. No Korean IME to install, no system keyboard to switch."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from installing a 두벌식 Korean keyboard layout?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "두벌식 means memorizing where each letter sits on the keyboard — d for ㅇ, k for ㅏ, and so on. This tool uses the romanization you already know instead: type annyeong and get 안녕, no new layout to learn."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I type by pronunciation or by spelling?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "By spelling. \"Thank you\" is typed gamsahabnida, not the way it sounds (gamsahamnida). The most common gap, nasalization at the end of polite verb endings like -습니다/-ㅂ니다, is handled: type gamsahamnida and 감사합니다 will usually still turn up as a candidate, press ↓ to pick it. Other sound changes, like liaison or palatalization, aren't covered yet, so those still need correct spelling."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can it type names or new words that aren't in any dictionary?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. This isn't a dictionary lookup — it builds syllables straight from Hangul spelling rules, so any valid romanization works, including names, places, and words no dictionary has caught up with yet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I type Korean with romanization on my phone?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The page works on mobile, but candidate switching is built around keyboard arrow keys, so typing on a phone hasn't been optimized yet."
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="page">
@@ -188,6 +236,61 @@
               <span class="rom-pair"><span class="jamo">ㅎ</span><span class="latin">h</span></span>
             </div>
           </div>
+        </section>
+
+        <section class="section faq">
+          <h2>FAQ</h2>
+
+          <details class="faq-item">
+            <summary>Do I need to install anything to use this Korean keyboard?</summary>
+            <p>No. It's a web tool — open the page and start typing. No Korean IME to install, no system keyboard to switch.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How is this different from installing a 두벌식 Korean keyboard layout?</summary>
+            <p>
+              두벌식 means memorizing where each letter sits on the keyboard — <code>d</code> for ㅇ,
+              <code>k</code> for ㅏ, and so on. This tool uses the romanization you already know instead: type
+              <code>annyeong</code> and get 안녕, no new layout to learn.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I type by pronunciation or by spelling?</summary>
+            <p>
+              By spelling. "Thank you" is typed <code>gamsahabnida</code>, not the way it sounds
+              (<code>gamsahamnida</code>). The most common gap, nasalization at the end of polite verb endings
+              like -습니다/-ㅂ니다, is handled: type <code>gamsahamnida</code> and 감사합니다 will usually still
+              turn up as a candidate, press <code>↓</code> to pick it. Other sound changes, like liaison or
+              palatalization, aren't covered yet, so those still need correct spelling.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can it type names or new words that aren't in any dictionary?</summary>
+            <p>
+              Yes. This isn't a dictionary lookup — it builds syllables straight from Hangul spelling rules, so
+              any valid romanization works, including names, places, and words no dictionary has caught up with
+              yet.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I type Korean with romanization on my phone?</summary>
+            <p>
+              The page works on mobile, but candidate switching is built around keyboard arrow keys, so typing
+              on a phone hasn't been optimized yet.
+            </p>
+          </details>
+        </section>
+
+        <section class="section about">
+          <h2>Why I built this</h2>
+          <p>
+            I hit this wall myself while learning Korean. 두벌식 means memorizing where every letter sits on the
+            keyboard, and early on I could only look things up one character at a time — painfully slow. I
+            already knew the romanization, so I built this to type it directly instead.
+          </p>
         </section>
       </main>
 
