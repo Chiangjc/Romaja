@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>日文羅馬拼音輸入法｜用英文鍵盤打日文假名</title>
+    <meta
+      name="description"
+      content="用羅馬拼音打出日文假名，規則跟手機、電腦內建的日文輸入法一樣。免安裝、免登入，輸入的內容不會離開你的瀏覽器，平假名／片假名可以隨時切換。"
+    />
+    <link rel="canonical" href="https://latype.com/ja/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/ja/" />
+    <link rel="alternate" hreflang="en" href="https://latype.com/en/ja/" />
+    <link rel="alternate" hreflang="x-default" href="https://latype.com/ja/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="日文羅馬拼音輸入法" />
+    <meta property="og:title" content="日文羅馬拼音輸入法｜用英文鍵盤打日文假名" />
+    <meta
+      property="og:description"
+      content="用羅馬拼音打出日文假名，規則跟手機、電腦內建的日文輸入法一樣。免安裝、免登入，輸入的內容不會離開你的瀏覽器，平假名／片假名可以隨時切換。"
+    />
+    <meta property="og:url" content="https://latype.com/ja/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <link rel="stylesheet" href="../src/style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="site-name" href="/">羅馬拼音輸入法</a>
+        <div class="header-nav">
+          <nav class="tool-switch" aria-label="語言切換">
+            <a href="/">韓文</a>
+            <a href="/ja/" aria-current="page">日文</a>
+          </nav>
+          <nav class="lang-switch" aria-label="介面語言">
+            <a href="/ja/" aria-current="page">中文</a>
+            <a href="/en/ja/">EN</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <h1>用羅馬拼音打日文</h1>
+        <p class="lede">
+          打羅馬拼音，自動轉成日文假名。日文本來就有標準的羅馬字輸入規則，跟手機、電腦內建的日文輸入法幾乎一樣，不用另外學。
+        </p>
+
+        <p class="spelling-note">
+          <strong>促音要把子音打兩次：</strong>
+          <span class="example-pair"><span class="ok">kekkon</span></span>
+          <span class="example-pair"><span class="no">kekon</span></span>
+        </p>
+
+        <div class="mode-switch" role="group" aria-label="假名切換">
+          <button type="button" id="mode-hira" class="mode-btn active" aria-pressed="true">あ 平假名</button>
+          <button type="button" id="mode-kata" class="mode-btn" aria-pressed="false">ア 片假名</button>
+        </div>
+
+        <div
+          id="editor"
+          class="editor"
+          tabindex="0"
+          role="textbox"
+          aria-multiline="true"
+          aria-label="羅馬拼音輸入"
+          data-placeholder="konnichiwa arigatou"
+        ></div>
+        <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
+
+        <div class="actions">
+          <button id="copy" type="button">複製</button>
+          <button id="clear" type="button">清空</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">試試看：</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="konnichiwa">konnichiwa</button></li>
+            <li><button type="button" data-example="arigatou">arigatou</button></li>
+            <li><button type="button" data-example="kekkon">kekkon</button></li>
+            <li><button type="button" data-example="chotto">chotto</button></li>
+            <li><button type="button" data-example="kyou">kyou</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>怎麼打</h2>
+          <ol class="steps">
+            <li>打羅馬拼音，例如 <code>konnichiwa</code>，會即時轉成假名，不會有候選字要選。</li>
+            <li>
+              <strong>ん</strong>：打 <code>n</code>。如果後面接的是母音，會先等一下看你要不要拼成別的音節，
+              例如 <code>kinen</code> 會變成「きねん」；如果就是要ん接母音，中間要加撇號隔開：
+              <code>kin'en</code> 才會是「きんえん」。
+            </li>
+            <li>
+              <strong>っ（促音）</strong>：把下一個子音打兩次，例如 <code>kekkon</code> 是「けっこん」，只打一次
+              <code>kekon</code> 會變成「けこん」。
+            </li>
+            <li>
+              <strong>長音</strong>：母音連續打兩次會直接變成長音，例如 <code>okaasan</code> 是「おかあさん」；
+              片假名常用的長音記號可以直接打連字號 <code>-</code>，例如 <code>ke-ki</code> 打出「ケーキ」。
+            </li>
+            <li>上面的按鈕可以隨時切換平假名／片假名的顯示，不影響你打的羅馬字。</li>
+            <li>打完按空白鍵或 <code>Enter</code> 確定，再複製貼到你要用的地方。</li>
+          </ol>
+        </section>
+
+        <section class="section limits">
+          <h2>目前的限制</h2>
+          <p>
+            促音只認得「連續打兩個一樣的子音」，像「まっちゃ」要打 <code>maccha</code> 這種疊字寫法，
+            打 <code>matcha</code> 不會自動補上っ。輸入的內容只留在你的瀏覽器裡，不會被送到任何伺服器。
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>羅馬字對照表</h2>
+          <p>
+            し也可以打 <code>si</code>、ち也可以打 <code>ti</code>、つ也可以打 <code>tu</code>、ふ也可以打
+            <code>hu</code>；じ行也可以整行改打 <code>zy</code> 開頭（例如 <code>zya</code>），兩種拼法都收。
+          </p>
+
+          <div class="rom-group">
+            <h3>清音（46）</h3>
+            <div class="rom-grid">
+              <span class="rom-pair"><span class="jamo">あ</span><span class="latin">a</span></span>
+              <span class="rom-pair"><span class="jamo">い</span><span class="latin">i</span></span>
+              <span class="rom-pair"><span class="jamo">う</span><span class="latin">u</span></span>
+              <span class="rom-pair"><span class="jamo">え</span><span class="latin">e</span></span>
+              <span class="rom-pair"><span class="jamo">お</span><span class="latin">o</span></span>
+              <span class="rom-pair"><span class="jamo">か</span><span class="latin">ka</span></span>
+              <span class="rom-pair"><span class="jamo">き</span><span class="latin">ki</span></span>
+              <span class="rom-pair"><span class="jamo">く</span><span class="latin">ku</span></span>
+              <span class="rom-pair"><span class="jamo">け</span><span class="latin">ke</span></span>
+              <span class="rom-pair"><span class="jamo">こ</span><span class="latin">ko</span></span>
+              <span class="rom-pair"><span class="jamo">さ</span><span class="latin">sa</span></span>
+              <span class="rom-pair"><span class="jamo">し</span><span class="latin">shi</span></span>
+              <span class="rom-pair"><span class="jamo">す</span><span class="latin">su</span></span>
+              <span class="rom-pair"><span class="jamo">せ</span><span class="latin">se</span></span>
+              <span class="rom-pair"><span class="jamo">そ</span><span class="latin">so</span></span>
+              <span class="rom-pair"><span class="jamo">た</span><span class="latin">ta</span></span>
+              <span class="rom-pair"><span class="jamo">ち</span><span class="latin">chi</span></span>
+              <span class="rom-pair"><span class="jamo">つ</span><span class="latin">tsu</span></span>
+              <span class="rom-pair"><span class="jamo">て</span><span class="latin">te</span></span>
+              <span class="rom-pair"><span class="jamo">と</span><span class="latin">to</span></span>
+              <span class="rom-pair"><span class="jamo">な</span><span class="latin">na</span></span>
+              <span class="rom-pair"><span class="jamo">に</span><span class="latin">ni</span></span>
+              <span class="rom-pair"><span class="jamo">ぬ</span><span class="latin">nu</span></span>
+              <span class="rom-pair"><span class="jamo">ね</span><span class="latin">ne</span></span>
+              <span class="rom-pair"><span class="jamo">の</span><span class="latin">no</span></span>
+              <span class="rom-pair"><span class="jamo">は</span><span class="latin">ha</span></span>
+              <span class="rom-pair"><span class="jamo">ひ</span><span class="latin">hi</span></span>
+              <span class="rom-pair"><span class="jamo">ふ</span><span class="latin">fu</span></span>
+              <span class="rom-pair"><span class="jamo">へ</span><span class="latin">he</span></span>
+              <span class="rom-pair"><span class="jamo">ほ</span><span class="latin">ho</span></span>
+              <span class="rom-pair"><span class="jamo">ま</span><span class="latin">ma</span></span>
+              <span class="rom-pair"><span class="jamo">み</span><span class="latin">mi</span></span>
+              <span class="rom-pair"><span class="jamo">む</span><span class="latin">mu</span></span>
+              <span class="rom-pair"><span class="jamo">め</span><span class="latin">me</span></span>
+              <span class="rom-pair"><span class="jamo">も</span><span class="latin">mo</span></span>
+              <span class="rom-pair"><span class="jamo">や</span><span class="latin">ya</span></span>
+              <span class="rom-pair"><span class="jamo">ゆ</span><span class="latin">yu</span></span>
+              <span class="rom-pair"><span class="jamo">よ</span><span class="latin">yo</span></span>
+              <span class="rom-pair"><span class="jamo">ら</span><span class="latin">ra</span></span>
+              <span class="rom-pair"><span class="jamo">り</span><span class="latin">ri</span></span>
+              <span class="rom-pair"><span class="jamo">る</span><span class="latin">ru</span></span>
+              <span class="rom-pair"><span class="jamo">れ</span><span class="latin">re</span></span>
+              <span class="rom-pair"><span class="jamo">ろ</span><span class="latin">ro</span></span>
+              <span class="rom-pair"><span class="jamo">わ</span><span class="latin">wa</span></span>
+              <span class="rom-pair"><span class="jamo">を</span><span class="latin">wo</span></span>
+              <span class="rom-pair"><span class="jamo">ん</span><span class="latin">n</span></span>
+            </div>
+          </div>
+
+          <div class="rom-group">
+            <h3>濁音・半濁音（25）</h3>
+            <div class="rom-grid">
+              <span class="rom-pair"><span class="jamo">が</span><span class="latin">ga</span></span>
+              <span class="rom-pair"><span class="jamo">ぎ</span><span class="latin">gi</span></span>
+              <span class="rom-pair"><span class="jamo">ぐ</span><span class="latin">gu</span></span>
+              <span class="rom-pair"><span class="jamo">げ</span><span class="latin">ge</span></span>
+              <span class="rom-pair"><span class="jamo">ご</span><span class="latin">go</span></span>
+              <span class="rom-pair"><span class="jamo">ざ</span><span class="latin">za</span></span>
+              <span class="rom-pair"><span class="jamo">じ</span><span class="latin">ji</span></span>
+              <span class="rom-pair"><span class="jamo">ず</span><span class="latin">zu</span></span>
+              <span class="rom-pair"><span class="jamo">ぜ</span><span class="latin">ze</span></span>
+              <span class="rom-pair"><span class="jamo">ぞ</span><span class="latin">zo</span></span>
+              <span class="rom-pair"><span class="jamo">だ</span><span class="latin">da</span></span>
+              <span class="rom-pair"><span class="jamo">ぢ</span><span class="latin">di</span></span>
+              <span class="rom-pair"><span class="jamo">づ</span><span class="latin">du</span></span>
+              <span class="rom-pair"><span class="jamo">で</span><span class="latin">de</span></span>
+              <span class="rom-pair"><span class="jamo">ど</span><span class="latin">do</span></span>
+              <span class="rom-pair"><span class="jamo">ば</span><span class="latin">ba</span></span>
+              <span class="rom-pair"><span class="jamo">び</span><span class="latin">bi</span></span>
+              <span class="rom-pair"><span class="jamo">ぶ</span><span class="latin">bu</span></span>
+              <span class="rom-pair"><span class="jamo">べ</span><span class="latin">be</span></span>
+              <span class="rom-pair"><span class="jamo">ぼ</span><span class="latin">bo</span></span>
+              <span class="rom-pair"><span class="jamo">ぱ</span><span class="latin">pa</span></span>
+              <span class="rom-pair"><span class="jamo">ぴ</span><span class="latin">pi</span></span>
+              <span class="rom-pair"><span class="jamo">ぷ</span><span class="latin">pu</span></span>
+              <span class="rom-pair"><span class="jamo">ぺ</span><span class="latin">pe</span></span>
+              <span class="rom-pair"><span class="jamo">ぽ</span><span class="latin">po</span></span>
+            </div>
+          </div>
+
+          <div class="rom-group">
+            <h3>拗音（33）</h3>
+            <div class="rom-grid">
+              <span class="rom-pair"><span class="jamo">きゃ</span><span class="latin">kya</span></span>
+              <span class="rom-pair"><span class="jamo">きゅ</span><span class="latin">kyu</span></span>
+              <span class="rom-pair"><span class="jamo">きょ</span><span class="latin">kyo</span></span>
+              <span class="rom-pair"><span class="jamo">ぎゃ</span><span class="latin">gya</span></span>
+              <span class="rom-pair"><span class="jamo">ぎゅ</span><span class="latin">gyu</span></span>
+              <span class="rom-pair"><span class="jamo">ぎょ</span><span class="latin">gyo</span></span>
+              <span class="rom-pair"><span class="jamo">しゃ</span><span class="latin">sha</span></span>
+              <span class="rom-pair"><span class="jamo">しゅ</span><span class="latin">shu</span></span>
+              <span class="rom-pair"><span class="jamo">しょ</span><span class="latin">sho</span></span>
+              <span class="rom-pair"><span class="jamo">じゃ</span><span class="latin">ja</span></span>
+              <span class="rom-pair"><span class="jamo">じゅ</span><span class="latin">ju</span></span>
+              <span class="rom-pair"><span class="jamo">じょ</span><span class="latin">jo</span></span>
+              <span class="rom-pair"><span class="jamo">ちゃ</span><span class="latin">cha</span></span>
+              <span class="rom-pair"><span class="jamo">ちゅ</span><span class="latin">chu</span></span>
+              <span class="rom-pair"><span class="jamo">ちょ</span><span class="latin">cho</span></span>
+              <span class="rom-pair"><span class="jamo">ぢゃ</span><span class="latin">dya</span></span>
+              <span class="rom-pair"><span class="jamo">ぢゅ</span><span class="latin">dyu</span></span>
+              <span class="rom-pair"><span class="jamo">ぢょ</span><span class="latin">dyo</span></span>
+              <span class="rom-pair"><span class="jamo">にゃ</span><span class="latin">nya</span></span>
+              <span class="rom-pair"><span class="jamo">にゅ</span><span class="latin">nyu</span></span>
+              <span class="rom-pair"><span class="jamo">にょ</span><span class="latin">nyo</span></span>
+              <span class="rom-pair"><span class="jamo">ひゃ</span><span class="latin">hya</span></span>
+              <span class="rom-pair"><span class="jamo">ひゅ</span><span class="latin">hyu</span></span>
+              <span class="rom-pair"><span class="jamo">ひょ</span><span class="latin">hyo</span></span>
+              <span class="rom-pair"><span class="jamo">びゃ</span><span class="latin">bya</span></span>
+              <span class="rom-pair"><span class="jamo">びゅ</span><span class="latin">byu</span></span>
+              <span class="rom-pair"><span class="jamo">びょ</span><span class="latin">byo</span></span>
+              <span class="rom-pair"><span class="jamo">ぴゃ</span><span class="latin">pya</span></span>
+              <span class="rom-pair"><span class="jamo">ぴゅ</span><span class="latin">pyu</span></span>
+              <span class="rom-pair"><span class="jamo">ぴょ</span><span class="latin">pyo</span></span>
+              <span class="rom-pair"><span class="jamo">りゃ</span><span class="latin">rya</span></span>
+              <span class="rom-pair"><span class="jamo">りゅ</span><span class="latin">ryu</span></span>
+              <span class="rom-pair"><span class="jamo">りょ</span><span class="latin">ryo</span></span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></footer>
+    </div>
+    <script type="module" src="../src/main-ja.ts"></script>
+  </body>
+</html>

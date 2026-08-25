@@ -8,17 +8,36 @@
       name="description"
       content="Type Korean using the romanization you already know — no need to memorize the 두벌식 keyboard layout. No install, no login, and your text never leaves your browser."
     />
-    <!-- canonical / hreflang: add absolute URLs once the domain is live -->
+    <link rel="canonical" href="https://latype.com/en/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/" />
+    <link rel="alternate" hreflang="en" href="https://latype.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://latype.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Korean Romanization Keyboard" />
+    <meta property="og:title" content="Korean Romanization Keyboard – Type Korean with Roman Letters" />
+    <meta
+      property="og:description"
+      content="Type Korean using the romanization you already know — no need to memorize the 두벌식 keyboard layout. No install, no login, and your text never leaves your browser."
+    />
+    <meta property="og:url" content="https://latype.com/en/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_TW" />
     <link rel="stylesheet" href="../src/style.css" />
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <span class="site-name">Korean Romanization Keyboard</span>
-        <nav class="lang-switch" aria-label="Language">
-          <a href="/">中文</a>
-          <a href="/en/" aria-current="page">EN</a>
-        </nav>
+        <span class="site-name">Romanization Keyboard</span>
+        <div class="header-nav">
+          <nav class="tool-switch" aria-label="Tool">
+            <a href="/en/" aria-current="page">Korean</a>
+            <a href="/en/ja/">Japanese</a>
+          </nav>
+          <nav class="lang-switch" aria-label="Language">
+            <a href="/">中文</a>
+            <a href="/en/" aria-current="page">EN</a>
+          </nav>
+        </div>
       </header>
 
       <main>
@@ -172,7 +191,7 @@
         </section>
       </main>
 
-      <footer>This tool is still under active development.</footer>
+      <footer>This tool is still under active development. <a href="/en/privacy/">Privacy Policy</a></footer>
     </div>
     <script type="module" src="../src/main.ts"></script>
   </body>

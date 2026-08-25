@@ -47,6 +47,33 @@ header.site-header {
   text-decoration: none;
 }
 
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.tool-switch {
+  padding-right: 0.75rem;
+  margin-right: 0.75rem;
+  border-right: 1px solid var(--color-border);
+}
+
+.tool-switch a {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  margin-left: 0.75rem;
+}
+
+.tool-switch a:first-child {
+  margin-left: 0;
+}
+
+.tool-switch a:hover,
+.tool-switch a[aria-current="page"] {
+  color: var(--color-primary);
+}
+
 .lang-switch a {
   font-size: 0.85rem;
   color: var(--color-muted);
@@ -57,6 +84,36 @@ header.site-header {
 .lang-switch a:hover,
 .lang-switch a[aria-current="page"] {
   color: var(--color-primary);
+}
+
+/* 假名切換（日文頁專用） */
+
+.mode-switch {
+  display: inline-flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.mode-btn {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-muted);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.mode-btn:hover {
+  border-color: var(--color-primary);
+}
+
+.mode-btn.active {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 /* 輸入區 */

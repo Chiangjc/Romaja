@@ -8,7 +8,9 @@ annyeonghaseyo jeoneun haksaengibnida
     안녕하세요 저는 학생입니다
 ```
 
-完整的產品規劃、設計決策、演算法細節見 [claude.md](claude.md)；上線與擴展規劃見 [plan.md](plan.md)。
+完整的產品規劃、設計決策、演算法細節見 [claude.md](claude.md)。
+
+上線網址：[latype.com](https://latype.com)
 
 ## 現況
 
@@ -47,4 +49,4 @@ pnpm --filter @romanization/engine try
 
 ## 授權
 
-尚未決定，上線前會補上（建議 MIT，見 [plan.md](plan.md) 上線檢查清單）。
+[MIT](LICENSE)

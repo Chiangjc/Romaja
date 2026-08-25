@@ -3,3 +3,5 @@ dist
 .env
 *.tsbuildinfo
 human.md
+.claude/settings.local.json
+run-dev.bat

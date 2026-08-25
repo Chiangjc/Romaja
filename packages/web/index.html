@@ -6,24 +6,43 @@
     <title>韓文羅馬拼音輸入法｜用英文鍵盤打韓文</title>
     <meta
       name="description"
-      content="不用背두벌식鍵盤位置，直接用你已經會的羅馬拼音打出韓文。免安裝、免登入，輸入的內容不會離開你的瀏覽器。"
+      content="不用背두벌식鍵盤位置，直接用羅馬拼音打出韓文。免安裝、免登入，輸入的內容不會離開你的瀏覽器。"
     />
-    <!-- canonical / hreflang：等買了網域上線後再補上絕對網址 -->
+    <link rel="canonical" href="https://latype.com/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/" />
+    <link rel="alternate" hreflang="en" href="https://latype.com/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://latype.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="韓文羅馬拼音輸入法" />
+    <meta property="og:title" content="韓文羅馬拼音輸入法｜用英文鍵盤打韓文" />
+    <meta
+      property="og:description"
+      content="不用背두벌식鍵盤位置，直接用羅馬拼音打出韓文。免安裝、免登入，輸入的內容不會離開你的瀏覽器。"
+    />
+    <meta property="og:url" content="https://latype.com/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
     <div class="page">
       <header class="site-header">
-        <span class="site-name">韓文羅馬拼音輸入法</span>
-        <nav class="lang-switch" aria-label="語言切換">
-          <a href="/" aria-current="page">中文</a>
-          <a href="/en/">EN</a>
-        </nav>
+        <span class="site-name">羅馬拼音輸入法</span>
+        <div class="header-nav">
+          <nav class="tool-switch" aria-label="語言切換">
+            <a href="/" aria-current="page">韓文</a>
+            <a href="/ja/">日文</a>
+          </nav>
+          <nav class="lang-switch" aria-label="介面語言">
+            <a href="/" aria-current="page">中文</a>
+            <a href="/en/">EN</a>
+          </nav>
+        </div>
       </header>
 
       <main>
         <h1>用羅馬拼音打韓文</h1>
-        <p class="lede">打你已經會的羅馬拼音，自動轉成韓文，不用另外背鍵盤位置。</p>
+        <p class="lede">打羅馬拼音，自動轉成韓文，不用另外背鍵盤位置。</p>
 
         <p class="spelling-note">
           <strong>照拼寫打，不是照發音打：</strong>
@@ -170,7 +189,7 @@
         </section>
       </main>
 
-      <footer>此工具仍在開發中，功能會持續調整。</footer>
+      <footer>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
