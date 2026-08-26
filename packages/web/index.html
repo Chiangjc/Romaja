@@ -81,6 +81,7 @@
             <a href="/" aria-current="page">韓文</a>
             <a href="/ja/">日文</a>
           </nav>
+          <span class="header-divider" aria-hidden="true"></span>
           <a class="lang-toggle" href="/en/" aria-label="Switch to English">EN</a>
         </div>
       </div>
@@ -108,7 +109,7 @@
             role="textbox"
             aria-multiline="true"
             aria-label="羅馬拼音輸入"
-            data-placeholder="annyeonghaseyo jeoneun haksaengibnida"
+            data-placeholder="annyeonghaseyo jeoneun hagsaengibnida"
           ></div>
         </div>
         <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
@@ -285,7 +286,14 @@
         </section>
       </main>
 
-      <footer>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></footer>
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>純前端</li>
+          <li>免安裝</li>
+          <li>免登入</li>
+        </ul>
+        <p>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></p>
+      </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

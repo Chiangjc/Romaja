@@ -3,7 +3,7 @@
 用英文鍵盤打出來的羅馬拼音，自動轉成韓文——不用背두벌식鍵盤位置。
 
 ```
-annyeonghaseyo jeoneun haksaengibnida
+annyeonghaseyo jeoneun hagsaengibnida
         ↓
     안녕하세요 저는 학생입니다
 ```

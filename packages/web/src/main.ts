@@ -99,6 +99,15 @@ editor.addEventListener("keydown", (e) => {
 
   const composing = state.composing !== null;
 
+  if ((e.key === "Tab" || e.key === "Enter") && state.segments.length === 0 && !composing) {
+    e.preventDefault();
+    const example = editor.dataset.placeholder ?? "";
+    for (const ch of example) {
+      dispatch(ch === " " ? { type: "space" } : { type: "char", char: ch });
+    }
+    return;
+  }
+
   if (e.key.length === 1 && /[a-zA-Z]/.test(e.key)) {
     e.preventDefault();
     dispatch({ type: "char", char: e.key });

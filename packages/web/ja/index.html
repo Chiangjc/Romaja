@@ -49,7 +49,7 @@
             "name": "ん要怎麼打？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "打 n。如果後面接的是母音，系統會先等一下看你是要拼成別的音節，還是真的要ん接母音，例如 kinen 會變成きねん；如果要的是ん加母音，中間要打撇號隔開，kin'en 才會是きんえん。"
+              "text": "打 n。如果後面接的是母音，系統會先等一下看你是要拼成別的音節，還是真的要ん接母音，例如 kinen 會變成きねん；如果要的是ん加母音，中間要打撇號隔開，kin'en 才會是きんえん。如果 n 是這個字打的最後一個字母，畫面上會先停在底線的 n，按空白鍵或 Enter 確定之後才會變成ん。"
             }
           },
           {
@@ -81,6 +81,7 @@
             <a href="/">韓文</a>
             <a href="/ja/" aria-current="page">日文</a>
           </nav>
+          <span class="header-divider" aria-hidden="true"></span>
           <a class="lang-toggle" href="/en/ja/" aria-label="Switch to English">EN</a>
         </div>
       </div>
@@ -131,6 +132,7 @@
             <li><button type="button" data-example="kekkon">kekkon</button></li>
             <li><button type="button" data-example="chotto">chotto</button></li>
             <li><button type="button" data-example="kyou">kyou</button></li>
+            <li><button type="button" data-example="kin'en">kin'en</button></li>
           </ul>
         </div>
 
@@ -141,7 +143,8 @@
             <li>
               <strong>ん</strong>：打 <code>n</code>。如果後面接的是母音，會先等一下看你要不要拼成別的音節，
               例如 <code>kinen</code> 會變成「きねん」；如果就是要ん接母音，中間要加撇號隔開：
-              <code>kin'en</code> 才會是「きんえん」。
+              <code>kin'en</code> 才會是「きんえん」。如果 <code>n</code> 是這個字打的最後一個字母，畫面上會先停在底線的
+              <code>n</code>，按空白鍵或 <code>Enter</code> 確定之後才會變成ん。
             </li>
             <li>
               <strong>っ（促音）</strong>：把下一個子音打兩次，例如 <code>kekkon</code> 是「けっこん」，只打一次
@@ -314,7 +317,8 @@
             <p>
               打 <code>n</code>。如果後面接的是母音，系統會先等一下看你是要拼成別的音節，還是真的要ん接母音，例如
               <code>kinen</code> 會變成きねん；如果要的是ん加母音，中間要打撇號隔開，<code>kin'en</code>
-              才會是きんえん。
+              才會是きんえん。如果 <code>n</code> 是這個字打的最後一個字母，畫面上會先停在底線的
+              <code>n</code>，按空白鍵或 <code>Enter</code> 確定之後才會變成ん。
             </p>
           </details>
 
@@ -341,7 +345,14 @@
         </section>
       </main>
 
-      <footer>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></footer>
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>純前端</li>
+          <li>免安裝</li>
+          <li>免登入</li>
+        </ul>
+        <p>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></p>
+      </footer>
     </div>
     <script type="module" src="../src/main-ja.ts"></script>
   </body>

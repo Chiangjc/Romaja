@@ -10,7 +10,7 @@
 **一句話**：讓不會韓文鍵盤的人，用英文 QWERTY 鍵盤打出完整的韓文句子。
 
 ```
-annyeonghaseyo jeoneun haksaengibnida
+annyeonghaseyo jeoneun hagsaengibnida
         ↓
     안녕하세요 저는 학생입니다
 ```
@@ -72,7 +72,7 @@ Parser 與組字器必須解耦。日後要換羅馬化規則時，Unicode 組�
 | 發音式輸入 | 期望 | 實際產出 |
 |---|---|---|
 | gamsahamnida | 감사합니다 | 감사**함**니다 ✗ |
-| haksaengimnida | 학생입니다 | 학생**임**니다 ✗ |
+| hagsaengimnida | 학생입니다 | 학생**임**니다 ✗ |
 | oneureun | 오늘은 | 오느른 ✗ |
 | joayo | 좋아요 | 조아요 ✗ |
 | mani | 많이 | 마니 ✗ |
@@ -84,7 +84,7 @@ Parser 與組字器必須解耦。日後要換羅馬化規則時，Unicode 組�
 
 ```
 gamsahabnida → 감사합니다
-haksaengibnida → 학생입니다
+hagsaengibnida → 학생입니다
 oneuleun → 오늘은
 johayo → 좋아요
 manhi → 많이
@@ -361,7 +361,7 @@ Korean Romanization Keyboard
 Type Korean using Roman letters.
 
 ┌────────────────────────────────────────────┐
-│ annyeonghaseyo jeoneun haksaengibnida      │
+│ annyeonghaseyo jeoneun hagsaengibnida      │
 └────────────────────────────────────────────┘
 
 안녕하세요 저는 학생입니다

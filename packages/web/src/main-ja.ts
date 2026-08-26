@@ -71,6 +71,17 @@ editor.addEventListener("keydown", (e) => {
   }
   imeWarning.textContent = "";
 
+  if ((e.key === "Tab" || e.key === "Enter") && state.segments.length === 0 && !state.pending) {
+    e.preventDefault();
+    const example = editor.dataset.placeholder ?? "";
+    let next = state;
+    for (const ch of example) {
+      next = ch === " " ? feedLiteral(next, " ") : feedLetter(next, ch);
+    }
+    dispatch(finalizeState(next));
+    return;
+  }
+
   if (e.key.length === 1 && /[a-zA-Z']/.test(e.key)) {
     e.preventDefault();
     dispatch(feedLetter(state, e.key));

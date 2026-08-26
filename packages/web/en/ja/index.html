@@ -49,7 +49,7 @@
             "name": "How do I type ん?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Type n. If a vowel follows, it waits to see whether you meant a different syllable (kinen becomes きねん). If you really want ん before a vowel, add an apostrophe: kin'en gives きんえん."
+              "text": "Type n. If a vowel follows, it waits to see whether you meant a different syllable (kinen becomes きねん). If you really want ん before a vowel, add an apostrophe: kin'en gives きんえん. If n is the last letter you type in a word, it stays shown as an underlined n until you press space or Enter to confirm; that's the moment it becomes ん."
             }
           },
           {
@@ -81,6 +81,7 @@
             <a href="/en/">Korean</a>
             <a href="/en/ja/" aria-current="page">Japanese</a>
           </nav>
+          <span class="header-divider" aria-hidden="true"></span>
           <a class="lang-toggle" href="/ja/" aria-label="切換成中文">中文</a>
         </div>
       </div>
@@ -133,6 +134,7 @@
             <li><button type="button" data-example="kekkon">kekkon</button></li>
             <li><button type="button" data-example="chotto">chotto</button></li>
             <li><button type="button" data-example="kyou">kyou</button></li>
+            <li><button type="button" data-example="kin'en">kin'en</button></li>
           </ul>
         </div>
 
@@ -143,7 +145,9 @@
             <li>
               <strong>ん</strong>: type <code>n</code>. If a vowel follows, it waits to see whether you meant a
               different syllable: <code>kinen</code> becomes 「きねん」. If you really want ん before a vowel,
-              add an apostrophe: <code>kin'en</code> gives 「きんえん」.
+              add an apostrophe: <code>kin'en</code> gives 「きんえん」. If <code>n</code> is the last letter you
+              type in a word, it stays shown as an underlined <code>n</code> until you press space or
+              <code>Enter</code> to confirm; that's the moment it becomes ん.
             </li>
             <li>
               <strong>っ (small tsu)</strong>: double the next consonant, e.g. <code>kekkon</code> is 「けっこん」;
@@ -320,7 +324,9 @@
             <p>
               Type <code>n</code>. If a vowel follows, it waits to see whether you meant a different syllable
               (<code>kinen</code> becomes きねん). If you really want ん before a vowel, add an apostrophe:
-              <code>kin'en</code> gives きんえん.
+              <code>kin'en</code> gives きんえん. If <code>n</code> is the last letter you type in a word, it
+              stays shown as an underlined <code>n</code> until you press space or <code>Enter</code> to
+              confirm; that's the moment it becomes ん.
             </p>
           </details>
 
@@ -353,7 +359,14 @@
         </section>
       </main>
 
-      <footer>This tool is still under active development. <a href="/en/privacy/">Privacy Policy</a></footer>
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>Client-side</li>
+          <li>No install</li>
+          <li>No login</li>
+        </ul>
+        <p>This tool is still under active development. <a href="/en/privacy/">Privacy Policy</a></p>
+      </footer>
     </div>
     <script type="module" src="../../src/main-ja.ts"></script>
   </body>
