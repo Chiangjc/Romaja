@@ -498,6 +498,22 @@ button:hover {
   margin-bottom: 0.55rem;
 }
 
+/* 觸控裝置（手機/平板）看到的候選字操作說明跟滑鼠鍵盤裝置不同，用 pointer 偵測切換，預設顯示滑鼠鍵盤版本 */
+
+.hint-touch {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .hint-mouse {
+    display: none;
+  }
+
+  .hint-touch {
+    display: inline;
+  }
+}
+
 .steps code,
 .lede code,
 p code {
