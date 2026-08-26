@@ -19,15 +19,14 @@
     <link rel="stylesheet" href="../../src/style.css" />
   </head>
   <body>
-    <div class="page">
-      <header class="site-header">
-        <a class="site-name" href="/en/">Korean Romanization Keyboard</a>
-        <nav class="lang-switch" aria-label="Language">
-          <a href="/privacy/">中文</a>
-          <a href="/en/privacy/" aria-current="page">EN</a>
-        </nav>
-      </header>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/en/">latype</a>
+        <a class="lang-toggle" href="/privacy/" aria-label="切換成中文">中文</a>
+      </div>
+    </header>
 
+    <div class="page">
       <main>
         <h1>Privacy Policy</h1>
         <p class="lede">Last updated: 2026-08-25</p>
@@ -36,7 +35,7 @@
           <h2>What you type never leaves your browser</h2>
           <p>
             This tool runs entirely in your browser. Converting romanization to Korean is a purely client-side
-            computation — there is no server and no database. Nothing you type is transmitted, logged, or seen
+            computation: there is no server and no database. Nothing you type is transmitted, logged, or seen
             by us.
           </p>
         </section>

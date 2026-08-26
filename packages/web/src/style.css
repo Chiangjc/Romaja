@@ -1,14 +1,16 @@
 :root {
   color-scheme: light;
-  --color-primary: #3d5afe;
-  --color-primary-soft: #eef1ff;
-  --color-ink: #14161a;
-  --color-muted: #667085;
-  --color-border: #e4e7ec;
-  --color-success: #1a7f4e;
-  --color-danger: #c0392b;
+  --color-bg: #faf9f6;
+  --color-primary: #2451c4;
+  --color-primary-soft: #e4eafa;
+  --color-ink: #1c1b1f;
+  --color-muted: #6b6a66;
+  --color-border: #e2dfd6;
+  --color-success: #3f7a52;
+  --color-danger: #b0392a;
   --radius: 10px;
   --font-sans: "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", "Cascadia Code", Menlo, Consolas, monospace;
 }
 
 * {
@@ -17,10 +19,23 @@
 
 body {
   margin: 0;
-  background: #fff;
+  background: var(--color-bg);
   color: var(--color-ink);
   font-family: var(--font-sans);
   line-height: 1.6;
+}
+
+::selection {
+  background: var(--color-primary-soft);
+  color: var(--color-ink);
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .page {
@@ -29,22 +44,36 @@ body {
   padding: 0 1.25rem;
 }
 
-/* 頁首 */
+/* 頁首：滿版寬度，內容跟頁面主體對齊在同一個欄寬 */
 
 header.site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--color-border);
+  width: 100%;
+  border-bottom: 2px solid var(--color-primary);
   margin-bottom: 2.5rem;
 }
 
+.site-header-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .site-name {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--color-ink);
   text-decoration: none;
+}
+
+.site-name::after {
+  content: "_";
+  color: var(--color-primary);
+  animation: blink 1s step-end infinite;
 }
 
 .header-nav {
@@ -74,15 +103,15 @@ header.site-header {
   color: var(--color-primary);
 }
 
-.lang-switch a {
+.lang-toggle {
   font-size: 0.85rem;
   color: var(--color-muted);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
   margin-left: 0.75rem;
 }
 
-.lang-switch a:hover,
-.lang-switch a[aria-current="page"] {
+.lang-toggle:hover {
   color: var(--color-primary);
 }
 
@@ -119,8 +148,10 @@ header.site-header {
 /* 輸入區 */
 
 h1 {
-  font-size: clamp(1.35rem, 1.1rem + 1vw, 1.75rem);
-  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: clamp(1.3rem, 1.05rem + 1vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
   margin: 0 0 0.4rem;
 }
 
@@ -148,7 +179,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.85rem;
 }
 
@@ -162,16 +193,41 @@ h1 {
   color: var(--color-danger);
 }
 
+.editor-wrap {
+  position: relative;
+}
+
+.seal {
+  position: absolute;
+  top: -0.7rem;
+  right: -0.6rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 5px;
+  background: var(--color-primary);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 700;
+  transform: rotate(-6deg);
+  box-shadow: 0 3px 8px rgba(28, 27, 31, 0.18);
+}
+
 .editor {
   width: 100%;
   box-sizing: border-box;
-  min-height: 4rem;
-  font-size: 1.6rem;
+  min-height: 4.5rem;
+  font-size: 1.7rem;
   line-height: 2.4;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.15rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
   background: #fff;
+  box-shadow: 0 1px 2px rgba(28, 27, 31, 0.04), 0 8px 24px -12px rgba(28, 27, 31, 0.14);
   white-space: pre-wrap;
   word-break: break-word;
   cursor: text;
@@ -266,7 +322,7 @@ h1 {
 }
 
 .candidate.selected .candidate-spelling {
-  color: #dde3ff;
+  color: #d6e0f7;
 }
 
 .ime-warning {
@@ -322,7 +378,7 @@ button:hover {
 }
 
 .example-list button {
-  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.85rem;
 }
 
@@ -332,10 +388,18 @@ button:hover {
   margin-top: 3rem;
 }
 
+.section + .limits {
+  margin-top: 1.25rem;
+}
+
 .section h2 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0 0 0.85rem;
 }
 
 .steps {
@@ -358,7 +422,39 @@ p code {
   font-size: 0.9em;
 }
 
-/* 羅馬字對照表 */
+/* 羅馬字對照表：預設收合，展開才看得到完整表格 */
+
+.rom-details summary {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  cursor: pointer;
+  list-style: none;
+}
+
+.rom-details summary::-webkit-details-marker {
+  display: none;
+}
+
+.rom-details summary::before {
+  content: "+ ";
+  color: var(--color-primary);
+}
+
+.rom-details[open] summary::before {
+  content: "− ";
+}
+
+.rom-details summary:hover {
+  color: var(--color-ink);
+}
+
+.rom-details > p {
+  margin-top: 0.85rem;
+}
 
 .rom-group {
   margin-top: 1.5rem;
@@ -398,7 +494,7 @@ p code {
 .rom-pair .latin {
   font-size: 0.75rem;
   color: var(--color-muted);
-  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  font-family: var(--font-mono);
 }
 
 /* 已知限制：唯一的色塊分節，扁平矩形，不做卡片陰影 */
@@ -464,6 +560,14 @@ footer {
 @media (max-width: 480px) {
   .page {
     padding: 0 1rem;
+  }
+
+  .site-header-inner {
+    padding: 1rem;
+  }
+
+  .site-name {
+    font-size: 1.35rem;
   }
 
   .editor {

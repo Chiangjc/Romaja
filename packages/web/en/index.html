@@ -6,7 +6,7 @@
     <title>Korean Romanization Keyboard – Type Korean with Roman Letters</title>
     <meta
       name="description"
-      content="Type Korean using the romanization you already know — no need to memorize the 두벌식 keyboard layout. No install, no login, and your text never leaves your browser."
+      content="Type Korean using the romanization you already know, no need to memorize the 두벌식 keyboard layout. No install, no login, and your text never leaves your browser."
     />
     <link rel="canonical" href="https://latype.com/en/" />
     <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/" />
@@ -17,7 +17,7 @@
     <meta property="og:title" content="Korean Romanization Keyboard – Type Korean with Roman Letters" />
     <meta
       property="og:description"
-      content="Type Korean using the romanization you already know — no need to memorize the 두벌식 keyboard layout. No install, no login, and your text never leaves your browser."
+      content="Type Korean using the romanization you already know, no need to memorize the 두벌식 keyboard layout. No install, no login, and your text never leaves your browser."
     />
     <meta property="og:url" content="https://latype.com/en/" />
     <meta property="og:locale" content="en_US" />
@@ -33,7 +33,7 @@
             "name": "Do I need to install anything to use this Korean keyboard?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. It's a web tool — open the page and start typing. No Korean IME to install, no system keyboard to switch."
+              "text": "No. It's a web tool: open the page and start typing. No Korean IME to install, no system keyboard to switch."
             }
           },
           {
@@ -41,7 +41,7 @@
             "name": "How is this different from installing a 두벌식 Korean keyboard layout?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "두벌식 means memorizing where each letter sits on the keyboard — d for ㅇ, k for ㅏ, and so on. This tool uses the romanization you already know instead: type annyeong and get 안녕, no new layout to learn."
+              "text": "두벌식 means memorizing where each letter sits on the keyboard: d for ㅇ, k for ㅏ, and so on. This tool uses the romanization you already know instead. Type annyeong and get 안녕, no new layout to learn."
             }
           },
           {
@@ -57,7 +57,7 @@
             "name": "Can it type names or new words that aren't in any dictionary?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. This isn't a dictionary lookup — it builds syllables straight from Hangul spelling rules, so any valid romanization works, including names, places, and words no dictionary has caught up with yet."
+              "text": "Yes. This isn't a dictionary lookup. It builds syllables straight from Hangul spelling rules, so any valid romanization works, including names, places, and words no dictionary has caught up with yet."
             }
           },
           {
@@ -73,24 +73,23 @@
     </script>
   </head>
   <body>
-    <div class="page">
-      <header class="site-header">
-        <span class="site-name">Romanization Keyboard</span>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/en/">latype</a>
         <div class="header-nav">
           <nav class="tool-switch" aria-label="Tool">
             <a href="/en/" aria-current="page">Korean</a>
             <a href="/en/ja/">Japanese</a>
           </nav>
-          <nav class="lang-switch" aria-label="Language">
-            <a href="/">中文</a>
-            <a href="/en/" aria-current="page">EN</a>
-          </nav>
+          <a class="lang-toggle" href="/" aria-label="切換成中文">中文</a>
         </div>
-      </header>
+      </div>
+    </header>
 
+    <div class="page">
       <main>
         <h1>Type Korean with Roman Letters</h1>
-        <p class="lede">Type the romanization you already know and it converts to Korean automatically — no keyboard layout to memorize.</p>
+        <p class="lede">Type the romanization you already know, and it converts to Korean automatically. No keyboard layout to memorize.</p>
 
         <p class="spelling-note">
           <strong>Type by spelling, not by pronunciation:</strong>
@@ -98,15 +97,18 @@
           <span class="example-pair"><span class="no">joayo</span></span>
         </p>
 
-        <div
-          id="editor"
-          class="editor"
-          tabindex="0"
-          role="textbox"
-          aria-multiline="true"
-          aria-label="Romanization input"
-          data-placeholder="annyeonghaseyo jeoneun haksaengibnida"
-        ></div>
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">한</span>
+          <div
+            id="editor"
+            class="editor"
+            tabindex="0"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="Romanization input"
+            data-placeholder="annyeonghaseyo jeoneun haksaengibnida"
+          ></div>
+        </div>
         <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
 
         <div class="actions">
@@ -130,7 +132,7 @@
             <li>
               When a word is ambiguous, a candidate list pops up below it: press <code>↓</code> to cycle,
               or press <code>1</code>/<code>2</code>/<code>3</code> to jump directly. To force a specific
-              split, capitalize the first letter of the next syllable — <code>gaEul</code> always splits
+              split, capitalize the first letter of the next syllable: <code>gaEul</code> always splits
               into 가 + 을, and it's faster to type than a hyphen. A hyphen (<code>ga-eul</code>) works the
               same way if you prefer it.
             </li>
@@ -142,13 +144,13 @@
           <h2>Current limitations</h2>
           <p>
             Default accuracy is roughly 80%. When it picks the wrong reading, press <code>↓</code> to
-            choose the right candidate. Everything you type stays in your browser — nothing is sent to a
+            choose the right candidate. Everything you type stays in your browser, and nothing is sent to a
             server.
           </p>
         </section>
 
-        <section class="section">
-          <h2>Romanization table</h2>
+        <details class="section rom-details">
+          <summary>Romanization table</summary>
           <p>ㄹ accepts both <code>r</code> and <code>l</code>, as an initial or as a final.</p>
 
           <div class="rom-group">
@@ -236,21 +238,21 @@
               <span class="rom-pair"><span class="jamo">ㅎ</span><span class="latin">h</span></span>
             </div>
           </div>
-        </section>
+        </details>
 
         <section class="section faq">
           <h2>FAQ</h2>
 
           <details class="faq-item">
             <summary>Do I need to install anything to use this Korean keyboard?</summary>
-            <p>No. It's a web tool — open the page and start typing. No Korean IME to install, no system keyboard to switch.</p>
+            <p>No. It's a web tool: open the page and start typing. No Korean IME to install, no system keyboard to switch.</p>
           </details>
 
           <details class="faq-item">
             <summary>How is this different from installing a 두벌식 Korean keyboard layout?</summary>
             <p>
-              두벌식 means memorizing where each letter sits on the keyboard — <code>d</code> for ㅇ,
-              <code>k</code> for ㅏ, and so on. This tool uses the romanization you already know instead: type
+              두벌식 means memorizing where each letter sits on the keyboard: <code>d</code> for ㅇ,
+              <code>k</code> for ㅏ, and so on. This tool uses the romanization you already know instead. Type
               <code>annyeong</code> and get 안녕, no new layout to learn.
             </p>
           </details>
@@ -269,7 +271,7 @@
           <details class="faq-item">
             <summary>Can it type names or new words that aren't in any dictionary?</summary>
             <p>
-              Yes. This isn't a dictionary lookup — it builds syllables straight from Hangul spelling rules, so
+              Yes. This isn't a dictionary lookup. It builds syllables straight from Hangul spelling rules, so
               any valid romanization works, including names, places, and words no dictionary has caught up with
               yet.
             </p>
@@ -287,9 +289,9 @@
         <section class="section about">
           <h2>Why I built this</h2>
           <p>
-            I hit this wall myself while learning Korean. 두벌식 means memorizing where every letter sits on the
-            keyboard, and early on I could only look things up one character at a time — painfully slow. I
-            already knew the romanization, so I built this to type it directly instead.
+            Typing Korean on a computer is a common wall for beginners: 두벌식 means memorizing where every letter
+            sits on the keyboard, and early on, looking things up one character at a time is painfully slow.
+            This tool lets you type the romanization you already know instead of learning a new keyboard layout.
           </p>
         </section>
       </main>

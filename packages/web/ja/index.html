@@ -41,7 +41,7 @@
             "name": "這跟手機、電腦內建的日文輸入法有什麼不同？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "打法規則幾乎一樣，都是羅馬字轉假名。差別在於不用先在系統裡切換或啟用日文輸入法，臨時借用別人的電腦、或系統一時叫不出日文鍵盤的時候，打開網頁就能用。"
+              "text": "打法規則一樣，都是羅馬字轉假名。差別在於不用先在系統裡切換或啟用日文輸入法，臨時借用別人的電腦、或系統一時叫不出日文鍵盤的時候，打開網頁就能用。"
             }
           },
           {
@@ -73,25 +73,24 @@
     </script>
   </head>
   <body>
-    <div class="page">
-      <header class="site-header">
-        <a class="site-name" href="/">羅馬拼音輸入法</a>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/">latype</a>
         <div class="header-nav">
           <nav class="tool-switch" aria-label="語言切換">
             <a href="/">韓文</a>
             <a href="/ja/" aria-current="page">日文</a>
           </nav>
-          <nav class="lang-switch" aria-label="介面語言">
-            <a href="/ja/" aria-current="page">中文</a>
-            <a href="/en/ja/">EN</a>
-          </nav>
+          <a class="lang-toggle" href="/en/ja/" aria-label="Switch to English">EN</a>
         </div>
-      </header>
+      </div>
+    </header>
 
+    <div class="page">
       <main>
         <h1>用羅馬拼音打日文</h1>
         <p class="lede">
-          打羅馬拼音，自動轉成日文假名。日文本來就有標準的羅馬字輸入規則，跟手機、電腦內建的日文輸入法幾乎一樣，不用另外學。這個工具也有人叫它日文羅馬鍵盤。
+          打羅馬拼音，自動轉成日文假名。日文本來就有標準的羅馬字輸入規則，跟手機、電腦內建的日文輸入法一樣，不用另外學。
         </p>
 
         <p class="spelling-note">
@@ -105,15 +104,18 @@
           <button type="button" id="mode-kata" class="mode-btn" aria-pressed="false">ア 片假名</button>
         </div>
 
-        <div
-          id="editor"
-          class="editor"
-          tabindex="0"
-          role="textbox"
-          aria-multiline="true"
-          aria-label="羅馬拼音輸入"
-          data-placeholder="konnichiwa arigatou"
-        ></div>
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">あ</span>
+          <div
+            id="editor"
+            class="editor"
+            tabindex="0"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="羅馬拼音輸入"
+            data-placeholder="konnichiwa arigatou"
+          ></div>
+        </div>
         <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
 
         <div class="actions">
@@ -162,8 +164,8 @@
           </p>
         </section>
 
-        <section class="section">
-          <h2>羅馬字對照表</h2>
+        <details class="section rom-details">
+          <summary>羅馬字對照表</summary>
           <p>
             し也可以打 <code>si</code>、ち也可以打 <code>ti</code>、つ也可以打 <code>tu</code>、ふ也可以打
             <code>hu</code>；じ行也可以整行改打 <code>zy</code> 開頭（例如 <code>zya</code>），兩種拼法都收。
@@ -290,7 +292,7 @@
               <span class="rom-pair"><span class="jamo">りょ</span><span class="latin">ryo</span></span>
             </div>
           </div>
-        </section>
+        </details>
 
         <section class="section faq">
           <h2>常見問題</h2>
@@ -303,7 +305,7 @@
           <details class="faq-item">
             <summary>這跟手機、電腦內建的日文輸入法有什麼不同？</summary>
             <p>
-              打法規則幾乎一樣，都是羅馬字轉假名。差別在於不用先在系統裡切換或啟用日文輸入法，臨時借用別人的電腦、或系統一時叫不出日文鍵盤的時候，打開網頁就能用。
+              打法規則一樣，都是羅馬字轉假名。差別在於不用先在系統裡切換或啟用日文輸入法，臨時借用別人的電腦、或系統一時叫不出日文鍵盤的時候，打開網頁就能用。
             </p>
           </details>
 
@@ -334,7 +336,7 @@
         <section class="section about">
           <h2>為什麼做這個工具</h2>
           <p>
-            韓文那邊的鍵盤問題解決之後，我想到日文雖然手機、電腦本來就有內建的羅馬字輸入法，但不是每次都能馬上叫得出來，像借用別人的電腦、或只是想臨時打幾個字。引擎邏輯剛好可以共用，就順手做了這個日文版本。
+            手機、電腦雖然本來就有內建的羅馬字輸入法，但不是每次都能馬上叫得出來，例如只是想臨時打幾個字。這個工具沿用同一套引擎邏輯，做成了日文版本。希望這一套線上日文鍵盤能幫助初學者更快上手日文輸入，也能讓不常打日文的人偶爾需要時不用再去安裝輸入法。
           </p>
         </section>
       </main>

@@ -33,7 +33,7 @@
             "name": "Do I need to install anything to use this Japanese keyboard?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. It's a web tool — open the page and start typing, no need to switch your system input method."
+              "text": "No. It's a web tool: open the page and start typing. There's no system input method to switch."
             }
           },
           {
@@ -41,7 +41,7 @@
             "name": "How is this different from the Japanese IME built into my phone or computer?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The typing rules are nearly identical — romaji converted to kana. The difference is you don't need to switch on or enable a Japanese input method first, useful when you're on someone else's computer, or your system doesn't have one ready to go."
+              "text": "The typing rules are nearly identical: romaji converted to kana. The difference is you don't need to switch on or enable a Japanese input method first, which matters when you're on someone else's computer or your system doesn't have one ready."
             }
           },
           {
@@ -49,7 +49,7 @@
             "name": "How do I type ん?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Type n. If a vowel follows, it waits to see whether you meant a different syllable — kinen becomes きねん. If you really want ん before a vowel, add an apostrophe: kin'en gives きんえん."
+              "text": "Type n. If a vowel follows, it waits to see whether you meant a different syllable (kinen becomes きねん). If you really want ん before a vowel, add an apostrophe: kin'en gives きんえん."
             }
           },
           {
@@ -57,7 +57,7 @@
             "name": "How do I type the small っ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Double the next consonant — kekkon is けっこん; typing it once as kekon gives けこん instead. It only recognizes a doubled identical consonant, so まっちゃ needs the doubled-c spelling maccha — typing matcha won't insert っ automatically."
+              "text": "Double the next consonant: kekkon is けっこん. Typing it once, as kekon, gives けこん instead. It only recognizes a doubled identical consonant, so まっちゃ needs the doubled-c spelling maccha; typing matcha won't insert っ automatically."
             }
           },
           {
@@ -65,7 +65,7 @@
             "name": "If I switch between hiragana and katakana, does it change what I've already typed?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. The buttons only switch how it's displayed — they don't touch your romaji or anything already confirmed, so switching anytime is safe."
+              "text": "No. The buttons only switch how it's displayed. They don't touch your romaji or anything already confirmed, so switching anytime is safe."
             }
           }
         ]
@@ -73,27 +73,26 @@
     </script>
   </head>
   <body>
-    <div class="page">
-      <header class="site-header">
-        <a class="site-name" href="/en/">Romanization Keyboard</a>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/en/">latype</a>
         <div class="header-nav">
           <nav class="tool-switch" aria-label="Tool">
             <a href="/en/">Korean</a>
             <a href="/en/ja/" aria-current="page">Japanese</a>
           </nav>
-          <nav class="lang-switch" aria-label="Language">
-            <a href="/ja/">中文</a>
-            <a href="/en/ja/" aria-current="page">EN</a>
-          </nav>
+          <a class="lang-toggle" href="/ja/" aria-label="切換成中文">中文</a>
         </div>
-      </header>
+      </div>
+    </header>
 
+    <div class="page">
       <main>
         <h1>Type Japanese with Roman Letters</h1>
         <p class="lede">
           Type the romanization you already know and it converts to Japanese kana automatically. Japanese already
-          has a standard romaji input convention — this follows the same rules your phone or computer already uses,
-          nothing new to learn.
+          has a standard romaji input convention, and this follows the same rules your phone or computer already
+          uses. Nothing new to learn.
         </p>
 
         <p class="spelling-note">
@@ -107,15 +106,18 @@
           <button type="button" id="mode-kata" class="mode-btn" aria-pressed="false">ア Katakana</button>
         </div>
 
-        <div
-          id="editor"
-          class="editor"
-          tabindex="0"
-          role="textbox"
-          aria-multiline="true"
-          aria-label="Romanization input"
-          data-placeholder="konnichiwa arigatou"
-        ></div>
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">あ</span>
+          <div
+            id="editor"
+            class="editor"
+            tabindex="0"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="Romanization input"
+            data-placeholder="konnichiwa arigatou"
+          ></div>
+        </div>
         <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
 
         <div class="actions">
@@ -137,10 +139,10 @@
         <section class="section">
           <h2>How it works</h2>
           <ol class="steps">
-            <li>Type a romanized word, like <code>konnichiwa</code> — it converts live, no candidates to pick.</li>
+            <li>Type a romanized word, like <code>konnichiwa</code>. It converts live, with no candidates to pick.</li>
             <li>
               <strong>ん</strong>: type <code>n</code>. If a vowel follows, it waits to see whether you meant a
-              different syllable — <code>kinen</code> becomes 「きねん」. If you really want ん before a vowel,
+              different syllable: <code>kinen</code> becomes 「きねん」. If you really want ん before a vowel,
               add an apostrophe: <code>kin'en</code> gives 「きんえん」.
             </li>
             <li>
@@ -151,7 +153,7 @@
               <strong>Long vowels</strong>: repeat the vowel letter, e.g. <code>okaasan</code> is 「おかあさん」. For
               the katakana-style long-vowel mark, type a hyphen: <code>ke-ki</code> gives 「ケーキ」.
             </li>
-            <li>Use the buttons above to switch between hiragana and katakana display anytime — your romaji doesn't change.</li>
+            <li>Use the buttons above to switch between hiragana and katakana display anytime; your romaji doesn't change.</li>
             <li>Press space or <code>Enter</code> to confirm, then copy and paste wherever you need it.</li>
           </ol>
         </section>
@@ -159,18 +161,18 @@
         <section class="section limits">
           <h2>Current limitations</h2>
           <p>
-            The small っ only recognizes a doubled identical consonant — for 「まっちゃ」type the doubled-c spelling
-            <code>maccha</code>; typing <code>matcha</code> won't insert っ automatically. Everything you type stays
-            in your browser — nothing is sent to a server.
+            The small っ only recognizes a doubled identical consonant: for 「まっちゃ」type the doubled-c spelling
+            <code>maccha</code>. Typing <code>matcha</code> won't insert っ automatically. Everything you type stays
+            in your browser, and nothing is sent to a server.
           </p>
         </section>
 
-        <section class="section">
-          <h2>Romanization table</h2>
+        <details class="section rom-details">
+          <summary>Romanization table</summary>
           <p>
             し can also be typed <code>si</code>, ち as <code>ti</code>, つ as <code>tu</code>, ふ as
             <code>hu</code>; the じ row also accepts the <code>zy</code>-prefixed spellings (e.g.
-            <code>zya</code>) — both spellings work.
+            <code>zya</code>); both spellings work.
           </p>
 
           <div class="rom-group">
@@ -294,30 +296,30 @@
               <span class="rom-pair"><span class="jamo">りょ</span><span class="latin">ryo</span></span>
             </div>
           </div>
-        </section>
+        </details>
 
         <section class="section faq">
           <h2>FAQ</h2>
 
           <details class="faq-item">
             <summary>Do I need to install anything to use this Japanese keyboard?</summary>
-            <p>No. It's a web tool — open the page and start typing, no need to switch your system input method.</p>
+            <p>No. It's a web tool: open the page and start typing. There's no system input method to switch.</p>
           </details>
 
           <details class="faq-item">
             <summary>How is this different from the Japanese IME built into my phone or computer?</summary>
             <p>
-              The typing rules are nearly identical — romaji converted to kana. The difference is you don't need
-              to switch on or enable a Japanese input method first, useful when you're on someone else's
-              computer, or your system doesn't have one ready to go.
+              The typing rules are nearly identical: romaji converted to kana. The difference is you don't need
+              to switch on or enable a Japanese input method first, which matters when you're on someone else's
+              computer or your system doesn't have one ready.
             </p>
           </details>
 
           <details class="faq-item">
             <summary>How do I type ん?</summary>
             <p>
-              Type <code>n</code>. If a vowel follows, it waits to see whether you meant a different syllable —
-              <code>kinen</code> becomes きねん. If you really want ん before a vowel, add an apostrophe:
+              Type <code>n</code>. If a vowel follows, it waits to see whether you meant a different syllable
+              (<code>kinen</code> becomes きねん). If you really want ん before a vowel, add an apostrophe:
               <code>kin'en</code> gives きんえん.
             </p>
           </details>
@@ -325,9 +327,9 @@
           <details class="faq-item">
             <summary>How do I type the small っ?</summary>
             <p>
-              Double the next consonant — <code>kekkon</code> is けっこん; typing it once as
-              <code>kekon</code> gives けこん instead. It only recognizes a doubled identical consonant, so
-              まっちゃ needs the doubled-c spelling <code>maccha</code> — typing <code>matcha</code> won't insert
+              Double the next consonant: <code>kekkon</code> is けっこん. Typing it once, as
+              <code>kekon</code>, gives けこん instead. It only recognizes a doubled identical consonant, so
+              まっちゃ needs the doubled-c spelling <code>maccha</code>; typing <code>matcha</code> won't insert
               っ automatically.
             </p>
           </details>
@@ -335,7 +337,7 @@
           <details class="faq-item">
             <summary>If I switch between hiragana and katakana, does it change what I've already typed?</summary>
             <p>
-              No. The buttons only switch how it's displayed — they don't touch your romaji or anything already
+              No. The buttons only switch how it's displayed. They don't touch your romaji or anything already
               confirmed, so switching anytime is safe.
             </p>
           </details>
@@ -344,9 +346,9 @@
         <section class="section about">
           <h2>Why I built this</h2>
           <p>
-            Once the Korean keyboard problem was solved, I realized Japanese already has a built-in romaji input
-            method, but it isn't always ready right when you need it — someone else's computer, or a quick
-            one-off word. The engine was already there, so I reused it to build this Japanese version too.
+            After the Korean keyboard problem was solved, Japanese was next: phones and computers already have a
+            built-in romaji input method, but it isn't always ready right when you need it, say on someone else's
+            computer, or for a quick one-off word. This version reuses the same underlying engine.
           </p>
         </section>
       </main>

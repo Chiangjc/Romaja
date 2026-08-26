@@ -33,7 +33,7 @@
             "name": "韓文鍵盤要下載或安裝才能用嗎？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "不用。這是網頁版工具，打開就能打字，不用另外裝韓文輸入法，也不用去系統設定切換鍵盤。"
+              "text": "不用。這版線上韓文羅馬鍵盤是網頁版工具，打開就能打字，不用另外裝韓文輸入法，也不用去系統設定切換鍵盤。"
             }
           },
           {
@@ -73,25 +73,24 @@
     </script>
   </head>
   <body>
-    <div class="page">
-      <header class="site-header">
-        <span class="site-name">羅馬拼音輸入法</span>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/">latype</a>
         <div class="header-nav">
           <nav class="tool-switch" aria-label="語言切換">
             <a href="/" aria-current="page">韓文</a>
             <a href="/ja/">日文</a>
           </nav>
-          <nav class="lang-switch" aria-label="介面語言">
-            <a href="/" aria-current="page">中文</a>
-            <a href="/en/">EN</a>
-          </nav>
+          <a class="lang-toggle" href="/en/" aria-label="Switch to English">EN</a>
         </div>
-      </header>
+      </div>
+    </header>
 
+    <div class="page">
       <main>
         <h1>用羅馬拼音打韓文</h1>
         <p class="lede">
-          打羅馬拼音，自動轉成韓文，不用另外背鍵盤位置。這個工具有人搜韓文羅馬鍵盤，有人搜韓文英文鍵盤，也有人直接搜韓文鍵盤，說的都是同一個東西。
+          打羅馬拼音，自動轉成韓文，不用另外背鍵盤位置。
         </p>
 
         <p class="spelling-note">
@@ -100,15 +99,18 @@
           <span class="example-pair"><span class="no">joayo</span></span>
         </p>
 
-        <div
-          id="editor"
-          class="editor"
-          tabindex="0"
-          role="textbox"
-          aria-multiline="true"
-          aria-label="羅馬拼音輸入"
-          data-placeholder="annyeonghaseyo jeoneun haksaengibnida"
-        ></div>
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">한</span>
+          <div
+            id="editor"
+            class="editor"
+            tabindex="0"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="羅馬拼音輸入"
+            data-placeholder="annyeonghaseyo jeoneun haksaengibnida"
+          ></div>
+        </div>
         <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
 
         <div class="actions">
@@ -147,8 +149,8 @@
           </p>
         </section>
 
-        <section class="section">
-          <h2>羅馬字對照表</h2>
+        <details class="section rom-details">
+          <summary>羅馬字對照表</summary>
           <p>ㄹ 不管在初聲還是終聲，打 <code>r</code> 或 <code>l</code> 都可以。</p>
 
           <div class="rom-group">
@@ -236,14 +238,14 @@
               <span class="rom-pair"><span class="jamo">ㅎ</span><span class="latin">h</span></span>
             </div>
           </div>
-        </section>
+        </details>
 
         <section class="section faq">
           <h2>常見問題</h2>
 
           <details class="faq-item">
             <summary>韓文鍵盤要下載或安裝才能用嗎？</summary>
-            <p>不用。這是網頁版工具，打開就能打字，不用另外裝韓文輸入法，也不用去系統設定切換鍵盤。</p>
+            <p>不用。這版線上韓文羅馬鍵盤是網頁版工具，打開就能打字，不用另外裝韓文輸入法，也不用去系統設定切換鍵盤。</p>
           </details>
 
           <details class="faq-item">
@@ -278,7 +280,7 @@
         <section class="section about">
           <h2>為什麼做這個工具</h2>
           <p>
-            我自己在學韓文，一直卡在電腦打字這一關：두벌식要先背鍵盤位置，剛開始只能一個字一個字對照表去找，很慢。我已經會羅馬拼音了，想著直接打羅馬拼音出韓文應該可行，就做了這個工具。
+            電腦打韓文對初學者一直是門檻：두벌식需要先背熟鍵盤位置，剛開始只能一個字一個字對照表查，速度很慢。這個工具讓使用者直接用已經會的羅馬拼音打出韓文，省去重新背一套鍵盤位置的時間。希望這一套線上韓文鍵盤能幫助初學者更快上手韓文輸入，也能讓不常打韓文的人偶爾需要時不用再去安裝輸入法。
           </p>
         </section>
       </main>
