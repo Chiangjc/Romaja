@@ -88,6 +88,51 @@ function render() {
   editor.classList.toggle("empty", state.segments.length === 0 && !state.composing);
 }
 
+// 手機軟鍵盤打字、刪字是靠 beforeinput/input，不是可靠的 keydown（實體鍵盤才吃得到 keydown）。
+// 放行 insertText/刪除這幾種，交給下面的 input 事件轉成 action；其餘（貼上、格式化…）一律擋掉，
+// 因為 render() 每次都會整個重畫，DOM 不該被瀏覽器原生行為直接改動。
+const PASSTHROUGH_INPUT_TYPES = new Set([
+  "insertText",
+  "insertCompositionText",
+  "insertLineBreak",
+  "insertParagraph",
+  "deleteContentBackward",
+  "deleteContentForward",
+  "deleteWordBackward",
+]);
+
+editor.addEventListener("beforeinput", (e) => {
+  if (PASSTHROUGH_INPUT_TYPES.has(e.inputType)) return;
+  e.preventDefault();
+});
+
+editor.addEventListener("input", (e) => {
+  const inputEvent = e as InputEvent;
+
+  if (inputEvent.inputType === "deleteContentBackward" || inputEvent.inputType === "deleteWordBackward") {
+    dispatch({ type: "backspace" });
+    return;
+  }
+
+  if (inputEvent.inputType === "insertLineBreak" || inputEvent.inputType === "insertParagraph") {
+    dispatch({ type: "enter" });
+    return;
+  }
+
+  if (inputEvent.inputType !== "insertText" || !inputEvent.data) return;
+  for (const ch of inputEvent.data) {
+    if (/[a-zA-Z]/.test(ch)) {
+      dispatch({ type: "char", char: ch });
+    } else if (ch === " ") {
+      dispatch({ type: "space" });
+    } else if (ch === "-") {
+      dispatch({ type: "char", char: "-" });
+    } else {
+      dispatch({ type: "punct", char: ch });
+    }
+  }
+});
+
 editor.addEventListener("keydown", (e) => {
   if (e.ctrlKey || e.metaKey) return; // 讓 Ctrl/Cmd 組合鍵（複製、全選…）走原生行為
 

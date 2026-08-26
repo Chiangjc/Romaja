@@ -65,7 +65,7 @@
             "name": "Can I type Korean with romanization on my phone?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "The page works on mobile, but candidate switching is built around keyboard arrow keys, so typing on a phone hasn't been optimized yet."
+              "text": "Yes. Tapping the text box brings up your phone's keyboard, and you can tap a candidate to pick it instead of using arrow keys. Autocorrect behavior varies by keyboard app, so if a word comes out differently than expected, check the spelling-not-pronunciation note above."
             }
           }
         ]
@@ -104,6 +104,12 @@
             id="editor"
             class="editor"
             tabindex="0"
+            contenteditable="true"
+            inputmode="text"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            autocomplete="off"
             role="textbox"
             aria-multiline="true"
             aria-label="Romanization input"
@@ -281,8 +287,9 @@
           <details class="faq-item">
             <summary>Can I type Korean with romanization on my phone?</summary>
             <p>
-              The page works on mobile, but candidate switching is built around keyboard arrow keys, so typing
-              on a phone hasn't been optimized yet.
+              Yes. Tapping the text box brings up your phone's keyboard, and you can tap a candidate to pick it
+              instead of using arrow keys. Autocorrect behavior varies by keyboard app, so if a word comes out
+              differently than expected, check the spelling-not-pronunciation note above.
             </p>
           </details>
         </section>

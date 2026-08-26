@@ -276,6 +276,8 @@ h1 {
   white-space: pre-wrap;
   word-break: break-word;
   cursor: text;
+  caret-color: transparent;
+  -webkit-user-modify: read-write-plaintext-only;
 }
 
 .editor:focus {
