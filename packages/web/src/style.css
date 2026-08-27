@@ -55,13 +55,16 @@ summary:focus-visible {
 /* 頁首：滿版藍底，像月台站牌，內容跟頁面主體對齊在同一個欄寬 */
 
 header.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   width: 100%;
   background: var(--grid);
   margin-bottom: 3rem;
 }
 
 .site-header-inner {
-  padding: 0.9rem 1.5rem;
+  padding: 0.725rem 1.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -799,7 +802,7 @@ footer p {
   }
 
   .site-header-inner {
-    padding: 0.75rem 1.15rem;
+    padding: 0.6rem 1.15rem;
   }
 
   /* 두벌식鍵位圖縮小到手機一屏塞得下，不用橫向捲動或縮放就看得到整張圖 */
