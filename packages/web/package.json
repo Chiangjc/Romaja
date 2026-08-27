@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "@romanization/input-state": "workspace:*",
-    "@romanization/engine-ja": "workspace:*"
+    "@romanization/engine-ja": "workspace:*",
+    "@romanization/engine-dubeolsik": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.0",

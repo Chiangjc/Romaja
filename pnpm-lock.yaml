@@ -24,6 +24,15 @@ importers:
         specifier: ^2.1.0
         version: 2.1.9
 
+  packages/engine-dubeolsik:
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9
+
   packages/engine-ja:
     devDependencies:
       typescript:
@@ -48,6 +57,9 @@ importers:
 
   packages/web:
     dependencies:
+      '@romanization/engine-dubeolsik':
+        specifier: workspace:*
+        version: link:../engine-dubeolsik
       '@romanization/engine-ja':
         specifier: workspace:*
         version: link:../engine-ja

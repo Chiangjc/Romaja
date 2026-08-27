@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>두벌식 韓文線上鍵盤｜官方標準鍵盤配置，網頁版直接打</title>
+    <meta
+      name="description"
+      content="두벌식韓文線上鍵盤，官方標準鍵盤配置的網頁版，免安裝、免登入，用實體鍵盤直接打韓文。附完整鍵位對照圖，第一次用也能照著打。"
+    />
+    <link rel="canonical" href="https://latype.com/dubeolsik/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/dubeolsik/" />
+    <link rel="alternate" hreflang="en" href="https://latype.com/en/dubeolsik/" />
+    <link rel="alternate" hreflang="x-default" href="https://latype.com/dubeolsik/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="두벌식 韓文線上鍵盤" />
+    <meta property="og:title" content="두벌식 韓文線上鍵盤｜官方標準鍵盤配置，網頁版直接打" />
+    <meta
+      property="og:description"
+      content="두벌식韓文線上鍵盤，官方標準鍵盤配置的網頁版，免安裝、免登入，用實體鍵盤直接打韓文。附完整鍵位對照圖，第一次用也能照著打。"
+    />
+    <meta property="og:url" content="https://latype.com/dubeolsik/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "두벌식鍵盤要下載或安裝才能用嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不用。這是網頁版工具，打開就能用實體鍵盤直接打韓文，不用另外裝韓文輸入法，也不用去系統設定切換鍵盤。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "두벌식跟羅馬拼音鍵盤有什麼不同？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "두벌식是韓國官方標準鍵盤配置，每個physical鍵固定對應一個子音或母音，打法固定、沒有候選字要選，但要先看鍵位圖記住每個鍵在哪裡。羅馬拼音鍵盤（首頁）是用你已經會的拼音去猜韓文，不用背鍵位，但偶爾需要按 ↓ 選字。兩個都可以用，看你比較習慣哪一種。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "打出來的字跟預期不一樣，是哪裡錯了？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "두벌식每個鍵都是固定對應，最常見的落差是漏按 Shift（雙子音 ㄲㄸㅃㅆㅉ、雙母音 ㅒㅖ 都要按住 Shift）或鍵位看錯，對照上面的鍵盤圖確認一次就好。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "手機上可以用두벌식鍵盤嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以，點一下文字框就會叫出手機鍵盤（畫面上顯示的還是英文字母），照著上面的鍵位圖點對應位置就會出韓文字母。두벌식本身是固定對應、沒有歧義，所以不需要候選字功能。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "有 app 嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "目前沒有獨立 app，但可以用瀏覽器的「加入主畫面」功能，把這個網頁加到手機桌面，圖示點下去就直接打開，用起來跟 app 差不多。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/">latype</a>
+        <div class="header-nav">
+          <nav class="tool-switch" aria-label="工具切換">
+            <a href="/">羅馬拼音</a>
+            <a href="/dubeolsik/" aria-current="page">두벌식</a>
+            <a href="/ja/">日文</a>
+          </nav>
+          <span class="header-divider" aria-hidden="true"></span>
+          <a class="lang-toggle" href="/en/dubeolsik/" aria-label="Switch to English">EN</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="page">
+      <main>
+        <h1>두벌식 韓文線上鍵盤</h1>
+        <p class="lede">官方標準두벌식鍵盤配置，網頁版直接打，不用安裝韓文輸入法。</p>
+
+        <section class="section kbd-section">
+          <p class="kbd-legend">
+            左上角的<span class="kbd-shift-sample">藍色小字</span>要按住 Shift 才打得出來，例如 Shift+Q 是 ㅃ。
+            鍵位圖本身不能點擊輸入，請用實體鍵盤打字。
+          </p>
+
+          <div class="kbd-scroll">
+            <div class="kbd-diagram">
+              <div class="kbd-row">
+                <span class="kbd-key"><span class="kbd-shift">ㅃ</span><span class="kbd-jamo">ㅂ</span><span class="kbd-latin">q</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅉ</span><span class="kbd-jamo">ㅈ</span><span class="kbd-latin">w</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㄸ</span><span class="kbd-jamo">ㄷ</span><span class="kbd-latin">e</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㄲ</span><span class="kbd-jamo">ㄱ</span><span class="kbd-latin">r</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅆ</span><span class="kbd-jamo">ㅅ</span><span class="kbd-latin">t</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅛ</span><span class="kbd-latin">y</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅕ</span><span class="kbd-latin">u</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅑ</span><span class="kbd-latin">i</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅒ</span><span class="kbd-jamo">ㅐ</span><span class="kbd-latin">o</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅖ</span><span class="kbd-jamo">ㅔ</span><span class="kbd-latin">p</span></span>
+              </div>
+              <div class="kbd-row kbd-row-2">
+                <span class="kbd-key"><span class="kbd-jamo">ㅁ</span><span class="kbd-latin">a</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㄴ</span><span class="kbd-latin">s</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅇ</span><span class="kbd-latin">d</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㄹ</span><span class="kbd-latin">f</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅎ</span><span class="kbd-latin">g</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅗ</span><span class="kbd-latin">h</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅓ</span><span class="kbd-latin">j</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅏ</span><span class="kbd-latin">k</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅣ</span><span class="kbd-latin">l</span></span>
+              </div>
+              <div class="kbd-row kbd-row-3">
+                <span class="kbd-key"><span class="kbd-jamo">ㅋ</span><span class="kbd-latin">z</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅌ</span><span class="kbd-latin">x</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅊ</span><span class="kbd-latin">c</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅍ</span><span class="kbd-latin">v</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅠ</span><span class="kbd-latin">b</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅜ</span><span class="kbd-latin">n</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅡ</span><span class="kbd-latin">m</span></span>
+              </div>
+              <div class="kbd-row kbd-space-row">
+                <span class="kbd-key kbd-space">space</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">한</span>
+          <div
+            id="editor"
+            class="editor"
+            tabindex="0"
+            contenteditable="true"
+            inputmode="text"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+            autocomplete="off"
+            role="textbox"
+            aria-multiline="true"
+            aria-label="두벌식 鍵盤輸入"
+            data-placeholder="dkssudgktpy"
+          ></div>
+        </div>
+        <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
+
+        <div class="actions">
+          <button id="copy" type="button">複製</button>
+          <button id="clear" type="button">清空</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">試試看：</p>
+          <ul class="example-list">
+            <li><button type="button" data-keys="dkssudgktpy">안녕하세요</button></li>
+            <li><button type="button" data-keys="rkatkgkqslek">감사합니다</button></li>
+            <li><button type="button" data-keys="tkfkd">사랑</button></li>
+            <li><button type="button" data-keys="tkfkdgo">사랑해</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>怎麼打</h2>
+          <ol class="steps">
+            <li>對照上面的鍵位圖，直接用實體鍵盤打字——不是打羅馬拼音，是打鍵位圖上寫的那個鍵。</li>
+            <li>
+              雙子音（ㄲㄸㅃㅆㅉ）跟雙母音（ㅒㅖ）要按住 <code>Shift</code>，例如 <code>Shift+R</code> 打出 ㄲ。
+            </li>
+            <li>
+              每個鍵都是固定對應，沒有候選字要選；打完一個字，系統會自動判斷要不要接下一個字，不用按確定。
+              打完整句話之後按空白鍵隔開單字，再複製貼到你要用的地方。
+            </li>
+          </ol>
+        </section>
+
+        <section class="section limits">
+          <h2>目前的限制</h2>
+          <p>
+            두벌식是固定鍵位對應，沒有像羅馬拼音鍵盤那樣的候選字可以救回打錯的字，打錯了只能刪掉重打。
+            輸入的內容只留在你的瀏覽器裡，不會被送到任何伺服器。
+          </p>
+        </section>
+
+        <section class="section faq">
+          <h2>常見問題</h2>
+
+          <details class="faq-item">
+            <summary>두벌식鍵盤要下載或安裝才能用嗎？</summary>
+            <p>不用。這是網頁版工具，打開就能用實體鍵盤直接打韓文，不用另外裝韓文輸入法，也不用去系統設定切換鍵盤。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>두벌식跟羅馬拼音鍵盤有什麼不同？</summary>
+            <p>
+              두벌식是韓國官方標準鍵盤配置，每個實體鍵固定對應一個子音或母音，打法固定、沒有候選字要選，但要先看鍵位圖記住每個鍵在哪裡。
+              <a href="/">羅馬拼音鍵盤</a>是用你已經會的拼音去猜韓文，不用背鍵位，但偶爾需要按 ↓ 選字。兩個都可以用，看你比較習慣哪一種。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>打出來的字跟預期不一樣，是哪裡錯了？</summary>
+            <p>
+              두벌식每個鍵都是固定對應，最常見的落差是漏按 <code>Shift</code>（雙子音 ㄲㄸㅃㅆㅉ、雙母音 ㅒㅖ 都要按住
+              Shift）或鍵位看錯，對照上面的鍵盤圖確認一次就好。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>手機上可以用두벌식鍵盤嗎？</summary>
+            <p>
+              可以，點一下文字框就會叫出手機鍵盤（畫面上顯示的還是英文字母），照著上面的鍵位圖點對應位置就會出韓文字母。
+              두벌식本身是固定對應、沒有歧義，所以不需要候選字功能。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>有 app 嗎？</summary>
+            <p>目前沒有獨立 app，但可以用瀏覽器的「加入主畫面」功能，把這個網頁加到手機桌面，圖示點下去就直接打開，用起來跟 app 差不多。</p>
+          </details>
+        </section>
+
+        <section class="section about">
+          <h2>為什麼做這個工具</h2>
+          <p>
+            두벌식是韓國官方標準，也是安裝正式韓文輸入法之後電腦、手機預設的鍵盤配置，但沒裝輸入法、或臨時借用別人電腦的時候就用不了。
+            這個網頁版兩벌식鍵盤沿用同一套組字邏輯，讓已經熟悉두벌식的人不用安裝也能直接打；如果你還不熟두벌式鍵位，
+            <a href="/">羅馬拼音鍵盤</a>可能會是更快上手的起點。
+          </p>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>純前端</li>
+          <li>免安裝</li>
+          <li>免登入</li>
+        </ul>
+        <p>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../src/main-dubeolsik.ts"></script>
+  </body>
+</html>

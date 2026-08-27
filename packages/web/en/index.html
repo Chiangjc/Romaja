@@ -89,7 +89,8 @@
         <a class="site-name" href="/en/">latype</a>
         <div class="header-nav">
           <nav class="tool-switch" aria-label="Tool">
-            <a href="/en/" aria-current="page">Korean</a>
+            <a href="/en/" aria-current="page">Romanization</a>
+            <a href="/en/dubeolsik/">Dubeolsik</a>
             <a href="/en/ja/">Japanese</a>
           </nav>
           <span class="header-divider" aria-hidden="true"></span>
@@ -260,6 +261,61 @@
           </div>
         </details>
 
+        <details class="section rom-details">
+          <summary>Dubeolsik keyboard reference</summary>
+          <p>
+            Dubeolsik is South Korea's official keyboard layout. Once you install a Korean IME, this is what your
+            keyboard turns into: every key maps to one fixed consonant or vowel, and you have to memorize the whole
+            layout before you can type anything. This tool skips that entirely — type the romanization you already
+            know instead. The diagram below is just a reference for comparison; the keys aren't clickable.
+          </p>
+
+          <div class="kbd-scroll">
+            <div class="kbd-diagram">
+              <div class="kbd-row">
+                <span class="kbd-key"><span class="kbd-shift">ㅃ</span><span class="kbd-jamo">ㅂ</span><span class="kbd-latin">q</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅉ</span><span class="kbd-jamo">ㅈ</span><span class="kbd-latin">w</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㄸ</span><span class="kbd-jamo">ㄷ</span><span class="kbd-latin">e</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㄲ</span><span class="kbd-jamo">ㄱ</span><span class="kbd-latin">r</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅆ</span><span class="kbd-jamo">ㅅ</span><span class="kbd-latin">t</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅛ</span><span class="kbd-latin">y</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅕ</span><span class="kbd-latin">u</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅑ</span><span class="kbd-latin">i</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅒ</span><span class="kbd-jamo">ㅐ</span><span class="kbd-latin">o</span></span>
+                <span class="kbd-key"><span class="kbd-shift">ㅖ</span><span class="kbd-jamo">ㅔ</span><span class="kbd-latin">p</span></span>
+              </div>
+              <div class="kbd-row kbd-row-2">
+                <span class="kbd-key"><span class="kbd-jamo">ㅁ</span><span class="kbd-latin">a</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㄴ</span><span class="kbd-latin">s</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅇ</span><span class="kbd-latin">d</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㄹ</span><span class="kbd-latin">f</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅎ</span><span class="kbd-latin">g</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅗ</span><span class="kbd-latin">h</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅓ</span><span class="kbd-latin">j</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅏ</span><span class="kbd-latin">k</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅣ</span><span class="kbd-latin">l</span></span>
+              </div>
+              <div class="kbd-row kbd-row-3">
+                <span class="kbd-key"><span class="kbd-jamo">ㅋ</span><span class="kbd-latin">z</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅌ</span><span class="kbd-latin">x</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅊ</span><span class="kbd-latin">c</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅍ</span><span class="kbd-latin">v</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅠ</span><span class="kbd-latin">b</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅜ</span><span class="kbd-latin">n</span></span>
+                <span class="kbd-key"><span class="kbd-jamo">ㅡ</span><span class="kbd-latin">m</span></span>
+              </div>
+              <div class="kbd-row kbd-space-row">
+                <span class="kbd-key kbd-space">space</span>
+              </div>
+            </div>
+          </div>
+
+          <p class="kbd-legend">
+            The small <span class="kbd-shift-sample">blue letter</span> in the top-left corner of a key needs Shift —
+            Shift+q gives ㅃ.
+          </p>
+        </details>
+
         <section class="section faq">
           <h2>FAQ</h2>
 
@@ -272,7 +328,8 @@
             <summary>How is this different from installing a 두벌식 Korean keyboard layout?</summary>
             <p>
               두벌식 means memorizing where each letter sits on the keyboard: <code>d</code> for ㅇ,
-              <code>k</code> for ㅏ, and so on. This tool uses the romanization you already know instead. Type
+              <code>k</code> for ㅏ, and so on (see the full layout under "Dubeolsik keyboard reference" above).
+              This tool uses the romanization you already know instead. Type
               <code>annyeong</code> and get 안녕, no new layout to learn.
             </p>
           </details>

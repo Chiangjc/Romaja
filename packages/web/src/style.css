@@ -600,6 +600,106 @@ p code {
   font-family: var(--font-mono);
 }
 
+/* 두벌식 對照鍵盤：純參考圖，不能點擊輸入，只是給人對照物理鍵位跟本工具的差異 */
+
+.kbd-scroll {
+  overflow-x: auto;
+  margin-top: 1.5rem;
+}
+
+.kbd-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: max-content;
+  margin: 0 auto;
+  font-family: var(--font-mono);
+}
+
+.kbd-row {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.kbd-row-2 {
+  margin-left: 1.55rem;
+}
+
+.kbd-row-3 {
+  margin-left: 3.1rem;
+}
+
+.kbd-key {
+  position: relative;
+  width: 2.8rem;
+  height: 2.8rem;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kbd-jamo {
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.kbd-latin {
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.15rem;
+  font-size: 0.6rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.kbd-shift {
+  position: absolute;
+  left: 0.3rem;
+  top: 0.15rem;
+  font-size: 0.68rem;
+  color: var(--grid);
+}
+
+.kbd-space-row {
+  margin-top: 0.15rem;
+  justify-content: center;
+}
+
+.kbd-space {
+  width: 13.5rem;
+  height: 1.6rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* 두벌식頁面：鍵位圖緊接在 lede 後面、editor 前面，讓打字時鍵盤跟輸入框同時在視窗內，不用捲動 */
+
+.lede:has(+ .kbd-section) {
+  margin-bottom: 1.5rem;
+}
+
+.kbd-section {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.kbd-legend {
+  margin-top: 0.6rem;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.kbd-legend .kbd-shift-sample {
+  color: var(--grid);
+  font-weight: 700;
+}
+
 /* 已知限制：警示黃強調，像月台上的注意標示 */
 
 .limits {
@@ -700,5 +800,46 @@ footer p {
 
   .site-header-inner {
     padding: 0.75rem 1.15rem;
+  }
+
+  /* 두벌식鍵位圖縮小到手機一屏塞得下，不用橫向捲動或縮放就看得到整張圖 */
+
+  .kbd-key {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+  .kbd-row {
+    gap: 0.25rem;
+  }
+
+  .kbd-row-2 {
+    margin-left: 1.05rem;
+  }
+
+  .kbd-row-3 {
+    margin-left: 2.15rem;
+  }
+
+  .kbd-jamo {
+    font-size: 0.85rem;
+  }
+
+  .kbd-latin {
+    font-size: 0.48rem;
+    right: 0.2rem;
+    bottom: 0.1rem;
+  }
+
+  .kbd-shift {
+    font-size: 0.5rem;
+    left: 0.2rem;
+    top: 0.1rem;
+  }
+
+  .kbd-space {
+    width: 9rem;
+    height: 1.4rem;
+    font-size: 0.55rem;
   }
 }

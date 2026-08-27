@@ -14,6 +14,8 @@ export default defineConfig({
         enPrivacy: resolve(__dirname, "en/privacy/index.html"),
         ja: resolve(__dirname, "ja/index.html"),
         enJa: resolve(__dirname, "en/ja/index.html"),
+        dubeolsik: resolve(__dirname, "dubeolsik/index.html"),
+        enDubeolsik: resolve(__dirname, "en/dubeolsik/index.html"),
       },
     },
   },
