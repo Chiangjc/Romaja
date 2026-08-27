@@ -33,8 +33,14 @@ function candidatesWithPronunciationGuesses(spelling: string): Candidate[] {
 }
 
 /**
- * claude.md 4.6：連字號語意是「兩個連字號之間恰好一個音節」，在這一層處理，
+ * claude.md 4.6：連字號用來標記強制的音節邊界，在這一層處理，
  * 不進 engine（parser/rank 保持跟連字號無關，職責分離）。
+ *
+ * 每一段各自照一般的排序邏輯取最佳解，不強制段內只能有一個音節——
+ * 如果整個字逐一標滿邊界（每段剛好一個音節，如 ga-eul），結果就是完全確定的唯一解；
+ * 如果只在某個點插一個連字號當「硬邊界」（如 chijeubol-i，只確保 bol／i 不會被切成別的組合），
+ * 該連字號兩側各自照多音節貪婪排序取最佳解，一樣回傳唯一解——連字號保證的只是邊界位置，
+ * 不是段內一定只有一個音節。
  */
 export function computeCandidates(spelling: string): Candidate[] {
   if (!spelling.includes("-")) {
@@ -46,11 +52,9 @@ export function computeCandidates(spelling: string): Candidate[] {
     return []; // 還在打，例如剛打完 "-" 或連續 "--"
   }
 
-  const perSegment = segments.map(
-    (s) => rankedCandidatesWithSpelling(s).find((c) => c.hangul.length === 1) ?? null
-  );
+  const perSegment = segments.map((s) => rankedCandidatesWithSpelling(s)[0] ?? null);
   if (perSegment.some((c) => c === null)) {
-    return []; // 某段無法組成單一音節
+    return []; // 某段完全無法組成合法音節
   }
 
   return [

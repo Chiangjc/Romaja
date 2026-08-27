@@ -110,7 +110,7 @@ describe("Esc：保留羅馬字原文不轉換", () => {
   });
 });
 
-describe("連字號：兩個連字號之間恰好一個音節", () => {
+describe("連字號：標記強制的音節邊界", () => {
   it("ga-eul 強制切成 가+을，跟預設貪婪解的 개울 不同", () => {
     let withoutHyphen = typeChars(initialState(), "gaeul");
     expect(withoutHyphen.composing!.candidates[0].hangul).toBe("개울");
@@ -125,7 +125,14 @@ describe("連字號：兩個連字號之間恰好一個音節", () => {
     expect(state.composing!.candidates).toEqual([{ hangul: "가을", spelling: "ga-eul" }]);
   });
 
-  it("某段還無法組成單一音節時沒有候選", () => {
+  it("只在一個邊界插連字號，兩側仍可以是多音節：chijeubol-i 切成 치즈볼+이", () => {
+    // 迴歸測試：舊實作要求每一段「剛好一個音節」，chijeubol 這一段有 3 個音節就會直接判定失敗，
+    // 回傳空候選——但使用者只是想釘住 bol/i 這個邊界，兩側各自照多音節排序取最佳解才是預期行為。
+    const state = typeChars(initialState(), "chijeubol-i");
+    expect(state.composing!.candidates).toEqual([{ hangul: "치즈볼이", spelling: "chijeubol-i" }]);
+  });
+
+  it("某段完全無法組成合法音節時沒有候選", () => {
     const state = typeChars(initialState(), "g-eul");
     expect(state.composing!.candidates).toEqual([]);
   });
