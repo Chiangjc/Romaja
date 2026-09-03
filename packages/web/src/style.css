@@ -77,6 +77,7 @@ header.site-header {
   letter-spacing: 0.02em;
   color: #fff;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .site-name::after {
@@ -105,6 +106,7 @@ header.site-header {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .tool-switch a:hover {
@@ -133,6 +135,7 @@ header.site-header {
   text-decoration: none;
   border-radius: var(--radius);
   padding: 0.28rem 0.55rem;
+  white-space: nowrap;
 }
 
 .lang-toggle:hover {
@@ -803,6 +806,35 @@ footer p {
 
   .site-header-inner {
     padding: 0.6rem 1.15rem;
+  }
+
+  /* 手機版 header：三個分頁塊 + 語言切換全部擠在一行，字級跟間距要收更小才塞得下，
+     不然英文頁的 ROMANIZATION/DUBEOLSIK/JAPANESE 這幾個長字會把語言切換擠出畫面外 */
+
+  .site-name {
+    font-size: 0.95rem;
+  }
+
+  .header-nav {
+    gap: 0.35rem;
+  }
+
+  .tool-switch {
+    gap: 0.5rem;
+  }
+
+  .tool-switch a {
+    font-size: 0.6rem;
+    letter-spacing: 0.01em;
+  }
+
+  .header-divider {
+    height: 0.9rem;
+  }
+
+  .lang-toggle {
+    font-size: 0.6rem;
+    padding: 0.22rem 0.4rem;
   }
 
   /* 두벌식鍵位圖縮小到手機一屏塞得下，不用橫向捲動或縮放就看得到整張圖 */
