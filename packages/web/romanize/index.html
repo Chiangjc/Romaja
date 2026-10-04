@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>韓文轉羅馬拼音｜照發音轉換，歌詞貼上就能跟唱</title>
+    <meta
+      name="description"
+      content="把韓文轉成羅馬拼音，自動套用連音、鼻音化等發音規則，貼上歌詞就能逐行對照跟唱。也可以切換成逐字拼寫。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <link rel="canonical" href="https://latype.com/romanize/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/" />
+    <link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/" />
+    <link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="latype" />
+    <meta property="og:title" content="韓文轉羅馬拼音｜照發音轉換，歌詞貼上就能跟唱" />
+    <meta
+      property="og:description"
+      content="把韓文轉成羅馬拼音，自動套用連音、鼻音化等發音規則，貼上歌詞就能逐行對照跟唱。也可以切換成逐字拼寫。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <meta property="og:url" content="https://latype.com/romanize/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "「發音」和「拼寫」兩種模式差在哪？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "發音模式照實際念法轉換，會套用連音、鼻音化、ㅎ 脫落等規則，例如 감사합니다 轉成 gamsahamnida，適合跟唱或念讀。拼寫模式逐字對應，不管發音，감사합니다 轉成 gamsahabnida，剛好就是在本站韓文羅馬拼音鍵盤上打出這個字的打法。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "這是官方的韓文羅馬拼音嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "發音模式依照韓國官方的 Revised Romanization（國語的羅馬字標記法），套用標準發音法的音變規則，但跟官方一樣不標示緊音（例如 읽다 寫成 ikda 而不是 ikkda）。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "可以用來轉歌詞嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。把整首歌詞貼進來，勾選「逐行對照」，每一行韓文下面會接著顯示羅馬拼音，勾選「音節之間加 -」可以看清楚每個字怎麼念。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "護照或證件上的韓文名字可以用這個轉嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不建議。韓國人名的羅馬拼音通常照個人習慣登記（例如 이 常寫成 Lee、박 常寫成 Park），不一定照規則，證件請以本人登記的拼法為準。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/">latype</a>
+        <div class="header-nav">
+          <nav class="tool-switch" aria-label="工具切換">
+            <a href="/" aria-current="page">韓文羅馬</a>
+            <a href="/dubeolsik/">韓文두벌식</a>
+            <a href="/ja/">日文羅馬</a>
+          </nav>
+          <span class="header-divider" aria-hidden="true"></span>
+          <a class="lang-toggle" href="/en/romanize/" aria-label="Switch to English">EN</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="page">
+      <main>
+        <h1>韓文轉羅馬拼音</h1>
+        <nav class="direction-switch" aria-label="轉換方向">
+          <span class="dir-side dir-from">韓文</span>
+          <a class="dir-swap" href="/" title="切換成羅馬拼音打韓文" aria-label="切換成羅馬拼音打韓文">⇄</a>
+          <span class="dir-side">羅馬拼音</span>
+        </nav>
+
+        <p class="lede">貼上韓文，照實際發音轉成羅馬拼音。歌詞整首貼進來，就能逐行對照跟唱。</p>
+
+        <div class="mode-switch" role="group" aria-label="轉換模式">
+          <button type="button" id="mode-spell" class="mode-btn active" aria-pressed="true">拼寫</button>
+          <button type="button" id="mode-pron" class="mode-btn" aria-pressed="false">發音</button>
+        </div>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">한</span>
+          <textarea
+            id="rz-input"
+            class="rz-input"
+            aria-label="韓文輸入"
+            placeholder="감사합니다"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="rz-options">
+          <label><input type="checkbox" id="opt-syllable" /> 音節之間加 -</label>
+          <label><input type="checkbox" id="opt-interlinear" /> 逐行對照（歌詞用）</label>
+        </div>
+
+        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="gamsahabnida"></div>
+
+        <div class="actions">
+          <button id="copy" type="button">複製</button>
+          <button id="clear" type="button">清空</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">試試看：</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="감사합니다">감사합니다</button></li>
+            <li><button type="button" data-example="같이 가요">같이 가요</button></li>
+            <li><button type="button" data-example="보고 싶어요">보고 싶어요</button></li>
+            <li><button type="button" data-example="좋아해요">좋아해요</button></li>
+            <li><button type="button" data-example="생일 축하해요">생일 축하해요</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>為什麼不是逐字照抄</h2>
+          <p>
+            韓文的拼寫和發音不一樣。收音碰到下一個字的母音會連過去念，碰到 ㄴ、ㅁ 會變成鼻音，ㅎ 有時不發音、有時讓旁邊的子音送氣。
+            逐字轉換的羅馬拼音照著念，聽起來會怪怪的。發音模式會先套用這些規則，再轉成羅馬拼音：
+          </p>
+          <table class="rz-compare">
+            <thead>
+              <tr><th>韓文</th><th>發音</th><th>拼寫</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>감사합니다</td><td>gamsahamnida</td><td>gamsahabnida</td></tr>
+              <tr><td>같이</td><td>gachi</td><td>gati</td></tr>
+              <tr><td>좋아요</td><td>joayo</td><td>johayo</td></tr>
+              <tr><td>한국어</td><td>hangugeo</td><td>hangugeo</td></tr>
+              <tr><td>신라</td><td>silla</td><td>sinla</td></tr>
+            </tbody>
+          </table>
+          <p>
+            拼寫模式剛好就是在<a href="/">韓文羅馬拼音鍵盤</a>上打出這段韓文的打法。想學怎麼用英文鍵盤打韓文，可以切到拼寫模式對照著練。
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>怎麼用</h2>
+          <ol class="steps">
+            <li>把韓文貼進上面的框框，羅馬拼音會即時出現在下面。</li>
+            <li>要跟唱的話，整首歌詞貼進來，勾選「逐行對照」，每行韓文下面會接著顯示拼音。</li>
+            <li>勾選「音節之間加 -」，可以看出每個字實際怎麼念，例如 있어요 會顯示成 <code>i-sseo-yo</code>，看得出 ㅆ 連到下一個字。</li>
+          </ol>
+        </section>
+
+        <section class="section faq">
+          <h2>常見問題</h2>
+
+          <details class="faq-item">
+            <summary>「發音」和「拼寫」兩種模式差在哪？</summary>
+            <p>
+              發音模式照實際念法轉換，會套用連音、鼻音化、ㅎ 脫落等規則，例如 감사합니다 轉成 <code>gamsahamnida</code>，適合跟唱或念讀。
+              拼寫模式逐字對應，不管發音，감사합니다 轉成 <code>gamsahabnida</code>，剛好就是在本站<a href="/">韓文羅馬拼音鍵盤</a>上打出這個字的打法。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>這是官方的韓文羅馬拼音嗎？</summary>
+            <p>
+              發音模式依照韓國官方的 Revised Romanization（국어의 로마자 표기법），套用標準發音法的音變規則，
+              但跟官方一樣不標示緊音（例如 읽다 寫成 <code>ikda</code> 而不是 <code>ikkda</code>）。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>可以用來轉歌詞嗎？</summary>
+            <p>
+              可以。把整首歌詞貼進來，勾選「逐行對照」，每一行韓文下面會接著顯示羅馬拼音；勾選「音節之間加 -」可以看清楚每個字怎麼念。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>護照或證件上的韓文名字可以用這個轉嗎？</summary>
+            <p>
+              不建議。韓國人名的羅馬拼音通常照個人習慣登記（例如 이 常寫成 Lee、박 常寫成 Park），不一定照規則，證件請以本人登記的拼法為準。
+            </p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>純前端</li>
+          <li>免安裝</li>
+          <li>免登入</li>
+        </ul>
+        <p>此工具仍在開發中，功能會持續調整。 <a href="/privacy/">隱私權政策</a></p>
+        <p>有建議或發現問題？<a href="mailto:contact@latype.com?subject=latype%20%E5%9B%9E%E9%A5%8B">寄信給我</a> · <a href="https://github.com/Chiangjc/Romaja/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../src/main-romanize.ts"></script>
+  </body>
+</html>

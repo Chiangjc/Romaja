@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Korean to Romanization Converter – Hangul to Roman Letters by Pronunciation</title>
+    <meta
+      name="description"
+      content="Convert Korean (Hangul) to romanization the way it is actually pronounced — liaison, nasalization and silent ㅎ applied. Paste song lyrics for line-by-line romanization. Free, no login, your text stays in your browser."
+    />
+    <link rel="canonical" href="https://latype.com/en/romanize/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/" />
+    <link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/" />
+    <link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="latype" />
+    <meta property="og:title" content="Korean to Romanization Converter – Hangul to Roman Letters by Pronunciation" />
+    <meta
+      property="og:description"
+      content="Convert Korean (Hangul) to romanization the way it is actually pronounced — liaison, nasalization and silent ㅎ applied. Paste song lyrics for line-by-line romanization. Free, no login, your text stays in your browser."
+    />
+    <meta property="og:url" content="https://latype.com/en/romanize/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <link rel="stylesheet" href="../../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between Pronunciation and Spelling mode?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pronunciation mode follows how the words are actually said, applying liaison, nasalization and ㅎ rules, so 감사합니다 becomes gamsahamnida — good for singing along or reading aloud. Spelling mode maps each letter one to one, so 감사합니다 becomes gamsahabnida, which is exactly what you would type on this site's Korean romanization keyboard."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this the official Korean romanization?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pronunciation mode follows South Korea's official Revised Romanization with the standard pronunciation rules applied. Like the official system, it does not mark tensed consonants (읽다 is ikda, not ikkda)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I romanize song lyrics with it?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Paste the whole song and turn on Line by line: each Korean line is followed by its romanization. Turn on Hyphenate syllables to see how each syllable is pronounced."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use it for a Korean name on a passport?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not recommended. Korean names are usually registered with a personal spelling (이 is often Lee, 박 is often Park) rather than the rules, so use the spelling on the person's documents."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a class="site-name" href="/en/">latype</a>
+        <div class="header-nav">
+          <nav class="tool-switch" aria-label="Tool">
+            <a href="/en/" aria-current="page">Romanization</a>
+            <a href="/en/dubeolsik/">Dubeolsik</a>
+            <a href="/en/ja/">Japanese</a>
+          </nav>
+          <span class="header-divider" aria-hidden="true"></span>
+          <a class="lang-toggle" href="/romanize/" aria-label="切換成中文">中文</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="page">
+      <main>
+        <h1>Korean to Romanization</h1>
+        <nav class="direction-switch" aria-label="Direction">
+          <span class="dir-side dir-from">Korean</span>
+          <a class="dir-swap" href="/en/" title="Switch to romanization → Korean" aria-label="Switch to romanization → Korean">⇄</a>
+          <span class="dir-side">Romanization</span>
+        </nav>
+
+        <p class="lede">Paste Korean and get romanization the way it is actually pronounced. Paste a whole song to sing along line by line.</p>
+
+        <div class="mode-switch" role="group" aria-label="Conversion mode">
+          <button type="button" id="mode-spell" class="mode-btn active" aria-pressed="true">Spelling</button>
+          <button type="button" id="mode-pron" class="mode-btn" aria-pressed="false">Pronunciation</button>
+        </div>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">한</span>
+          <textarea
+            id="rz-input"
+            class="rz-input"
+            aria-label="Korean input"
+            placeholder="감사합니다"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="rz-options">
+          <label><input type="checkbox" id="opt-syllable" /> Hyphenate syllables</label>
+          <label><input type="checkbox" id="opt-interlinear" /> Line by line (for lyrics)</label>
+        </div>
+
+        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="gamsahabnida"></div>
+
+        <div class="actions">
+          <button id="copy" type="button">Copy</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">Try:</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="감사합니다">감사합니다</button></li>
+            <li><button type="button" data-example="같이 가요">같이 가요</button></li>
+            <li><button type="button" data-example="보고 싶어요">보고 싶어요</button></li>
+            <li><button type="button" data-example="좋아해요">좋아해요</button></li>
+            <li><button type="button" data-example="생일 축하해요">생일 축하해요</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>Why not letter by letter</h2>
+          <p>
+            Korean is not pronounced the way it is spelled. A final consonant carries over to a following vowel, turns nasal before ㄴ or ㅁ,
+            and ㅎ is sometimes silent and sometimes aspirates the consonant next to it. Read a letter-by-letter romanization aloud and it sounds off.
+            Pronunciation mode applies these rules first, then romanizes:
+          </p>
+          <table class="rz-compare">
+            <thead>
+              <tr><th>Korean</th><th>Pronunciation</th><th>Spelling</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>감사합니다</td><td>gamsahamnida</td><td>gamsahabnida</td></tr>
+              <tr><td>같이</td><td>gachi</td><td>gati</td></tr>
+              <tr><td>좋아요</td><td>joayo</td><td>johayo</td></tr>
+              <tr><td>한국어</td><td>hangugeo</td><td>hangugeo</td></tr>
+              <tr><td>신라</td><td>silla</td><td>sinla</td></tr>
+            </tbody>
+          </table>
+          <p>
+            Spelling mode is exactly what you type on the <a href="/en/">Korean romanization keyboard</a> to produce the same text —
+            switch to it if you want to practise typing Korean with English letters.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2>How to use it</h2>
+          <ol class="steps">
+            <li>Paste Korean into the box. The romanization appears below as you type.</li>
+            <li>To sing along, paste the whole song and turn on Line by line — each Korean line is followed by its romanization.</li>
+            <li>Turn on Hyphenate syllables to see how each syllable is actually said: 있어요 shows as <code>i-sseo-yo</code>, so you can see the ㅆ carry over.</li>
+          </ol>
+        </section>
+
+        <section class="section faq">
+          <h2>FAQ</h2>
+
+          <details class="faq-item">
+            <summary>What is the difference between Pronunciation and Spelling mode?</summary>
+            <p>
+              Pronunciation mode follows how the words are actually said, applying liaison, nasalization and ㅎ rules, so 감사합니다 becomes
+              <code>gamsahamnida</code> — good for singing along or reading aloud. Spelling mode maps each letter one to one, so 감사합니다 becomes
+              <code>gamsahabnida</code>, which is exactly what you would type on this site's <a href="/en/">Korean romanization keyboard</a>.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is this the official Korean romanization?</summary>
+            <p>
+              Pronunciation mode follows South Korea's official Revised Romanization with the standard pronunciation rules applied.
+              Like the official system, it does not mark tensed consonants (읽다 is <code>ikda</code>, not <code>ikkda</code>).
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I romanize song lyrics with it?</summary>
+            <p>
+              Yes. Paste the whole song and turn on Line by line: each Korean line is followed by its romanization.
+              Turn on Hyphenate syllables to see how each syllable is pronounced.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I use it for a Korean name on a passport?</summary>
+            <p>
+              Not recommended. Korean names are usually registered with a personal spelling (이 is often Lee, 박 is often Park) rather than the rules,
+              so use the spelling on the person's documents.
+            </p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>Client-side</li>
+          <li>No install</li>
+          <li>No login</li>
+        </ul>
+        <p>This tool is still in development and will keep changing. <a href="/en/privacy/">Privacy policy</a></p>
+        <p>Have a suggestion or found a bug? <a href="mailto:contact@latype.com?subject=latype%20feedback">Email me</a> · <a href="https://github.com/Chiangjc/Romaja/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../../src/main-romanize.ts"></script>
+  </body>
+</html>

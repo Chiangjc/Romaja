@@ -16,6 +16,8 @@ export default defineConfig({
         enJa: resolve(__dirname, "en/ja/index.html"),
         dubeolsik: resolve(__dirname, "dubeolsik/index.html"),
         enDubeolsik: resolve(__dirname, "en/dubeolsik/index.html"),
+        romanize: resolve(__dirname, "romanize/index.html"),
+        enRomanize: resolve(__dirname, "en/romanize/index.html"),
       },
     },
   },

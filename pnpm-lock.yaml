@@ -57,6 +57,9 @@ importers:
 
   packages/web:
     dependencies:
+      '@romanization/engine':
+        specifier: workspace:*
+        version: link:../engine
       '@romanization/engine-dubeolsik':
         specifier: workspace:*
         version: link:../engine-dubeolsik

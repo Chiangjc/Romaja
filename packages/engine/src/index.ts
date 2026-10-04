@@ -1,5 +1,6 @@
 export { toHangulCandidates, best, rankedCandidatesWithSpelling, type RankedCandidate } from "./rank.js";
 export { hangulToRoman } from "./romanize.js";
+export { hangulToPronunciation, type PronunciationOptions } from "./pronounce.js";
 export { toHangulText } from "./text.js";
 export { compose, decompose } from "./compose.js";
 export type { SyllableMatch } from "./parser.js";

@@ -1,4 +1,5 @@
-import { initialState, reduce, toPlainText, type Action, type ComposingState, type InputState, type Segment } from "@romanization/input-state";
+import { fromPlainText, initialState, reduce, toPlainText, type Action, type ComposingState, type InputState, type Segment } from "@romanization/input-state";
+import { carryOnSwap, takeCarried } from "./carry.js";
 import { currentLocale } from "./i18n.js";
 
 const locale = currentLocale();
@@ -256,5 +257,11 @@ document.querySelectorAll<HTMLButtonElement>("[data-example]").forEach((btn) => 
   });
 });
 
+// 從韓轉拼音頁按 ⇄ 過來時，帶入那邊的韓文
+const carried = takeCarried();
+if (carried) state = fromPlainText(carried);
+carryOnSwap(() => toPlainText(state));
+
 render();
-editor.focus();
+// 載入時不捲動：視窗很矮時捲下去會讓 ⇄ 跟另一頁的位置對不上，沒辦法原地連續切換
+editor.focus({ preventScroll: true });

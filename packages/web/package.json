@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@romanization/engine": "workspace:*",
     "@romanization/input-state": "workspace:*",
     "@romanization/engine-ja": "workspace:*",
     "@romanization/engine-dubeolsik": "workspace:*"

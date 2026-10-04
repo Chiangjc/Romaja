@@ -479,10 +479,6 @@ button:hover {
   margin-top: 3rem;
 }
 
-.section + .limits {
-  margin-top: 1.25rem;
-}
-
 .section h2 {
   font-weight: 800;
   font-size: 0.85rem;
@@ -706,25 +702,6 @@ p code {
   font-weight: 700;
 }
 
-/* 已知限制：警示黃強調，像月台上的注意標示 */
-
-.limits {
-  background: var(--warn-tint);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--warn);
-  padding: 1rem 1.25rem;
-  color: var(--ink);
-  font-size: 0.92rem;
-}
-
-.limits h2 {
-  color: var(--warn-ink);
-}
-
-.limits p {
-  margin: 0;
-}
-
 /* 常見問題 */
 
 .faq-item {
@@ -876,5 +853,167 @@ footer p {
     width: 9rem;
     height: 1.4rem;
     font-size: 0.55rem;
+  }
+}
+
+/* 韓文轉羅馬拼音頁：輸入是一般 textarea（貼上歌詞用），輸出是唯讀的對照區 */
+
+.rz-input {
+  display: block;
+  width: 100%;
+  min-height: 8rem;
+  resize: vertical;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  padding: 1.1rem 1.25rem 0.95rem;
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 6px solid var(--grid);
+  border-radius: 0;
+  color: var(--ink);
+}
+
+.rz-input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: var(--grid);
+  border-top-width: 7px;
+}
+
+.rz-input::placeholder {
+  color: #9aa3ad;
+}
+
+.rz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.rz-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.rz-options input {
+  accent-color: var(--grid);
+}
+
+.rz-output {
+  margin-top: 0.75rem;
+  min-height: 4.2rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--grid);
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+
+.rz-output.empty::before {
+  content: attr(data-placeholder);
+  color: #9aa3ad;
+}
+
+.rz-compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.rz-compare th,
+.rz-compare td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.rz-compare th {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.rz-compare td:not(:first-child) {
+  font-family: var(--font-mono);
+}
+
+.rz-output .rz-ko {
+  font-family: var(--font-sans);
+  font-size: 0.88em;
+  color: var(--ink-soft);
+}
+
+/* 方向切換列：羅馬→韓文（首頁）和韓文→羅馬（/romanize/）是兩個網址，
+   這一列讓兩頁看起來像同一個工具在換方向，⇄ 就是連到另一頁的連結 */
+
+.direction-switch {
+  display: grid;
+  /* 兩側固定同寬，⇄ 永遠在正中間；整列放在 h1 上面，不受標題、副標長短影響，兩頁之間可以原地連按 */
+  grid-template-columns: 8.5rem auto 8.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 auto 1.75rem;
+}
+
+.dir-side {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.dir-side.dir-from {
+  border-color: var(--grid);
+  background: var(--seal-tint);
+  color: var(--seal);
+}
+
+.dir-swap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  background: var(--grid);
+  color: #fff;
+  font-size: 1.15rem;
+  text-decoration: none;
+  transition: background-color 0.15s ease, transform 0.2s ease;
+}
+
+.dir-swap:hover {
+  background: var(--seal);
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-swap:hover {
+    transform: none;
+  }
+}
+
+/* 英文首頁的標題比韓轉拼音頁長，在 360–500px 寬會一頁兩行、一頁一行，
+   ⇄ 就會在兩頁之間上下跳。這個寬度範圍內兩頁都保留兩行高度，讓 ⇄ 位置一致。 */
+@media (max-width: 520px) {
+  html[lang="en"] h1:has(+ .direction-switch) {
+    min-height: calc(2em * 1.7);
+    min-height: 2lh;
   }
 }
