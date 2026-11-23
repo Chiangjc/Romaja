@@ -1,7 +1,0 @@
-# 韓文轉羅馬拼音搬到獨立的 romanize.latype.com
-/romanize https://romanize.latype.com/ko/ 301
-/romanize/ https://romanize.latype.com/ko/ 301
-/romanize/* https://romanize.latype.com/ko/ 301
-/en/romanize https://romanize.latype.com/en/ko/ 301
-/en/romanize/ https://romanize.latype.com/en/ko/ 301
-/en/romanize/* https://romanize.latype.com/en/ko/ 301

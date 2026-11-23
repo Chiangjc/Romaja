@@ -27,12 +27,11 @@ annyeonghaseyo jeoneun hagsaengibnida
 packages/
   engine/        羅馬字 ↔ 韓文核心轉換邏輯，純函式、不依賴 UI
   input-state/   組字狀態機（候選、鍵位、連字號），包裝 engine
-  web/           前端頁面（Vite + TypeScript，中/英雙語）
-  romanize-web/  romanize.latype.com：外文轉羅馬拼音（韓文、普通話、日文、泰文），獨立部署
+  web/           latype.com 前端頁面（Vite + TypeScript，中/英雙語）：輸入法與 /romanize/ 底下的外文轉羅馬拼音（韓文、普通話、日文、泰文）
   romanize-zh/   中文轉漢語拼音，台灣標準讀音（pinyin-pro 加 opencc-js 繁轉簡）
   romanize-ja/   日文轉羅馬字（kuromoji 形態素分析）
   romanize-th/   泰文轉 RTGS 羅馬字（Intl.Segmenter 切詞加規則切音節）
-  site-nav/      兩個站共用的頁首與 ⇄ 方向切換列（建置時從同一份工具清單產生）
+  site-nav/      頁首、⇄ 方向切換列與工具清單（建置時從同一份工具清單產生）
 ```
 
 `engine` 與 `input-state` 各自獨立可測試，`web` 是目前唯一的介面層，之後要換框架或包 Chrome 擴充功能都不需要動前兩層。

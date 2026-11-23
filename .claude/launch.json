@@ -11,17 +11,6 @@
       ],
       "port": 5173,
       "autoPort": true
-    },
-    {
-      "name": "romanize-web",
-      "runtimeExecutable": "pnpm",
-      "runtimeArgs": [
-        "--filter",
-        "@romanization/romanize-web",
-        "dev"
-      ],
-      "port": 5174,
-      "autoPort": true
     }
   ]
 }

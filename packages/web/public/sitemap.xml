@@ -38,6 +38,54 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/ja/" />
   </url>
   <url>
+    <loc>https://latype.com/romanize/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/" />
+  </url>
+  <url>
+    <loc>https://latype.com/en/romanize/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/" />
+  </url>
+  <url>
+    <loc>https://latype.com/romanize/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/ja/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/ja/" />
+  </url>
+  <url>
+    <loc>https://latype.com/en/romanize/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/ja/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/ja/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/ja/" />
+  </url>
+  <url>
+    <loc>https://latype.com/romanize/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/zh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/zh/" />
+  </url>
+  <url>
+    <loc>https://latype.com/en/romanize/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/zh/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/zh/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/zh/" />
+  </url>
+  <url>
+    <loc>https://latype.com/romanize/th/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/th/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/th/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/th/" />
+  </url>
+  <url>
+    <loc>https://latype.com/en/romanize/th/</loc>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/romanize/th/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/romanize/th/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://latype.com/romanize/th/" />
+  </url>
+  <url>
     <loc>https://latype.com/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://latype.com/privacy/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://latype.com/en/privacy/" />

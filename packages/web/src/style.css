@@ -856,7 +856,105 @@ footer p {
   }
 }
 
-/* ⇄ 方向切換列：打字（latype.com）和轉換（romanize.latype.com）是兩個網站，
+/* 韓文轉羅馬拼音頁：輸入是一般 textarea（貼上歌詞用），輸出是唯讀的對照區 */
+
+.rz-input {
+  display: block;
+  width: 100%;
+  min-height: 8rem;
+  resize: vertical;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  line-height: 1.7;
+  padding: 1.1rem 1.25rem 0.95rem;
+  background-color: var(--paper);
+  border: 1px solid var(--border);
+  border-top: 6px solid var(--grid);
+  border-radius: 0;
+  color: var(--ink);
+}
+
+.rz-input:focus {
+  outline: none;
+  border-width: 2px;
+  border-color: var(--grid);
+  border-top-width: 7px;
+}
+
+.rz-input::placeholder {
+  color: #9aa3ad;
+}
+
+.rz-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.25rem;
+  margin: 0.75rem 0 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.rz-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+}
+
+.rz-options input {
+  accent-color: var(--grid);
+}
+
+.rz-output {
+  margin-top: 0.75rem;
+  min-height: 4.2rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--grid);
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--ink);
+}
+
+.rz-output.empty::before {
+  content: attr(data-placeholder);
+  color: #9aa3ad;
+}
+
+.rz-compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.rz-compare th,
+.rz-compare td {
+  text-align: left;
+  padding: 0.45rem 0.6rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.rz-compare th {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.rz-compare td:not(:first-child) {
+  font-family: var(--font-mono);
+}
+
+.rz-output .rz-src {
+  font-family: var(--font-sans);
+  font-size: 0.88em;
+  color: var(--ink-soft);
+}
+
+/* ⇄ 方向切換列：打字頁和轉換頁是兩個方向的工具，
    這一列讓兩頁看起來像同一個工具在換方向，⇄ 就是連到另一頁的連結。由 packages/site-nav 產生。
    放在 h1 上面，兩側固定同寬，⇄ 永遠在正中間，不受標題長短影響，可以原地來回連按 */
 
@@ -961,4 +1059,58 @@ html[lang="en"] .direction-switch {
     flex-direction: column;
     padding: 0.2rem;
   }
+}
+
+/* 工具清單（每頁 main 的最後，由 packages/site-nav 產生）：每張卡片連到一個工具 */
+
+.lang-list {
+  list-style: none;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+}
+
+.lang-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--grid);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.lang-card:hover {
+  border-color: var(--grid);
+}
+
+.lang-card-name {
+  font-weight: 800;
+}
+
+.lang-card-sample {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.lang-card-src {
+  font-family: var(--font-sans);
+  margin-right: 0.4rem;
+  color: var(--ink);
+}
+
+.lang-card[aria-current] {
+  border-left-color: var(--ink-soft);
+  background: var(--paper);
+}
+
+.lang-card[aria-current] .lang-card-name::after {
+  content: "　✓";
+  color: var(--ink-soft);
+  font-weight: 400;
 }

@@ -4,15 +4,18 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "node scripts/copy-ja-dict.mjs && vite",
+    "build": "node scripts/copy-ja-dict.mjs && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
     "@romanization/engine": "workspace:*",
     "@romanization/input-state": "workspace:*",
     "@romanization/engine-ja": "workspace:*",
-    "@romanization/engine-dubeolsik": "workspace:*"
+    "@romanization/engine-dubeolsik": "workspace:*",
+    "@romanization/romanize-zh": "workspace:*",
+    "@romanization/romanize-ja": "workspace:*",
+    "@romanization/romanize-th": "workspace:*"
   },
   "devDependencies": {
     "typescript": "^5.6.0",
