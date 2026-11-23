@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>中文轉拼音｜繁體簡體都能轉，多音字看整個詞判斷</title>
+    <meta
+      name="description"
+      content="把中文轉成漢語拼音，繁體、簡體都可以貼。讀音照台灣標準，多音字照整個詞判斷，可以選聲調符號、數字或不標聲調。課文、例句、歌詞都能整段貼上，逐行對照照著念。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <link rel="canonical" href="https://romanize.latype.com/zh/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://romanize.latype.com/zh/" />
+    <link rel="alternate" hreflang="en" href="https://romanize.latype.com/en/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://romanize.latype.com/zh/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="latype" />
+    <meta property="og:title" content="中文轉拼音｜繁體簡體都能轉，多音字看整個詞判斷" />
+    <meta
+      property="og:description"
+      content="把中文轉成漢語拼音，繁體、簡體都可以貼。讀音照台灣標準，多音字照整個詞判斷，可以選聲調符號、數字或不標聲調。課文、例句、歌詞都能整段貼上，逐行對照照著念。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <meta property="og:url" content="https://romanize.latype.com/zh/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "繁體字和簡體字都可以轉嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "都可以，也可以混在一起貼。繁體字會先在背景換成對應的簡體字形再判斷讀音，畫面上顯示的還是你貼進來的原文。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "多音字會轉對嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "大部分會。讀音是看整個詞決定的，例如銀行的行念 háng、行走的行念 xíng，長大的長念 zhǎng、長度的長念 cháng。少數詞表裡沒有的組合還是可能轉錯。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "讀音是台灣的還是中國大陸的？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "照台灣的標準讀音（教育部《國語辭典》）。兩岸念法不同的常見字詞都照台灣念，例如垃圾是 lè sè、星期是 xīng qí、認識是 rèn shì。輕聲也照台灣習慣，朋友是 péng yǒu、喜歡是 xǐ huān，只有的、了、嗎、們這類字念輕聲。比較少見的字詞，偶爾還是會照大陸念法。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "「一」和「不」的變調有標嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "有，照實際念法標。一起轉成 yì qǐ、一個轉成 yí gè，不是轉成 bú shì，照著念就對了。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "可以用來看歌詞跟唱嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。整首歌詞貼進來，勾選「逐行對照」，每行中文下面會接著顯示拼音，聲調也照實際唱念的變調標。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!--site-header-->
+
+    <div class="page">
+      <main>
+        <!--direction-switch-->
+        <h1>中文轉拼音</h1>
+
+        <p class="lede">貼上中文，轉成漢語拼音，繁體簡體都可以，不會念的字也能照著念。</p>
+
+        <div class="mode-switch" role="group" aria-label="聲調標示">
+          <button type="button" data-tone="mark" class="mode-btn active" aria-pressed="true">聲調符號</button>
+          <button type="button" data-tone="number" class="mode-btn" aria-pressed="false">數字</button>
+          <button type="button" data-tone="none" class="mode-btn" aria-pressed="false">不標</button>
+        </div>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">中</span>
+          <textarea
+            id="rz-input"
+            class="rz-input"
+            aria-label="中文輸入"
+            placeholder="我愛你"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="rz-options">
+          <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
+        </div>
+
+        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="wǒ ài nǐ"></div>
+
+        <div class="actions">
+          <button id="copy" type="button">複製</button>
+          <button id="clear" type="button">清空</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">試試看：</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="我們一起去銀行">我們一起去銀行</button></li>
+            <li><button type="button" data-example="長大以後我才明白">長大以後我才明白</button></li>
+            <li><button type="button" data-example="月亮代表我的心">月亮代表我的心</button></li>
+            <li><button type="button" data-example="生日快樂">生日快樂</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>為什麼要看整個詞</h2>
+          <p>
+            中文很多字有不只一個讀音，單看一個字決定不了。這裡會先找出字所在的詞，再照那個詞的念法轉換：
+          </p>
+          <table class="rz-compare">
+            <thead>
+              <tr><th>中文</th><th>拼音</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>銀行</td><td>yín háng</td></tr>
+              <tr><td>行走</td><td>xíng zǒu</td></tr>
+              <tr><td>長大</td><td>zhǎng dà</td></tr>
+              <tr><td>長度</td><td>cháng dù</td></tr>
+              <tr><td>睡著了</td><td>shuì zháo le</td></tr>
+              <tr><td>看著你</td><td>kàn zhe nǐ</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>怎麼用</h2>
+          <ol class="steps">
+            <li>把中文貼進上面的框框，拼音會即時出現在下面。</li>
+            <li>要逐句練習的話，整段貼進來（課文、對話、歌詞都可以），勾選「逐行對照」，每行中文下面會接著顯示拼音。</li>
+            <li>上面可以切換聲調的標法：聲調符號（<code>nǐ hǎo</code>）、數字（<code>ni3 hao3</code>），或是不標（<code>ni hao</code>）。數字模式的輕聲標 5。</li>
+          </ol>
+        </section>
+
+        <section class="section faq">
+          <h2>常見問題</h2>
+
+          <details class="faq-item">
+            <summary>繁體字和簡體字都可以轉嗎？</summary>
+            <p>都可以，也可以混在一起貼。繁體字會先在背景換成對應的簡體字形再判斷讀音，畫面上顯示的還是你貼進來的原文。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>多音字會轉對嗎？</summary>
+            <p>
+              大部分會。讀音是看整個詞決定的，例如銀行的行念 <code>háng</code>、行走的行念 <code>xíng</code>，長大的長念 <code>zhǎng</code>、長度的長念 <code>cháng</code>。
+              少數詞表裡沒有的組合還是可能轉錯。
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>讀音是台灣的還是中國大陸的？</summary>
+            <p>照台灣的標準讀音（教育部《國語辭典》）。兩岸念法不同的常見字詞都照台灣念，例如垃圾是 <code>lè sè</code>、星期是 <code>xīng qí</code>、認識是 <code>rèn shì</code>。輕聲也照台灣習慣，朋友是 <code>péng yǒu</code>、喜歡是 <code>xǐ huān</code>，只有的、了、嗎、們這類字念輕聲。比較少見的字詞，偶爾還是會照大陸念法。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>「一」和「不」的變調有標嗎？</summary>
+            <p>有，照實際念法標。一起轉成 <code>yì qǐ</code>、一個轉成 <code>yí gè</code>，不是轉成 <code>bú shì</code>，照著念就對了。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>可以用來看歌詞跟唱嗎？</summary>
+            <p>可以。整首歌詞貼進來，勾選「逐行對照」，每行中文下面會接著顯示拼音，聲調也照實際唱念的變調標。</p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>純前端</li>
+          <li>免安裝</li>
+          <li>免登入</li>
+        </ul>
+        <p>此工具仍在開發中，功能會持續調整。 <a href="https://latype.com/privacy/">隱私權政策</a></p>
+        <p>有建議或發現問題？<a href="mailto:contact@latype.com?subject=latype%20%E5%9B%9E%E9%A5%8B">寄信給我</a> · <a href="https://github.com/Chiangjc/Romaja/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../src/main-zh.ts"></script>
+  </body>
+</html>

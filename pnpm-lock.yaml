@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@sglkc/kuromoji@1.1.0':
+    hash: 962f23833f28ecfaa07f34ef74716d99b2419d6f3f987550944a3476abe3fa83
+    path: patches/@sglkc__kuromoji@1.1.0.patch
+
 importers:
 
   .:
@@ -51,6 +56,72 @@ importers:
       typescript:
         specifier: ^5.6.0
         version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9
+
+  packages/romanize-ja:
+    dependencies:
+      '@sglkc/kuromoji':
+        specifier: ^1.1.0
+        version: 1.1.0(patch_hash=962f23833f28ecfaa07f34ef74716d99b2419d6f3f987550944a3476abe3fa83)
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9
+
+  packages/romanize-th:
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9
+
+  packages/romanize-web:
+    dependencies:
+      '@romanization/engine':
+        specifier: workspace:*
+        version: link:../engine
+      '@romanization/romanize-ja':
+        specifier: workspace:*
+        version: link:../romanize-ja
+      '@romanization/romanize-th':
+        specifier: workspace:*
+        version: link:../romanize-th
+      '@romanization/romanize-zh':
+        specifier: workspace:*
+        version: link:../romanize-zh
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vite:
+        specifier: ^6.0.0
+        version: 6.4.3
+
+  packages/romanize-zh:
+    dependencies:
+      opencc-js:
+        specifier: ^1.4.2
+        version: 1.4.2
+      pinyin-pro:
+        specifier: ^3.29.5
+        version: 3.29.5
+    devDependencies:
+      typescript:
+        specifier: ^5.6.0
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.0
+        version: 2.1.9
+
+  packages/site-nav:
+    devDependencies:
       vitest:
         specifier: ^2.1.0
         version: 2.1.9
@@ -507,6 +578,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@sglkc/kuromoji@1.1.0':
+    resolution: {integrity: sha512-uKxXYUM5XNjZw0ia0yMYTI3jHSh/c1gEMNvcvS6J49B4mI+PAq8iRYPTxh2ma0RWm45LyWWrILxCJAIXpi/pww==}
+
   '@types/estree@1.0.9':
     resolution: {integrity: sha512-GhdPgy1el4/ImP05X05Uw4cw2/M93BCUmnEvWZNStlCzEKME4Fkk+YpoA5OiHNQmoS7Cafb8Xa3Pya8m1Qrzeg==}
 
@@ -543,6 +617,9 @@ packages:
     resolution: {integrity: sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA==}
     engines: {node: '>=12'}
 
+  async@2.6.4:
+    resolution: {integrity: sha512-mzo5dfJYwAn29PeiJ0zvwTo04zj8HDJj0Mn8TD7sno7q12prdbnasKJHhkm2c1LgrhlJ0teaea8860oxi51mGA==}
+
   cac@6.7.14:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
     engines: {node: '>=8'}
@@ -567,6 +644,9 @@ packages:
   deep-eql@5.0.2:
     resolution: {integrity: sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q==}
     engines: {node: '>=6'}
+
+  doublearray@0.0.2:
+    resolution: {integrity: sha512-aw55FtZzT6AmiamEj2kvmR6BuFqvYgKZUkfQ7teqVRNqD5UE0rw8IeW/3gieHNKQ5sPuDKlljWEn4bzv5+1bHw==}
 
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
@@ -597,10 +677,16 @@ packages:
       picomatch:
         optional: true
 
+  fflate@0.8.3:
+    resolution: {integrity: sha512-tbZNuJrLwGUp3zshBtdy4W+ORxZuIh8a5ilyIEQDC5rY1f3U20JMry0Ll3WBzU58EZKsEuJFXhb5gwv8CsPvgA==}
+
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  lodash@4.18.1:
+    resolution: {integrity: sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q==}
 
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
@@ -616,6 +702,9 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  opencc-js@1.4.2:
+    resolution: {integrity: sha512-EdcspgdROiCCZDM+jZR6Pa670xW+EW2QhctPBQ8gRjg6lrx4IHEl+2s+kt5izk/TkxVRgdWuFgaGkaEdIUfdaw==}
+
   pathe@1.1.2:
     resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
 
@@ -629,6 +718,9 @@ packages:
   picomatch@4.0.7:
     resolution: {integrity: sha512-qcJu88Q2IWqJsDD529JKMdwGm/dvInW4HvQnRwiH9JtihJvzGOscDtHE3x1pBKeUOTysQ8kVmLnJ2kJu7yhcGA==}
     engines: {node: '>=12'}
+
+  pinyin-pro@3.29.5:
+    resolution: {integrity: sha512-Fk5YoRmtdHqJWqAuzYVG/NzvzeCbaG+ZEwbY6Nbps3QAIrvQQEtcm49frcyCM8i2b5najnzPDtYqrHRYTTiuwQ==}
 
   postcss@8.5.26:
     resolution: {integrity: sha512-u82N74LFzG8ca+dD8puPnplTXoGH4fTPpVGuIbt36G3qvNlkvfD0lEAZSxaly3KX8TS/L1A1gsCEmvKmBcVbkQ==}
@@ -1014,6 +1106,12 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.62.4':
     optional: true
 
+  '@sglkc/kuromoji@1.1.0(patch_hash=962f23833f28ecfaa07f34ef74716d99b2419d6f3f987550944a3476abe3fa83)':
+    dependencies:
+      async: 2.6.4
+      doublearray: 0.0.2
+      fflate: 0.8.3
+
   '@types/estree@1.0.9': {}
 
   '@vitest/expect@2.1.9':
@@ -1058,6 +1156,10 @@ snapshots:
 
   assertion-error@2.0.1: {}
 
+  async@2.6.4:
+    dependencies:
+      lodash: 4.18.1
+
   cac@6.7.14: {}
 
   chai@5.3.3:
@@ -1075,6 +1177,8 @@ snapshots:
       ms: 2.1.3
 
   deep-eql@5.0.2: {}
+
+  doublearray@0.0.2: {}
 
   es-module-lexer@1.7.0: {}
 
@@ -1143,8 +1247,12 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.7
 
+  fflate@0.8.3: {}
+
   fsevents@2.3.3:
     optional: true
+
+  lodash@4.18.1: {}
 
   loupe@3.2.1: {}
 
@@ -1156,6 +1264,8 @@ snapshots:
 
   nanoid@3.3.18: {}
 
+  opencc-js@1.4.2: {}
+
   pathe@1.1.2: {}
 
   pathval@2.0.1: {}
@@ -1163,6 +1273,8 @@ snapshots:
   picocolors@1.1.1: {}
 
   picomatch@4.0.7: {}
+
+  pinyin-pro@3.29.5: {}
 
   postcss@8.5.26:
     dependencies:

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Chinese to Pinyin Converter – Traditional &amp; Simplified, with Tone Marks</title>
+    <meta
+      name="description"
+      content="Convert Chinese characters to Hanyu Pinyin. Works with Traditional and Simplified, follows Taiwan standard readings, reads multi-reading characters by the whole word, and shows tone marks, tone numbers or no tones. Paste lessons, example sentences or song lyrics for line-by-line practice. Free, no login, your text stays in your browser."
+    />
+    <link rel="canonical" href="https://romanize.latype.com/en/zh/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://romanize.latype.com/zh/" />
+    <link rel="alternate" hreflang="en" href="https://romanize.latype.com/en/zh/" />
+    <link rel="alternate" hreflang="x-default" href="https://romanize.latype.com/zh/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="latype" />
+    <meta property="og:title" content="Chinese to Pinyin Converter – Traditional &amp; Simplified, with Tone Marks" />
+    <meta
+      property="og:description"
+      content="Convert Chinese characters to Hanyu Pinyin. Works with Traditional and Simplified, follows Taiwan standard readings, reads multi-reading characters by the whole word, and shows tone marks, tone numbers or no tones. Paste lessons, example sentences or song lyrics for line-by-line practice. Free, no login, your text stays in your browser."
+    />
+    <meta property="og:url" content="https://romanize.latype.com/en/zh/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <link rel="stylesheet" href="../../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does it work with both Traditional and Simplified Chinese?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, and you can mix them. Traditional characters are mapped to their Simplified forms behind the scenes to look up the reading; the original text you pasted is what stays on screen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it get characters with more than one reading right?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mostly. The reading is chosen by the whole word: 行 is háng in 銀行 (bank) but xíng in 行走 (walk), and 長 is zhǎng in 長大 (grow up) but cháng in 長度 (length). Rare combinations missing from the word list can still come out wrong."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which standard does it follow?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Taiwan's standard Mandarin, as in the Ministry of Education dictionary. Common words read differently across the Taiwan Strait use the Taiwan reading — 垃圾 is lè sè, 星期 is xīng qí — and the neutral tone is kept only for particles like 的, 了, 嗎 and 們, so 朋友 is péng yǒu. Less common words may occasionally still follow the mainland reading."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the tone changes of 一 and 不 shown?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, as they are actually pronounced: 一起 is yì qǐ, 一個 is yí gè and 不是 is bú shì, so you can read it aloud as written."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use it for song lyrics?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Paste the whole song and turn on Line by line: each Chinese line is followed by its pinyin, with tone changes marked as they are sung."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!--site-header-->
+
+    <div class="page">
+      <main>
+        <!--direction-switch-->
+        <h1>Chinese to Pinyin</h1>
+
+        <p class="lede">Paste Chinese, Traditional or Simplified, and get Hanyu Pinyin, so you can read aloud characters you don't know yet.</p>
+
+        <div class="mode-switch" role="group" aria-label="Tones">
+          <button type="button" data-tone="mark" class="mode-btn active" aria-pressed="true">Tone marks</button>
+          <button type="button" data-tone="number" class="mode-btn" aria-pressed="false">Numbers</button>
+          <button type="button" data-tone="none" class="mode-btn" aria-pressed="false">No tones</button>
+        </div>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">中</span>
+          <textarea
+            id="rz-input"
+            class="rz-input"
+            aria-label="Chinese input"
+            placeholder="我愛你"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="rz-options">
+          <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
+        </div>
+
+        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="wǒ ài nǐ"></div>
+
+        <div class="actions">
+          <button id="copy" type="button">Copy</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">Try:</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="我們一起去銀行">我們一起去銀行</button></li>
+            <li><button type="button" data-example="长大以后我才明白">长大以后我才明白</button></li>
+            <li><button type="button" data-example="月亮代表我的心">月亮代表我的心</button></li>
+            <li><button type="button" data-example="生日快樂">生日快樂</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>Why it reads whole words</h2>
+          <p>
+            Many Chinese characters have more than one reading, and the character alone does not tell you which. The converter finds the word each
+            character belongs to and uses that word's reading:
+          </p>
+          <table class="rz-compare">
+            <thead>
+              <tr><th>Chinese</th><th>Pinyin</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>銀行</td><td>yín háng</td><td>bank</td></tr>
+              <tr><td>行走</td><td>xíng zǒu</td><td>walk</td></tr>
+              <tr><td>長大</td><td>zhǎng dà</td><td>grow up</td></tr>
+              <tr><td>長度</td><td>cháng dù</td><td>length</td></tr>
+              <tr><td>睡著了</td><td>shuì zháo le</td><td>fell asleep</td></tr>
+              <tr><td>看著你</td><td>kàn zhe nǐ</td><td>looking at you</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>How to use it</h2>
+          <ol class="steps">
+            <li>Paste Chinese into the box. The pinyin appears below as you type.</li>
+            <li>To practise sentence by sentence, paste a whole passage (a lesson, a dialogue or song lyrics) and turn on Line by line: each Chinese line is followed by its pinyin.</li>
+            <li>Switch how tones are shown at the top: tone marks (<code>nǐ hǎo</code>), numbers (<code>ni3 hao3</code>) or none (<code>ni hao</code>). In number mode the neutral tone is 5.</li>
+          </ol>
+        </section>
+
+        <section class="section faq">
+          <h2>FAQ</h2>
+
+          <details class="faq-item">
+            <summary>Does it work with both Traditional and Simplified Chinese?</summary>
+            <p>Yes, and you can mix them. Traditional characters are mapped to their Simplified forms behind the scenes to look up the reading; the original text you pasted is what stays on screen.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does it get characters with more than one reading right?</summary>
+            <p>
+              Mostly. The reading is chosen by the whole word: 行 is <code>háng</code> in 銀行 (bank) but <code>xíng</code> in 行走 (walk), and 長 is
+              <code>zhǎng</code> in 長大 (grow up) but <code>cháng</code> in 長度 (length). Rare combinations missing from the word list can still come out wrong.
+            </p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Which standard does it follow?</summary>
+            <p>Taiwan's standard Mandarin, as in the Ministry of Education dictionary. Common words read differently across the Taiwan Strait use the Taiwan reading — 垃圾 is <code>lè sè</code>, 星期 is <code>xīng qí</code> — and the neutral tone is kept only for particles like 的, 了, 嗎 and 們, so 朋友 is <code>péng yǒu</code>. Less common words may occasionally still follow the mainland reading.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Are the tone changes of 一 and 不 shown?</summary>
+            <p>Yes, as they are actually pronounced: 一起 is <code>yì qǐ</code>, 一個 is <code>yí gè</code> and 不是 is <code>bú shì</code>, so you can read it aloud as written.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I use it for song lyrics?</summary>
+            <p>Yes. Paste the whole song and turn on Line by line: each Chinese line is followed by its pinyin, with tone changes marked as they are sung.</p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>Client-side</li>
+          <li>No install</li>
+          <li>No login</li>
+        </ul>
+        <p>This tool is still in development and will keep changing. <a href="https://latype.com/en/privacy/">Privacy policy</a></p>
+        <p>Have a suggestion or found a bug? <a href="mailto:contact@latype.com?subject=latype%20feedback">Email me</a> · <a href="https://github.com/Chiangjc/Romaja/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../../src/main-zh.ts"></script>
+  </body>
+</html>

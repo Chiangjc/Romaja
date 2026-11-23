@@ -1,0 +1,34 @@
+diff --git a/src/loader/BrowserDictionaryLoader.js b/src/loader/BrowserDictionaryLoader.js
+index f472b6ed9220efd6ecf338255a9a62d0de226004..6564d185ef48006b8746742ff6083464404b6e61 100644
+--- a/src/loader/BrowserDictionaryLoader.js
++++ b/src/loader/BrowserDictionaryLoader.js
+@@ -38,15 +38,21 @@ BrowserDictionaryLoader.prototype = Object.create(DictionaryLoader.prototype);
+  */
+ BrowserDictionaryLoader.prototype.loadArrayBuffer = function (url, callback) {
+     fetch(url).then(function (response) {
+-        if (!response.ok){
+-            callback(response.statusText, null);
++        if (!response.ok) {
++            throw new Error(response.status + " " + response.statusText + ": " + url);
+         }
+-
+-        response.arrayBuffer().then(function (arraybuffer) {
+-            var gz = fflate.gunzipSync(new Uint8Array(arraybuffer));
+-            callback(null, gz.buffer);
+-        });
+-    }).catch(function (exception) {
++        return response.arrayBuffer();
++    }).then(function (arraybuffer) {
++        var bytes = new Uint8Array(arraybuffer);
++        // The server may send *.gz with Content-Encoding: gzip, in which case the
++        // browser has already decompressed it. Only gunzip if the gzip magic is present.
++        var data = bytes[0] === 0x1f && bytes[1] === 0x8b ? fflate.gunzipSync(bytes) : bytes;
++        return data.byteOffset === 0 && data.byteLength === data.buffer.byteLength
++            ? data.buffer
++            : data.buffer.slice(data.byteOffset, data.byteOffset + data.byteLength);
++    }).then(function (buffer) {
++        callback(null, buffer);
++    }, function (exception) {
+         callback(exception, null);
+     });
+ };

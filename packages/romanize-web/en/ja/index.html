@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>Japanese to Romaji Converter – Kanji, Hiragana &amp; Katakana</title>
+    <meta
+      name="description"
+      content="Convert Japanese to romaji, kanji included: readings come from a dictionary, so mixed kanji, hiragana and katakana all work. Paste lessons, example sentences or song lyrics for line-by-line practice. Free, no login, your text stays in your browser."
+    />
+    <link rel="canonical" href="https://romanize.latype.com/en/ja/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://romanize.latype.com/ja/" />
+    <link rel="alternate" hreflang="en" href="https://romanize.latype.com/en/ja/" />
+    <link rel="alternate" hreflang="x-default" href="https://romanize.latype.com/ja/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="latype" />
+    <meta property="og:title" content="Japanese to Romaji Converter – Kanji, Hiragana &amp; Katakana" />
+    <meta
+      property="og:description"
+      content="Convert Japanese to romaji, kanji included: readings come from a dictionary, so mixed kanji, hiragana and katakana all work. Paste lessons, example sentences or song lyrics for line-by-line practice. Free, no login, your text stays in your browser."
+    />
+    <meta property="og:url" content="https://romanize.latype.com/en/ja/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <link rel="stylesheet" href="../../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is は written wa and を written o?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As particles, は is pronounced wa, へ is e and を is o, and the romaji follows the pronunciation, as in Hepburn. Some lyrics sites write を as wo; both spellings are common and sound the same."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between As spelled and Macrons?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Only how long vowels are written. As spelled follows the kana letter by letter: ありがとう is arigatou and 東京 is toukyou. Macrons marks long vowels with ō and ū: arigatō and tōkyō. They are pronounced the same."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why does the first conversion take a moment?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kanji readings come from a dictionary of about 17 MB that has to download to your browser the first time. After that your browser keeps it. Everything runs in your browser; your text is never sent to a server."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the kanji readings always right?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Everyday words mostly are. Personal names, place names, and special readings a lyricist assigns in song lyrics (the small kana printed next to the kanji) get the ordinary reading, which may differ from what is sung."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use it for song lyrics?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Paste the whole song and turn on Line by line: each Japanese line is followed by its romaji. Special readings a lyricist assigns get the ordinary reading, so go with what is sung when they differ."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!--site-header-->
+
+    <div class="page">
+      <main>
+        <!--direction-switch-->
+        <h1>Japanese to Romaji</h1>
+        <p class="lede">Paste Japanese, kanji and kana alike, and get romaji, so you can read it aloud before you can read kanji.</p>
+
+        <div class="mode-switch" role="group" aria-label="Long vowels">
+          <button type="button" data-long="kana" class="mode-btn active" aria-pressed="true">As spelled</button>
+          <button type="button" data-long="macron" class="mode-btn" aria-pressed="false">Macrons</button>
+        </div>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">あ</span>
+          <textarea
+            id="rz-input"
+            class="rz-input"
+            aria-label="Japanese input"
+            placeholder="ありがとうございました"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="rz-options">
+          <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
+        </div>
+
+        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="arigatou gozaimashita"></div>
+
+        <div class="actions">
+          <button id="copy" type="button">Copy</button>
+          <button id="clear" type="button">Clear</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">Try:</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="君の名前は">君の名前は</button></li>
+            <li><button type="button" data-example="今日は雨が降っています">今日は雨が降っています</button></li>
+            <li><button type="button" data-example="夢を見ていた">夢を見ていた</button></li>
+            <li><button type="button" data-example="東京に行きたい">東京に行きたい</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>Why it needs a dictionary</h2>
+          <p>
+            Each kana stands for one sound, so kana can be converted with a table. Kanji cannot: the same character is read differently in
+            different words, and only a dictionary knows which. The converter splits the sentence into words and uses each word's reading:
+          </p>
+          <table class="rz-compare">
+            <thead>
+              <tr><th>Japanese</th><th>Romaji</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>今日</td><td>kyou</td><td>today</td></tr>
+              <tr><td>今夜</td><td>kon'ya</td><td>tonight</td></tr>
+              <tr><td>明日</td><td>ashita</td><td>tomorrow</td></tr>
+              <tr><td>明るい</td><td>akarui</td><td>bright</td></tr>
+              <tr><td>一人</td><td>hitori</td><td>alone</td></tr>
+              <tr><td>一緒</td><td>issho</td><td>together</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>How to use it</h2>
+          <ol class="steps">
+            <li>Paste Japanese into the box. The romaji appears below as you type. The first time, wait a few seconds for the dictionary to download.</li>
+            <li>To practise sentence by sentence, paste a whole passage (a lesson, a dialogue or song lyrics) and turn on Line by line: each Japanese line is followed by its romaji.</li>
+            <li>Switch how long vowels are written at the top: as spelled (<code>arigatou</code>) or with macrons (<code>arigatō</code>).</li>
+          </ol>
+        </section>
+
+        <section class="section faq">
+          <h2>FAQ</h2>
+
+          <details class="faq-item">
+            <summary>Why is は written wa and を written o?</summary>
+            <p>As particles, は is pronounced <code>wa</code>, へ is <code>e</code> and を is <code>o</code>, and the romaji follows the pronunciation, as in Hepburn. Some lyrics sites write を as <code>wo</code>; both spellings are common and sound the same.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>What is the difference between As spelled and Macrons?</summary>
+            <p>Only how long vowels are written. As spelled follows the kana letter by letter: ありがとう is <code>arigatou</code> and 東京 is <code>toukyou</code>. Macrons marks long vowels with ō and ū: <code>arigatō</code> and <code>tōkyō</code>. They are pronounced the same.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why does the first conversion take a moment?</summary>
+            <p>Kanji readings come from a dictionary of about 17 MB that has to download to your browser the first time. After that your browser keeps it. Everything runs in your browser; your text is never sent to a server.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Are the kanji readings always right?</summary>
+            <p>Everyday words mostly are. Personal names, place names, and special readings a lyricist assigns in song lyrics (the small kana printed next to the kanji) get the ordinary reading, which may differ from what is sung.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I use it for song lyrics?</summary>
+            <p>Yes. Paste the whole song and turn on Line by line: each Japanese line is followed by its romaji. Special readings a lyricist assigns get the ordinary reading, so go with what is sung when they differ.</p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>Client-side</li>
+          <li>No install</li>
+          <li>No login</li>
+        </ul>
+        <p>This tool is still in development and will keep changing. <a href="https://latype.com/en/privacy/">Privacy policy</a></p>
+        <p>Want to type Japanese on an English keyboard? Try the <a href="https://latype.com/en/ja/">latype Japanese romaji keyboard</a>.</p>
+        <p>Have a suggestion or found a bug? <a href="mailto:contact@latype.com?subject=latype%20feedback">Email me</a> · <a href="https://github.com/Chiangjc/Romaja/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../../src/main-ja.ts"></script>
+  </body>
+</html>

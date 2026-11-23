@@ -1,5 +1,4 @@
 import { hangulToPronunciation, hangulToRoman } from "@romanization/engine";
-import { carryOnSwap, takeCarried } from "./carry.js";
 import { currentLocale } from "./i18n.js";
 
 type Mode = "pronunciation" | "spelling";
@@ -45,7 +44,7 @@ function render() {
     ...input.value.split("\n").flatMap((line) => {
       if (line.trim() === "") return [document.createTextNode("\n")];
       const ko = document.createElement("span");
-      ko.className = "rz-ko";
+      ko.className = "rz-src";
       ko.textContent = line + "\n";
       return [ko, document.createTextNode(romanizeLine(line) + "\n")];
     }),
@@ -95,10 +94,5 @@ document.querySelectorAll<HTMLButtonElement>("[data-example]").forEach((btn) => 
     render();
   });
 });
-
-// 從鍵盤頁按 ⇄ 過來時，帶入那邊打好的韓文
-const carried = takeCarried();
-if (carried) input.value = carried;
-carryOnSwap(() => input.value);
 
 render();

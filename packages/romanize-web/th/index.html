@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>泰文轉羅馬拼音｜自動切詞切音節，照泰國官方 RTGS 拼法</title>
+    <meta
+      name="description"
+      content="把泰文轉成羅馬拼音，照泰國官方的皇家泰語轉寫系統（RTGS）。泰文詞與詞之間不留空格，這裡會自動切詞、切音節，音節之間可以加連字號。課文、例句、歌詞都能整段貼上，逐行對照照著念。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <link rel="canonical" href="https://romanize.latype.com/th/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://romanize.latype.com/th/" />
+    <link rel="alternate" hreflang="en" href="https://romanize.latype.com/en/th/" />
+    <link rel="alternate" hreflang="x-default" href="https://romanize.latype.com/th/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="latype" />
+    <meta property="og:title" content="泰文轉羅馬拼音｜自動切詞切音節，照泰國官方 RTGS 拼法" />
+    <meta
+      property="og:description"
+      content="把泰文轉成羅馬拼音，照泰國官方的皇家泰語轉寫系統（RTGS）。泰文詞與詞之間不留空格，這裡會自動切詞、切音節，音節之間可以加連字號。課文、例句、歌詞都能整段貼上，逐行對照照著念。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <meta property="og:url" content="https://romanize.latype.com/th/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "為什麼沒有標聲調？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RTGS 本身就不標聲調。泰語有五個聲調，但官方拼法只寫子音和母音，路牌、地名、護照上的拼法都是這一套。要練聲調的話，還是要看原文上的聲調符號。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "長母音和短母音為什麼寫得一樣？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RTGS 不分長短音，ข้าว（米飯）和 ขาว（白色）都寫成 khao。長短要聽原音練。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "為什麼跟泰國人自己拼的英文名字不一樣？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "很多人名、店名用的是自己習慣的拼法，例如用 v 拼 ว、用 j 拼 จ，或照梵文原本的字母拼。這裡只照 RTGS 的念法轉，所以會跟那些拼法不同。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "切詞會切錯嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "常用詞大多切得對。切詞用的是瀏覽器內建的泰文詞典，音節照泰文的拼寫規則推。人名、新詞、外來語偶爾會切錯；巴利梵語借詞裡一個子音同時念兩次的（ผลไม้ phon-la-mai），只有收錄的常用詞會轉對。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "可以用來看歌詞跟唱嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。整首歌詞貼進來，勾選「逐行對照」，每行泰文下面會接著顯示拼音；音節加連字號，比較容易對上旋律。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!--site-header-->
+
+    <div class="page">
+      <main>
+        <!--direction-switch-->
+        <h1>泰文轉羅馬拼音</h1>
+
+        <p class="lede">貼上泰文，自動切詞、切音節，轉成羅馬拼音，還不會讀泰文字母也能照著念。</p>
+
+        <div class="mode-switch" role="group" aria-label="音節分隔">
+          <button type="button" data-sep="hyphen" class="mode-btn active" aria-pressed="true">音節加連字號</button>
+          <button type="button" data-sep="none" class="mode-btn" aria-pressed="false">連寫</button>
+        </div>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">ก</span>
+          <textarea
+            id="rz-input"
+            class="rz-input"
+            aria-label="泰文輸入"
+            placeholder="สวัสดีครับ"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="rz-options">
+          <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
+        </div>
+
+        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="sa-wat-di khrap"></div>
+
+        <div class="actions">
+          <button id="copy" type="button">複製</button>
+          <button id="clear" type="button">清空</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">試試看：</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="ขอบคุณมากครับ">ขอบคุณมากครับ</button></li>
+            <li><button type="button" data-example="ฉันรักเธอ">ฉันรักเธอ</button></li>
+            <li><button type="button" data-example="ไม่เป็นไร">ไม่เป็นไร</button></li>
+            <li><button type="button" data-example="คิดถึงเธอทุกวัน">คิดถึงเธอทุกวัน</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>為什麼不能一個字母一個字母對照</h2>
+          <p>
+            泰文很多母音不寫出來，有的母音寫在子音前面，有的字母寫了不念。所以要先把詞切成音節，判斷每個子音是首音還是尾音，才轉得出念法：
+          </p>
+          <table class="rz-compare">
+            <thead>
+              <tr><th>泰文</th><th>羅馬拼音</th><th>為什麼</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>คน</td><td>khon</td><td>沒寫母音，兩個子音中間念 o</td></tr>
+              <tr><td>สบาย</td><td>sa-bai</td><td>ส 後面藏著一個 a</td></tr>
+              <tr><td>เพื่อน</td><td>phuean</td><td>母音拆成三塊，寫在子音前、上、後</td></tr>
+              <tr><td>ทราบ</td><td>sap</td><td>ทร 合起來念 s，尾音 บ 念 p</td></tr>
+              <tr><td>จันทร์</td><td>chan</td><td>ทร์ 不發音</td></tr>
+              <tr><td>ข้าว / ขาว</td><td>khao</td><td>RTGS 不標聲調，兩個寫法一樣</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>怎麼用</h2>
+          <ol class="steps">
+            <li>把泰文貼進上面的框框，羅馬拼音會即時出現在下面，詞與詞之間自動空格。</li>
+            <li>要逐句練習的話，整段貼進來（課文、對話、歌詞都可以），勾選「逐行對照」，每行泰文下面會接著顯示拼音。</li>
+            <li>上面可以切換音節要不要分開：加連字號（<code>sa-wat-di</code>）方便一個音節一個音節念，連寫（<code>sawatdi</code>）是地名、路牌上的寫法。</li>
+          </ol>
+        </section>
+
+        <section class="section faq">
+          <h2>常見問題</h2>
+
+          <details class="faq-item">
+            <summary>為什麼沒有標聲調？</summary>
+            <p>RTGS 本身就不標聲調。泰語有五個聲調，但官方拼法只寫子音和母音，路牌、地名、護照上的拼法都是這一套。要練聲調的話，還是要看原文上的聲調符號。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>長母音和短母音為什麼寫得一樣？</summary>
+            <p>RTGS 不分長短音，ข้าว（米飯）和 ขาว（白色）都寫成 <code>khao</code>。長短要聽原音練。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>為什麼跟泰國人自己拼的英文名字不一樣？</summary>
+            <p>很多人名、店名用的是自己習慣的拼法，例如用 <code>v</code> 拼 ว、用 <code>j</code> 拼 จ，或照梵文原本的字母拼。這裡只照 RTGS 的念法轉，所以會跟那些拼法不同。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>切詞會切錯嗎？</summary>
+            <p>常用詞大多切得對。切詞用的是瀏覽器內建的泰文詞典，音節照泰文的拼寫規則推。人名、新詞、外來語偶爾會切錯；巴利梵語借詞裡一個子音同時念兩次的（ผลไม้ <code>phon-la-mai</code>），只有收錄的常用詞會轉對。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>可以用來看歌詞跟唱嗎？</summary>
+            <p>可以。整首歌詞貼進來，勾選「逐行對照」，每行泰文下面會接著顯示拼音；音節加連字號，比較容易對上旋律。</p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>純前端</li>
+          <li>免安裝</li>
+          <li>免登入</li>
+        </ul>
+        <p>此工具仍在開發中，功能會持續調整。 <a href="https://latype.com/privacy/">隱私權政策</a></p>
+        <p>有建議或發現問題？<a href="mailto:contact@latype.com?subject=latype%20%E5%9B%9E%E9%A5%8B">寄信給我</a> · <a href="https://github.com/Chiangjc/Romaja/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../src/main-th.ts"></script>
+  </body>
+</html>

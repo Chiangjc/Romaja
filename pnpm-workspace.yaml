@@ -1,2 +1,4 @@
 packages:
-  - "packages/*"
+  - packages/*
+patchedDependencies:
+  '@sglkc/kuromoji@1.1.0': patches/@sglkc__kuromoji@1.1.0.patch

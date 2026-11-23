@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <title>日文轉羅馬字｜漢字也能轉，不會讀也能照著念</title>
+    <meta
+      name="description"
+      content="把日文轉成羅馬字，漢字照詞典判斷讀音，平假名、片假名、漢字混在一起也能轉。課文、例句、歌詞都能整段貼上，逐行對照照著念。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <link rel="canonical" href="https://romanize.latype.com/ja/" />
+    <link rel="alternate" hreflang="zh-Hant" href="https://romanize.latype.com/ja/" />
+    <link rel="alternate" hreflang="en" href="https://romanize.latype.com/en/ja/" />
+    <link rel="alternate" hreflang="x-default" href="https://romanize.latype.com/ja/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="latype" />
+    <meta property="og:title" content="日文轉羅馬字｜漢字也能轉，不會讀也能照著念" />
+    <meta
+      property="og:description"
+      content="把日文轉成羅馬字，漢字照詞典判斷讀音，平假名、片假名、漢字混在一起也能轉。課文、例句、歌詞都能整段貼上，逐行對照照著念。免安裝、免登入，內容不會離開你的瀏覽器。"
+    />
+    <meta property="og:url" content="https://romanize.latype.com/ja/" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <link rel="stylesheet" href="../src/style.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "為什麼は寫成 wa、を寫成 o？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "當助詞用的時候，は念 wa、へ念 e、を念 o，這裡照實際念法寫，跟平文式羅馬字一樣。有些歌詞網站把を寫成 wo，兩種寫法都看得到，念起來一樣。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "「照假名」和「長音符號」差在哪？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "差在長音的寫法。照假名模式逐字照寫，ありがとう是 arigatou、東京是 toukyou；長音符號模式把拉長的音寫成 ō、ū，ありがとう是 arigatō、東京是 tōkyō。念法一樣。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "為什麼第一次轉換要等一下？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "漢字的讀音要查詞典才知道，日文詞典約 17 MB，第一次要先下載到你的瀏覽器。之後瀏覽器會留著，再來就快了。轉換全部在你的瀏覽器裡進行，文字不會傳到任何伺服器。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "漢字的讀音一定對嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "一般詞彙大多會對。人名、地名，還有歌詞裡作詞者特別指定的念法（標在漢字旁邊的小字），會照一般讀法轉，可能跟實際唱的不一樣。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "可以用來看歌詞跟唱嗎？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。整首歌詞貼進來，勾選「逐行對照」，每行日文下面會接著顯示羅馬字。作詞者特別指定的念法會照一般讀法轉，遇到時以實際唱的為準。"
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <!--site-header-->
+
+    <div class="page">
+      <main>
+        <!--direction-switch-->
+        <h1>日文轉羅馬字</h1>
+        <p class="lede">貼上日文，漢字、假名都會轉成羅馬字，還不會讀漢字也能照著念。</p>
+
+        <div class="mode-switch" role="group" aria-label="長音寫法">
+          <button type="button" data-long="kana" class="mode-btn active" aria-pressed="true">照假名</button>
+          <button type="button" data-long="macron" class="mode-btn" aria-pressed="false">長音符號</button>
+        </div>
+
+        <div class="editor-wrap">
+          <span class="seal" aria-hidden="true">あ</span>
+          <textarea
+            id="rz-input"
+            class="rz-input"
+            aria-label="日文輸入"
+            placeholder="ありがとうございました"
+            autocapitalize="off"
+            autocorrect="off"
+            spellcheck="false"
+          ></textarea>
+        </div>
+
+        <div class="rz-options">
+          <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
+        </div>
+
+        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="arigatou gozaimashita"></div>
+
+        <div class="actions">
+          <button id="copy" type="button">複製</button>
+          <button id="clear" type="button">清空</button>
+        </div>
+
+        <div class="examples">
+          <p class="examples-label">試試看：</p>
+          <ul class="example-list">
+            <li><button type="button" data-example="君の名前は">君の名前は</button></li>
+            <li><button type="button" data-example="今日は雨が降っています">今日は雨が降っています</button></li>
+            <li><button type="button" data-example="夢を見ていた">夢を見ていた</button></li>
+            <li><button type="button" data-example="東京に行きたい">東京に行きたい</button></li>
+          </ul>
+        </div>
+
+        <section class="section">
+          <h2>為什麼要查詞典</h2>
+          <p>
+            假名一個字對一個音，照表轉就好；漢字不行，同一個字在不同詞裡念法完全不同，只能查詞典。這裡會先把句子切成詞，再照每個詞的讀音轉換：
+          </p>
+          <table class="rz-compare">
+            <thead>
+              <tr><th>日文</th><th>羅馬字</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>今日</td><td>kyou</td></tr>
+              <tr><td>今夜</td><td>kon'ya</td></tr>
+              <tr><td>明日</td><td>ashita</td></tr>
+              <tr><td>明るい</td><td>akarui</td></tr>
+              <tr><td>一人</td><td>hitori</td></tr>
+              <tr><td>一緒</td><td>issho</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section">
+          <h2>怎麼用</h2>
+          <ol class="steps">
+            <li>把日文貼進上面的框框，羅馬字會即時出現在下面。第一次要先下載詞典，等幾秒。</li>
+            <li>要逐句練習的話，整段貼進來（課文、對話、歌詞都可以），勾選「逐行對照」，每行日文下面會接著顯示羅馬字。</li>
+            <li>上面可以切換長音的寫法：照假名（<code>arigatou</code>）或長音符號（<code>arigatō</code>）。</li>
+          </ol>
+        </section>
+
+        <section class="section faq">
+          <h2>常見問題</h2>
+
+          <details class="faq-item">
+            <summary>為什麼は寫成 wa、を寫成 o？</summary>
+            <p>當助詞用的時候，は念 <code>wa</code>、へ念 <code>e</code>、を念 <code>o</code>，這裡照實際念法寫，跟平文式羅馬字一樣。有些歌詞網站把を寫成 <code>wo</code>，兩種寫法都看得到，念起來一樣。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>「照假名」和「長音符號」差在哪？</summary>
+            <p>差在長音的寫法。照假名模式逐字照寫，ありがとう是 <code>arigatou</code>、東京是 <code>toukyou</code>；長音符號模式把拉長的音寫成 ō、ū，ありがとう是 <code>arigatō</code>、東京是 <code>tōkyō</code>。念法一樣。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>為什麼第一次轉換要等一下？</summary>
+            <p>漢字的讀音要查詞典才知道，日文詞典約 17 MB，第一次要先下載到你的瀏覽器。之後瀏覽器會留著，再來就快了。轉換全部在你的瀏覽器裡進行，文字不會傳到任何伺服器。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>漢字的讀音一定對嗎？</summary>
+            <p>一般詞彙大多會對。人名、地名，還有歌詞裡作詞者特別指定的念法（標在漢字旁邊的小字），會照一般讀法轉，可能跟實際唱的不一樣。</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>可以用來看歌詞跟唱嗎？</summary>
+            <p>可以。整首歌詞貼進來，勾選「逐行對照」，每行日文下面會接著顯示羅馬字。作詞者特別指定的念法會照一般讀法轉，遇到時以實際唱的為準。</p>
+          </details>
+        </section>
+      </main>
+
+      <footer>
+        <ul class="badges" aria-hidden="true">
+          <li>純前端</li>
+          <li>免安裝</li>
+          <li>免登入</li>
+        </ul>
+        <p>此工具仍在開發中，功能會持續調整。 <a href="https://latype.com/privacy/">隱私權政策</a></p>
+        <p>想用英文鍵盤打日文？試試 <a href="https://latype.com/ja/">latype 日文羅馬拼音輸入法</a>。</p>
+        <p>有建議或發現問題？<a href="mailto:contact@latype.com?subject=latype%20%E5%9B%9E%E9%A5%8B">寄信給我</a> · <a href="https://github.com/Chiangjc/Romaja/issues" target="_blank" rel="noopener">GitHub Issues</a></p>
+      </footer>
+    </div>
+    <script type="module" src="../src/main-ja.ts"></script>
+  </body>
+</html>

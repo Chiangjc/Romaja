@@ -92,7 +92,7 @@ header.site-header {
   gap: 0.7rem;
 }
 
-/* 切換鍵盤（韓文／日文）：功能導覽，用實心分頁塊呈現 */
+/* 語言分頁（韓文／日文／中文／泰文）：兩個站共用同一組，由 packages/site-nav 產生 */
 
 .tool-switch {
   display: flex;
@@ -785,8 +785,8 @@ footer p {
     padding: 0.6rem 1.15rem;
   }
 
-  /* 手機版 header：三個分頁塊 + 語言切換全部擠在一行，字級跟間距要收更小才塞得下，
-     不然英文頁的 ROMANIZATION/DUBEOLSIK/JAPANESE 這幾個長字會把語言切換擠出畫面外 */
+  /* 手機版 header：四個語言分頁 + 介面語言切換全部擠在一行，字級跟間距要收更小才塞得下，
+     不然英文頁的 KOREAN/JAPANESE/CHINESE/THAI 會把介面語言切換擠出畫面外 */
 
   .site-name {
     font-size: 0.95rem;
@@ -856,115 +856,17 @@ footer p {
   }
 }
 
-/* 韓文轉羅馬拼音頁：輸入是一般 textarea（貼上歌詞用），輸出是唯讀的對照區 */
-
-.rz-input {
-  display: block;
-  width: 100%;
-  min-height: 8rem;
-  resize: vertical;
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  line-height: 1.7;
-  padding: 1.1rem 1.25rem 0.95rem;
-  background-color: var(--paper);
-  border: 1px solid var(--border);
-  border-top: 6px solid var(--grid);
-  border-radius: 0;
-  color: var(--ink);
-}
-
-.rz-input:focus {
-  outline: none;
-  border-width: 2px;
-  border-color: var(--grid);
-  border-top-width: 7px;
-}
-
-.rz-input::placeholder {
-  color: #9aa3ad;
-}
-
-.rz-options {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.25rem;
-  margin: 0.75rem 0 0;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-}
-
-.rz-options label {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  cursor: pointer;
-}
-
-.rz-options input {
-  accent-color: var(--grid);
-}
-
-.rz-output {
-  margin-top: 0.75rem;
-  min-height: 4.2rem;
-  padding: 1rem 1.25rem;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--grid);
-  font-family: var(--font-mono);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  white-space: pre-wrap;
-  word-break: break-word;
-  color: var(--ink);
-}
-
-.rz-output.empty::before {
-  content: attr(data-placeholder);
-  color: #9aa3ad;
-}
-
-.rz-compare {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.92rem;
-}
-
-.rz-compare th,
-.rz-compare td {
-  text-align: left;
-  padding: 0.45rem 0.6rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.rz-compare th {
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-  font-weight: 700;
-}
-
-.rz-compare td:not(:first-child) {
-  font-family: var(--font-mono);
-}
-
-.rz-output .rz-ko {
-  font-family: var(--font-sans);
-  font-size: 0.88em;
-  color: var(--ink-soft);
-}
-
-/* 方向切換列：羅馬→韓文（首頁）和韓文→羅馬（/romanize/）是兩個網址，
-   這一列讓兩頁看起來像同一個工具在換方向，⇄ 就是連到另一頁的連結 */
+/* ⇄ 方向切換列：打字（latype.com）和轉換（romanize.latype.com）是兩個網站，
+   這一列讓兩頁看起來像同一個工具在換方向，⇄ 就是連到另一頁的連結。由 packages/site-nav 產生。
+   放在 h1 上面，兩側固定同寬，⇄ 永遠在正中間，不受標題長短影響，可以原地來回連按 */
 
 .direction-switch {
   display: grid;
-  /* 兩側固定同寬，⇄ 永遠在正中間；整列放在 h1 上面，不受標題、副標長短影響，兩頁之間可以原地連按 */
-  grid-template-columns: 8.5rem auto 8.5rem;
+  grid-template-columns: minmax(0, 10rem) auto minmax(0, 10rem);
   align-items: center;
   justify-content: center;
   gap: 0.75rem;
-  margin: 0 auto 1.75rem;
+  margin: -1.25rem auto 1.75rem;
 }
 
 .dir-side {
@@ -982,6 +884,40 @@ footer p {
   border-color: var(--grid);
   background: var(--seal-tint);
   color: var(--seal);
+}
+
+/* 英文的 Romanization | Dubeolsik 比中文長，兩側一起加寬，⇄ 仍在正中間 */
+html[lang="en"] .direction-switch {
+  grid-template-columns: minmax(0, 12.5rem) auto minmax(0, 12.5rem);
+}
+
+/* 韓文打字頁的輸入側有兩種輸入法，直接在這一格裡切換 */
+.dir-side.dir-choices {
+  display: flex;
+  gap: 0.2rem;
+  padding: 0.2rem;
+}
+
+.dir-choices a {
+  flex: 1;
+  min-width: 0;
+  padding: 0.2rem 0.3rem;
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.dir-choices a:hover {
+  color: var(--seal);
+}
+
+.dir-choices a[aria-current="page"] {
+  background: #fff;
+  color: var(--seal);
+  font-weight: 700;
+  box-shadow: 0 0 0 1px var(--grid);
 }
 
 .dir-swap {
@@ -1009,11 +945,20 @@ footer p {
   }
 }
 
-/* 英文首頁的標題比韓轉拼音頁長，在 360–500px 寬會一頁兩行、一頁一行，
-   ⇄ 就會在兩頁之間上下跳。這個寬度範圍內兩頁都保留兩行高度，讓 ⇄ 位置一致。 */
-@media (max-width: 520px) {
-  html[lang="en"] h1:has(+ .direction-switch) {
-    min-height: calc(2em * 1.7);
-    min-height: 2lh;
+@media (max-width: 480px) {
+  .direction-switch {
+    gap: 0.5rem;
+    margin-top: -1.5rem;
+  }
+
+  .dir-side {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  /* 窄螢幕上兩個輸入法並排塞不下（英文的 Romanization），改成上下疊 */
+  .dir-side.dir-choices {
+    flex-direction: column;
+    padding: 0.2rem;
   }
 }

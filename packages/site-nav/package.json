@@ -1,0 +1,13 @@
+{
+  "name": "@romanization/site-nav",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.0"
+  }
+}

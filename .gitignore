@@ -6,3 +6,4 @@ human.md
 .claude/settings.local.json
 .claude/skills/
 run-dev.bat
+packages/romanize-web/public/dict/
