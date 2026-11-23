@@ -1114,3 +1114,14 @@ html[lang="en"] .direction-switch {
   color: var(--ink-soft);
   font-weight: 400;
 }
+
+.tool-group-title {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.tool-group-title + .lang-list {
+  margin-top: 0.6rem;
+}

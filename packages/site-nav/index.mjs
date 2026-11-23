@@ -206,27 +206,40 @@ export function renderDirectionSwitch({ htmlPath }) {
         </nav>`;
 }
 
+// 工具清單分兩組：英文鍵盤 → 外文（輸入法）、外文 → 羅馬字（轉換）
+const TOOL_GROUPS = [
+  { kind: /** @type {Kind} */ ("type"), title: { zh: "用英文鍵盤打外文", en: "Type on an English keyboard" } },
+  { kind: /** @type {Kind} */ ("romanize"), title: { zh: "外文轉羅馬拼音", en: "Convert to Roman letters" } },
+];
+
 /**
- * 工具清單：全部工具一張卡片，目前這頁標成 aria-current
+ * 工具清單：輸入法和轉換分成兩組，每個工具一張卡片，目前這頁標成 aria-current
  * @param {{ htmlPath: string }} opts
  */
 export function renderToolIndex({ htmlPath }) {
   const { ui, page } = parsePagePath(htmlPath);
-  const cards = LANGUAGES.flatMap(toolsOf).map((t) => {
-    const attr = t.path === page ? ' aria-current="page"' : "";
-    return `            <li>
+  const all = LANGUAGES.flatMap(toolsOf);
+  const groups = TOOL_GROUPS.map((g) => {
+    const cards = all
+      .filter((t) => t.kind === g.kind)
+      .map((t) => {
+        const attr = t.path === page ? ' aria-current="page"' : "";
+        return `            <li>
               <a class="lang-card" href="${esc(localize(t.path, ui))}"${attr}>
                 <span class="lang-card-name">${esc(t.title[ui])}</span>
                 <span class="lang-card-sample"><span class="lang-card-src">${esc(t.sample[0])}</span> → ${esc(t.sample[1])}</span>
               </a>
             </li>`;
+      });
+    return `          <h3 class="tool-group-title">${esc(g.title[ui])}</h3>
+          <ul class="lang-list">
+${cards.join("\n")}
+          </ul>`;
   });
   const heading = ui === "en" ? "All tools" : "所有工具";
   return `<section class="section tool-index" aria-labelledby="tool-index-title">
           <h2 id="tool-index-title">${heading}</h2>
-          <ul class="lang-list">
-${cards.join("\n")}
-          </ul>
+${groups.join("\n")}
         </section>`;
 }
 

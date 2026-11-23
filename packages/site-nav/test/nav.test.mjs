@@ -72,4 +72,15 @@ describe("renderToolIndex", () => {
     expect(html).toContain('href="/en/dubeolsik/"');
     expect(html).toContain('href="/en/romanize/zh/" aria-current="page"');
   });
+
+  it("輸入法和轉換分成兩組，輸入法在前", () => {
+    const html = renderToolIndex({ htmlPath: "/index.html" });
+    const [, typing, converting] = html.split('<h3 class="tool-group-title">');
+    expect(typing).toMatch(/^用英文鍵盤打外文/);
+    expect(typing.match(/class="lang-card"/g)).toHaveLength(3);
+    expect(typing).toContain('href="/dubeolsik/"');
+    expect(converting).toMatch(/^外文轉羅馬拼音/);
+    expect(converting.match(/class="lang-card"/g)).toHaveLength(4);
+    expect(converting).toContain('href="/romanize/th/"');
+  });
 });
