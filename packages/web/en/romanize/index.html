@@ -72,49 +72,52 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>Korean to Romanization</h1>
-        <p class="lede">Paste Korean and get romanization the way it is actually pronounced, so you can read it aloud even before you can read Hangul.</p>
-
-        <div class="mode-switch" role="group" aria-label="Conversion mode">
-          <button type="button" id="mode-spell" class="mode-btn active" aria-pressed="true">Spelling</button>
-          <button type="button" id="mode-pron" class="mode-btn" aria-pressed="false">Pronunciation</button>
+        <div class="page-intro">
+          <h1>Korean to Romanization</h1>
+          <p class="lede">Paste Korean and get romanization the way it is actually pronounced, so you can read it aloud even before you can read Hangul.</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">한</span>
-          <textarea
-            id="rz-input"
-            class="rz-input"
-            aria-label="Korean input"
-            placeholder="감사합니다"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-          ></textarea>
-        </div>
+        <div class="tool-card">
+          <div class="mode-switch" role="group" aria-label="Conversion mode">
+            <button type="button" id="mode-spell" class="mode-btn active" aria-pressed="true">Spelling</button>
+            <button type="button" id="mode-pron" class="mode-btn" aria-pressed="false">Pronunciation</button>
+          </div>
 
-        <div class="rz-options">
-          <label><input type="checkbox" id="opt-syllable" /> Hyphenate syllables</label>
-          <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
-        </div>
+          <div class="editor-wrap">
+            <textarea
+              id="rz-input"
+              class="rz-input"
+              aria-label="Korean input"
+              placeholder="감사합니다"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
 
-        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="gamsahabnida"></div>
+          <div class="rz-options">
+            <label><input type="checkbox" id="opt-syllable" /> Hyphenate syllables</label>
+            <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
+          </div>
 
-        <div class="actions">
-          <button id="copy" type="button">Copy</button>
-          <button id="clear" type="button">Clear</button>
-        </div>
+          <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="gamsahabnida"></div>
 
-        <div class="examples">
-          <p class="examples-label">Try:</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="감사합니다">감사합니다</button></li>
-            <li><button type="button" data-example="같이 가요">같이 가요</button></li>
-            <li><button type="button" data-example="보고 싶어요">보고 싶어요</button></li>
-            <li><button type="button" data-example="좋아해요">좋아해요</button></li>
-            <li><button type="button" data-example="생일 축하해요">생일 축하해요</button></li>
-          </ul>
+          <div class="actions">
+            <button id="copy" type="button">Copy</button>
+            <button id="clear" type="button">Clear</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">Try:</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="감사합니다">감사합니다</button></li>
+              <li><button type="button" data-example="같이 가요">같이 가요</button></li>
+              <li><button type="button" data-example="보고 싶어요">보고 싶어요</button></li>
+              <li><button type="button" data-example="좋아해요">좋아해요</button></li>
+              <li><button type="button" data-example="생일 축하해요">생일 축하해요</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -154,38 +157,38 @@
         <section class="section faq">
           <h2>FAQ</h2>
 
-          <details class="faq-item">
-            <summary>What is the difference between Pronunciation and Spelling mode?</summary>
+          <div class="faq-item">
+            <h3>What is the difference between Pronunciation and Spelling mode?</h3>
             <p>
               Pronunciation mode follows how the words are actually said, applying liaison, nasalization and ㅎ rules, so 감사합니다 becomes
               <code>gamsahamnida</code> — good for reading aloud and pronunciation practice. Spelling mode maps each letter one to one, so 감사합니다 becomes
               <code>gamsahabnida</code>, which is exactly what you would type on the latype <a href="/en/">Korean romanization keyboard</a>.
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Is this the official Korean romanization?</summary>
+          <div class="faq-item">
+            <h3>Is this the official Korean romanization?</h3>
             <p>
               Pronunciation mode follows South Korea's official Revised Romanization with the standard pronunciation rules applied.
               Like the official system, it does not mark tensed consonants (읽다 is <code>ikda</code>, not <code>ikkda</code>).
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can I romanize song lyrics with it?</summary>
+          <div class="faq-item">
+            <h3>Can I romanize song lyrics with it?</h3>
             <p>
               Yes. Paste the whole song and turn on Line by line: each Korean line is followed by its romanization.
               Turn on Hyphenate syllables to see how each syllable is pronounced.
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can I use it for a Korean name on a passport?</summary>
+          <div class="faq-item">
+            <h3>Can I use it for a Korean name on a passport?</h3>
             <p>
               Not recommended. Korean names are usually registered with a personal spelling (이 is often Lee, 박 is often Park) rather than the rules,
               so use the spelling on the person's documents.
             </p>
-          </details>
+          </div>
         </section>
 
         <!--tool-index-->

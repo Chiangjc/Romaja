@@ -80,47 +80,50 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>Japanese to Romaji</h1>
-        <p class="lede">Paste Japanese, kanji and kana alike, and get romaji, so you can read it aloud before you can read kanji.</p>
-
-        <div class="mode-switch" role="group" aria-label="Long vowels">
-          <button type="button" data-long="kana" class="mode-btn active" aria-pressed="true">As spelled</button>
-          <button type="button" data-long="macron" class="mode-btn" aria-pressed="false">Macrons</button>
+        <div class="page-intro">
+          <h1>Japanese to Romaji</h1>
+          <p class="lede">Paste Japanese, kanji and kana alike, and get romaji, so you can read it aloud before you can read kanji.</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">あ</span>
-          <textarea
-            id="rz-input"
-            class="rz-input"
-            aria-label="Japanese input"
-            placeholder="ありがとうございました"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-          ></textarea>
-        </div>
+        <div class="tool-card">
+          <div class="mode-switch" role="group" aria-label="Long vowels">
+            <button type="button" data-long="kana" class="mode-btn active" aria-pressed="true">As spelled</button>
+            <button type="button" data-long="macron" class="mode-btn" aria-pressed="false">Macrons</button>
+          </div>
 
-        <div class="rz-options">
-          <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
-        </div>
+          <div class="editor-wrap">
+            <textarea
+              id="rz-input"
+              class="rz-input"
+              aria-label="Japanese input"
+              placeholder="ありがとうございました"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
 
-        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="arigatou gozaimashita"></div>
+          <div class="rz-options">
+            <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
+          </div>
 
-        <div class="actions">
-          <button id="copy" type="button">Copy</button>
-          <button id="clear" type="button">Clear</button>
-        </div>
+          <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="arigatou gozaimashita"></div>
 
-        <div class="examples">
-          <p class="examples-label">Try:</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="君の名前は">君の名前は</button></li>
-            <li><button type="button" data-example="今日は雨が降っています">今日は雨が降っています</button></li>
-            <li><button type="button" data-example="夢を見ていた">夢を見ていた</button></li>
-            <li><button type="button" data-example="東京に行きたい">東京に行きたい</button></li>
-          </ul>
+          <div class="actions">
+            <button id="copy" type="button">Copy</button>
+            <button id="clear" type="button">Clear</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">Try:</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="君の名前は">君の名前は</button></li>
+              <li><button type="button" data-example="今日は雨が降っています">今日は雨が降っています</button></li>
+              <li><button type="button" data-example="夢を見ていた">夢を見ていた</button></li>
+              <li><button type="button" data-example="東京に行きたい">東京に行きたい</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -156,30 +159,30 @@
         <section class="section faq">
           <h2>FAQ</h2>
 
-          <details class="faq-item">
-            <summary>Why is は written wa and を written o?</summary>
+          <div class="faq-item">
+            <h3>Why is は written wa and を written o?</h3>
             <p>As particles, は is pronounced <code>wa</code>, へ is <code>e</code> and を is <code>o</code>, and the romaji follows the pronunciation, as in Hepburn. Some lyrics sites write を as <code>wo</code>; both spellings are common and sound the same.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>What is the difference between As spelled and Macrons?</summary>
+          <div class="faq-item">
+            <h3>What is the difference between As spelled and Macrons?</h3>
             <p>Only how long vowels are written. As spelled follows the kana letter by letter: ありがとう is <code>arigatou</code> and 東京 is <code>toukyou</code>. Macrons marks long vowels with ō and ū: <code>arigatō</code> and <code>tōkyō</code>. They are pronounced the same.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Why does the first conversion take a moment?</summary>
+          <div class="faq-item">
+            <h3>Why does the first conversion take a moment?</h3>
             <p>Kanji readings come from a dictionary of about 17 MB that has to download to your browser the first time. After that your browser keeps it. Everything runs in your browser; your text is never sent to a server.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Are the kanji readings always right?</summary>
+          <div class="faq-item">
+            <h3>Are the kanji readings always right?</h3>
             <p>Everyday words mostly are. Personal names, place names, and special readings a lyricist assigns in song lyrics (the small kana printed next to the kanji) get the ordinary reading, which may differ from what is sung.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can I use it for song lyrics?</summary>
+          <div class="faq-item">
+            <h3>Can I use it for song lyrics?</h3>
             <p>Yes. Paste the whole song and turn on Line by line: each Japanese line is followed by its romaji. Special readings a lyricist assigns get the ordinary reading, so go with what is sung when they differ.</p>
-          </details>
+          </div>
         </section>
 
         <!--tool-index-->

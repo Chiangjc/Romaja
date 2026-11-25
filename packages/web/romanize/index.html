@@ -72,49 +72,52 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>韓文轉羅馬拼音</h1>
-        <p class="lede">貼上韓文，照實際發音轉成羅馬拼音，還不會讀韓文字母也能跟著念。</p>
-
-        <div class="mode-switch" role="group" aria-label="轉換模式">
-          <button type="button" id="mode-spell" class="mode-btn active" aria-pressed="true">拼寫</button>
-          <button type="button" id="mode-pron" class="mode-btn" aria-pressed="false">發音</button>
+        <div class="page-intro">
+          <h1>韓文轉羅馬拼音</h1>
+          <p class="lede">貼上韓文，照實際發音轉成羅馬拼音，還不會讀韓文字母也能跟著念。</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">한</span>
-          <textarea
-            id="rz-input"
-            class="rz-input"
-            aria-label="韓文輸入"
-            placeholder="감사합니다"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-          ></textarea>
-        </div>
+        <div class="tool-card">
+          <div class="mode-switch" role="group" aria-label="轉換模式">
+            <button type="button" id="mode-spell" class="mode-btn active" aria-pressed="true">拼寫</button>
+            <button type="button" id="mode-pron" class="mode-btn" aria-pressed="false">發音</button>
+          </div>
 
-        <div class="rz-options">
-          <label><input type="checkbox" id="opt-syllable" /> 音節之間加 -</label>
-          <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
-        </div>
+          <div class="editor-wrap">
+            <textarea
+              id="rz-input"
+              class="rz-input"
+              aria-label="韓文輸入"
+              placeholder="감사합니다"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
 
-        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="gamsahabnida"></div>
+          <div class="rz-options">
+            <label><input type="checkbox" id="opt-syllable" /> 音節之間加 -</label>
+            <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
+          </div>
 
-        <div class="actions">
-          <button id="copy" type="button">複製</button>
-          <button id="clear" type="button">清空</button>
-        </div>
+          <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="gamsahabnida"></div>
 
-        <div class="examples">
-          <p class="examples-label">試試看：</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="감사합니다">감사합니다</button></li>
-            <li><button type="button" data-example="같이 가요">같이 가요</button></li>
-            <li><button type="button" data-example="보고 싶어요">보고 싶어요</button></li>
-            <li><button type="button" data-example="좋아해요">좋아해요</button></li>
-            <li><button type="button" data-example="생일 축하해요">생일 축하해요</button></li>
-          </ul>
+          <div class="actions">
+            <button id="copy" type="button">複製</button>
+            <button id="clear" type="button">清空</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">試試看：</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="감사합니다">감사합니다</button></li>
+              <li><button type="button" data-example="같이 가요">같이 가요</button></li>
+              <li><button type="button" data-example="보고 싶어요">보고 싶어요</button></li>
+              <li><button type="button" data-example="좋아해요">좋아해요</button></li>
+              <li><button type="button" data-example="생일 축하해요">생일 축하해요</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -152,35 +155,35 @@
         <section class="section faq">
           <h2>常見問題</h2>
 
-          <details class="faq-item">
-            <summary>「發音」和「拼寫」兩種模式差在哪？</summary>
+          <div class="faq-item">
+            <h3>「發音」和「拼寫」兩種模式差在哪？</h3>
             <p>
               發音模式照實際念法轉換，會套用連音、鼻音化、ㅎ 脫落等規則，例如 감사합니다 轉成 <code>gamsahamnida</code>，適合照著念、練發音。
               拼寫模式逐字對應，不管發音，감사합니다 轉成 <code>gamsahabnida</code>，剛好就是在 latype 的<a href="/">韓文羅馬拼音鍵盤</a>上打出這個字的打法。
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>這是官方的韓文羅馬拼音嗎？</summary>
+          <div class="faq-item">
+            <h3>這是官方的韓文羅馬拼音嗎？</h3>
             <p>
               發音模式依照韓國官方的 Revised Romanization（국어의 로마자 표기법），套用標準發音法的音變規則，
               但跟官方一樣不標示緊音（例如 읽다 寫成 <code>ikda</code> 而不是 <code>ikkda</code>）。
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>可以用來轉歌詞嗎？</summary>
+          <div class="faq-item">
+            <h3>可以用來轉歌詞嗎？</h3>
             <p>
               可以。把整首歌詞貼進來，勾選「逐行對照」，每一行韓文下面會接著顯示羅馬拼音；勾選「音節之間加 -」可以看清楚每個字怎麼念。
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>護照或證件上的韓文名字可以用這個轉嗎？</summary>
+          <div class="faq-item">
+            <h3>護照或證件上的韓文名字可以用這個轉嗎？</h3>
             <p>
               不建議。韓國人名的羅馬拼音通常照個人習慣登記（例如 이 常寫成 Lee、박 常寫成 Park），不一定照規則，證件請以本人登記的拼法為準。
             </p>
-          </details>
+          </div>
         </section>
 
         <!--tool-index-->

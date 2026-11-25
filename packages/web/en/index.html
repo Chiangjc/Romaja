@@ -88,48 +88,51 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>Type Korean with Roman Letters</h1>
-        <p class="lede">Type the romanization you already know, and it converts to Korean automatically. No keyboard layout to memorize.</p>
-
-        <p class="spelling-note">
-          <strong>Type by spelling, not by pronunciation:</strong>
-          <span class="example-pair"><span class="ok">johayo</span></span>
-          <span class="example-pair"><span class="no">joayo</span></span>
-        </p>
-
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">한</span>
-          <div
-            id="editor"
-            class="editor"
-            tabindex="0"
-            contenteditable="true"
-            inputmode="text"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-            autocomplete="off"
-            role="textbox"
-            aria-multiline="true"
-            aria-label="Romanization input"
-            data-placeholder="annyeonghaseyo jeoneun hagsaengibnida"
-          ></div>
-        </div>
-        <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
-
-        <div class="actions">
-          <button id="copy" type="button">Copy</button>
-          <button id="clear" type="button">Clear</button>
+        <div class="page-intro">
+          <h1>Type Korean with Romanization</h1>
+          <p class="lede">Type the romanization you already know, and it converts to Korean automatically. No keyboard layout to memorize.</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="examples">
-          <p class="examples-label">Try it:</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="annyeonghaseyo">annyeonghaseyo</button></li>
-            <li><button type="button" data-example="gaeul">gaeul</button></li>
-            <li><button type="button" data-example="gamsahabnida">gamsahabnida</button></li>
-          </ul>
+        <div class="tool-card">
+          <p class="spelling-note">
+            <strong>Type by spelling, not by pronunciation:</strong>
+            <span class="example-pair"><span class="ok">johayo</span></span>
+            <span class="example-pair"><span class="no">joayo</span></span>
+          </p>
+
+          <div class="editor-wrap">
+            <div
+              id="editor"
+              class="editor"
+              tabindex="0"
+              contenteditable="true"
+              inputmode="text"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              autocomplete="off"
+              role="textbox"
+              aria-multiline="true"
+              aria-label="Romanization input"
+              data-placeholder="annyeonghaseyo jeoneun hagsaengibnida"
+            ></div>
+          </div>
+          <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
+
+          <div class="actions">
+            <button id="copy" type="button">Copy</button>
+            <button id="clear" type="button">Clear</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">Try it:</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="annyeonghaseyo">annyeonghaseyo</button></li>
+              <li><button type="button" data-example="gaeul">gaeul</button></li>
+              <li><button type="button" data-example="gamsahabnida">gamsahabnida</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -243,23 +246,23 @@
         <section class="section faq">
           <h2>FAQ</h2>
 
-          <details class="faq-item">
-            <summary>Do I need to install anything to use this Korean keyboard?</summary>
+          <div class="faq-item">
+            <h3>Do I need to install anything to use this Korean keyboard?</h3>
             <p>No. It's a web tool: open the page and start typing. No Korean IME to install, no system keyboard to switch.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>How is this different from installing a 두벌식 Korean keyboard layout?</summary>
+          <div class="faq-item">
+            <h3>How is this different from installing a 두벌식 Korean keyboard layout?</h3>
             <p>
               두벌식 means memorizing where each letter sits on the keyboard: <code>d</code> for ㅇ,
               <code>k</code> for ㅏ, and so on (see the full layout on the <a href="/en/dubeolsik/">Dubeolsik keyboard page</a>).
               This tool uses the romanization you already know instead. Type
               <code>annyeong</code> and get 안녕, no new layout to learn.
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Do I type by pronunciation or by spelling?</summary>
+          <div class="faq-item">
+            <h3>Do I type by pronunciation or by spelling?</h3>
             <p>
               By spelling. "Thank you" is typed <code>gamsahabnida</code>, not the way it sounds
               (<code>gamsahamnida</code>). The most common gap, nasalization at the end of polite verb endings
@@ -267,33 +270,33 @@
               turn up as a candidate, press <code>↓</code> to pick it. Other sound changes, like liaison or
               palatalization, aren't covered yet, so those still need correct spelling.
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can it type names or new words that aren't in any dictionary?</summary>
+          <div class="faq-item">
+            <h3>Can it type names or new words that aren't in any dictionary?</h3>
             <p>
               Yes. This isn't a dictionary lookup. It builds syllables straight from Hangul spelling rules, so
               any valid romanization works, including names, places, and words no dictionary has caught up with
               yet.
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can I type Korean with romanization on my phone?</summary>
+          <div class="faq-item">
+            <h3>Can I type Korean with romanization on my phone?</h3>
             <p>
               Yes. Tapping the text box brings up your phone's keyboard, and you can tap a candidate to pick it
               instead of using arrow keys. Autocorrect behavior varies by keyboard app, so if a word comes out
               differently than expected, check the spelling-not-pronunciation note above.
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Is there an app?</summary>
+          <div class="faq-item">
+            <h3>Is there an app?</h3>
             <p>
               Not yet. You can add this page to your phone's home screen from your browser's menu, and it'll
               open with a tap, just like an app.
             </p>
-          </details>
+          </div>
         </section>
 
         <section class="section about">

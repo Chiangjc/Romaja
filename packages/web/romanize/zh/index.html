@@ -80,49 +80,52 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>中文轉拼音</h1>
+        <div class="page-intro">
+          <h1>中文轉拼音</h1>
 
-        <p class="lede">貼上中文，轉成漢語拼音，繁體簡體都可以，不會念的字也能照著念。</p>
-
-        <div class="mode-switch" role="group" aria-label="聲調標示">
-          <button type="button" data-tone="mark" class="mode-btn active" aria-pressed="true">聲調符號</button>
-          <button type="button" data-tone="number" class="mode-btn" aria-pressed="false">數字</button>
-          <button type="button" data-tone="none" class="mode-btn" aria-pressed="false">不標</button>
+          <p class="lede">貼上中文，轉成漢語拼音，繁體簡體都可以，不會念的字也能照著念。</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">中</span>
-          <textarea
-            id="rz-input"
-            class="rz-input"
-            aria-label="中文輸入"
-            placeholder="我愛你"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-          ></textarea>
-        </div>
+        <div class="tool-card">
+          <div class="mode-switch" role="group" aria-label="聲調標示">
+            <button type="button" data-tone="mark" class="mode-btn active" aria-pressed="true">聲調符號</button>
+            <button type="button" data-tone="number" class="mode-btn" aria-pressed="false">數字</button>
+            <button type="button" data-tone="none" class="mode-btn" aria-pressed="false">不標</button>
+          </div>
 
-        <div class="rz-options">
-          <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
-        </div>
+          <div class="editor-wrap">
+            <textarea
+              id="rz-input"
+              class="rz-input"
+              aria-label="中文輸入"
+              placeholder="我愛你"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
 
-        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="wǒ ài nǐ"></div>
+          <div class="rz-options">
+            <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
+          </div>
 
-        <div class="actions">
-          <button id="copy" type="button">複製</button>
-          <button id="clear" type="button">清空</button>
-        </div>
+          <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="wǒ ài nǐ"></div>
 
-        <div class="examples">
-          <p class="examples-label">試試看：</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="我們一起去銀行">我們一起去銀行</button></li>
-            <li><button type="button" data-example="長大以後我才明白">長大以後我才明白</button></li>
-            <li><button type="button" data-example="月亮代表我的心">月亮代表我的心</button></li>
-            <li><button type="button" data-example="生日快樂">生日快樂</button></li>
-          </ul>
+          <div class="actions">
+            <button id="copy" type="button">複製</button>
+            <button id="clear" type="button">清空</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">試試看：</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="我們一起去銀行">我們一起去銀行</button></li>
+              <li><button type="button" data-example="長大以後我才明白">長大以後我才明白</button></li>
+              <li><button type="button" data-example="月亮代表我的心">月亮代表我的心</button></li>
+              <li><button type="button" data-example="生日快樂">生日快樂</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -157,33 +160,33 @@
         <section class="section faq">
           <h2>常見問題</h2>
 
-          <details class="faq-item">
-            <summary>繁體字和簡體字都可以轉嗎？</summary>
+          <div class="faq-item">
+            <h3>繁體字和簡體字都可以轉嗎？</h3>
             <p>都可以，也可以混在一起貼。繁體字會先在背景換成對應的簡體字形再判斷讀音，畫面上顯示的還是你貼進來的原文。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>多音字會轉對嗎？</summary>
+          <div class="faq-item">
+            <h3>多音字會轉對嗎？</h3>
             <p>
               大部分會。讀音是看整個詞決定的，例如銀行的行念 <code>háng</code>、行走的行念 <code>xíng</code>，長大的長念 <code>zhǎng</code>、長度的長念 <code>cháng</code>。
               少數詞表裡沒有的組合還是可能轉錯。
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>讀音是台灣的還是中國大陸的？</summary>
+          <div class="faq-item">
+            <h3>讀音是台灣的還是中國大陸的？</h3>
             <p>照台灣的標準讀音（教育部《國語辭典》）。兩岸念法不同的常見字詞都照台灣念，例如垃圾是 <code>lè sè</code>、星期是 <code>xīng qí</code>、認識是 <code>rèn shì</code>。輕聲也照台灣習慣，朋友是 <code>péng yǒu</code>、喜歡是 <code>xǐ huān</code>，只有的、了、嗎、們這類字念輕聲。比較少見的字詞，偶爾還是會照大陸念法。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>「一」和「不」的變調有標嗎？</summary>
+          <div class="faq-item">
+            <h3>「一」和「不」的變調有標嗎？</h3>
             <p>有，照實際念法標。一起轉成 <code>yì qǐ</code>、一個轉成 <code>yí gè</code>，不是轉成 <code>bú shì</code>，照著念就對了。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>可以用來看歌詞跟唱嗎？</summary>
+          <div class="faq-item">
+            <h3>可以用來看歌詞跟唱嗎？</h3>
             <p>可以。整首歌詞貼進來，勾選「逐行對照」，每行中文下面會接著顯示拼音，聲調也照實際唱念的變調標。</p>
-          </details>
+          </div>
         </section>
 
         <!--tool-index-->

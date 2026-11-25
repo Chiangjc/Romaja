@@ -80,48 +80,51 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>泰文轉羅馬拼音</h1>
+        <div class="page-intro">
+          <h1>泰文轉羅馬拼音</h1>
 
-        <p class="lede">貼上泰文，自動切詞、切音節，轉成羅馬拼音，還不會讀泰文字母也能照著念。</p>
-
-        <div class="mode-switch" role="group" aria-label="音節分隔">
-          <button type="button" data-sep="hyphen" class="mode-btn active" aria-pressed="true">音節加連字號</button>
-          <button type="button" data-sep="none" class="mode-btn" aria-pressed="false">連寫</button>
+          <p class="lede">貼上泰文，自動切詞、切音節，轉成羅馬拼音，還不會讀泰文字母也能照著念。</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">ก</span>
-          <textarea
-            id="rz-input"
-            class="rz-input"
-            aria-label="泰文輸入"
-            placeholder="สวัสดีครับ"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-          ></textarea>
-        </div>
+        <div class="tool-card">
+          <div class="mode-switch" role="group" aria-label="音節分隔">
+            <button type="button" data-sep="hyphen" class="mode-btn active" aria-pressed="true">音節加連字號</button>
+            <button type="button" data-sep="none" class="mode-btn" aria-pressed="false">連寫</button>
+          </div>
 
-        <div class="rz-options">
-          <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
-        </div>
+          <div class="editor-wrap">
+            <textarea
+              id="rz-input"
+              class="rz-input"
+              aria-label="泰文輸入"
+              placeholder="สวัสดีครับ"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
 
-        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="sa-wat-di khrap"></div>
+          <div class="rz-options">
+            <label><input type="checkbox" id="opt-interlinear" /> 逐行對照</label>
+          </div>
 
-        <div class="actions">
-          <button id="copy" type="button">複製</button>
-          <button id="clear" type="button">清空</button>
-        </div>
+          <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="sa-wat-di khrap"></div>
 
-        <div class="examples">
-          <p class="examples-label">試試看：</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="ขอบคุณมากครับ">ขอบคุณมากครับ</button></li>
-            <li><button type="button" data-example="ฉันรักเธอ">ฉันรักเธอ</button></li>
-            <li><button type="button" data-example="ไม่เป็นไร">ไม่เป็นไร</button></li>
-            <li><button type="button" data-example="คิดถึงเธอทุกวัน">คิดถึงเธอทุกวัน</button></li>
-          </ul>
+          <div class="actions">
+            <button id="copy" type="button">複製</button>
+            <button id="clear" type="button">清空</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">試試看：</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="ขอบคุณมากครับ">ขอบคุณมากครับ</button></li>
+              <li><button type="button" data-example="ฉันรักเธอ">ฉันรักเธอ</button></li>
+              <li><button type="button" data-example="ไม่เป็นไร">ไม่เป็นไร</button></li>
+              <li><button type="button" data-example="คิดถึงเธอทุกวัน">คิดถึงเธอทุกวัน</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -156,30 +159,30 @@
         <section class="section faq">
           <h2>常見問題</h2>
 
-          <details class="faq-item">
-            <summary>為什麼沒有標聲調？</summary>
+          <div class="faq-item">
+            <h3>為什麼沒有標聲調？</h3>
             <p>RTGS 本身就不標聲調。泰語有五個聲調，但官方拼法只寫子音和母音，路牌、地名、護照上的拼法都是這一套。要練聲調的話，還是要看原文上的聲調符號。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>長母音和短母音為什麼寫得一樣？</summary>
+          <div class="faq-item">
+            <h3>長母音和短母音為什麼寫得一樣？</h3>
             <p>RTGS 不分長短音，ข้าว（米飯）和 ขาว（白色）都寫成 <code>khao</code>。長短要聽原音練。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>為什麼跟泰國人自己拼的英文名字不一樣？</summary>
+          <div class="faq-item">
+            <h3>為什麼跟泰國人自己拼的英文名字不一樣？</h3>
             <p>很多人名、店名用的是自己習慣的拼法，例如用 <code>v</code> 拼 ว、用 <code>j</code> 拼 จ，或照梵文原本的字母拼。這裡只照 RTGS 的念法轉，所以會跟那些拼法不同。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>切詞會切錯嗎？</summary>
+          <div class="faq-item">
+            <h3>切詞會切錯嗎？</h3>
             <p>常用詞大多切得對。切詞用的是瀏覽器內建的泰文詞典，音節照泰文的拼寫規則推。人名、新詞、外來語偶爾會切錯；巴利梵語借詞裡一個子音同時念兩次的（ผลไม้ <code>phon-la-mai</code>），只有收錄的常用詞會轉對。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>可以用來看歌詞跟唱嗎？</summary>
+          <div class="faq-item">
+            <h3>可以用來看歌詞跟唱嗎？</h3>
             <p>可以。整首歌詞貼進來，勾選「逐行對照」，每行泰文下面會接著顯示拼音；音節加連字號，比較容易對上旋律。</p>
-          </details>
+          </div>
         </section>
 
         <!--tool-index-->

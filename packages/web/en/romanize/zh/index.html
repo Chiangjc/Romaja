@@ -80,49 +80,52 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>Chinese to Pinyin</h1>
+        <div class="page-intro">
+          <h1>Chinese to Pinyin</h1>
 
-        <p class="lede">Paste Chinese, Traditional or Simplified, and get Hanyu Pinyin, so you can read aloud characters you don't know yet.</p>
-
-        <div class="mode-switch" role="group" aria-label="Tones">
-          <button type="button" data-tone="mark" class="mode-btn active" aria-pressed="true">Tone marks</button>
-          <button type="button" data-tone="number" class="mode-btn" aria-pressed="false">Numbers</button>
-          <button type="button" data-tone="none" class="mode-btn" aria-pressed="false">No tones</button>
+          <p class="lede">Paste Chinese, Traditional or Simplified, and get Hanyu Pinyin, so you can read aloud characters you don't know yet.</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">中</span>
-          <textarea
-            id="rz-input"
-            class="rz-input"
-            aria-label="Chinese input"
-            placeholder="我愛你"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-          ></textarea>
-        </div>
+        <div class="tool-card">
+          <div class="mode-switch" role="group" aria-label="Tones">
+            <button type="button" data-tone="mark" class="mode-btn active" aria-pressed="true">Tone marks</button>
+            <button type="button" data-tone="number" class="mode-btn" aria-pressed="false">Numbers</button>
+            <button type="button" data-tone="none" class="mode-btn" aria-pressed="false">No tones</button>
+          </div>
 
-        <div class="rz-options">
-          <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
-        </div>
+          <div class="editor-wrap">
+            <textarea
+              id="rz-input"
+              class="rz-input"
+              aria-label="Chinese input"
+              placeholder="我愛你"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
 
-        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="wǒ ài nǐ"></div>
+          <div class="rz-options">
+            <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
+          </div>
 
-        <div class="actions">
-          <button id="copy" type="button">Copy</button>
-          <button id="clear" type="button">Clear</button>
-        </div>
+          <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="wǒ ài nǐ"></div>
 
-        <div class="examples">
-          <p class="examples-label">Try:</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="我們一起去銀行">我們一起去銀行</button></li>
-            <li><button type="button" data-example="长大以后我才明白">长大以后我才明白</button></li>
-            <li><button type="button" data-example="月亮代表我的心">月亮代表我的心</button></li>
-            <li><button type="button" data-example="生日快樂">生日快樂</button></li>
-          </ul>
+          <div class="actions">
+            <button id="copy" type="button">Copy</button>
+            <button id="clear" type="button">Clear</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">Try:</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="我們一起去銀行">我們一起去銀行</button></li>
+              <li><button type="button" data-example="长大以后我才明白">长大以后我才明白</button></li>
+              <li><button type="button" data-example="月亮代表我的心">月亮代表我的心</button></li>
+              <li><button type="button" data-example="生日快樂">生日快樂</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -158,33 +161,33 @@
         <section class="section faq">
           <h2>FAQ</h2>
 
-          <details class="faq-item">
-            <summary>Does it work with both Traditional and Simplified Chinese?</summary>
+          <div class="faq-item">
+            <h3>Does it work with both Traditional and Simplified Chinese?</h3>
             <p>Yes, and you can mix them. Traditional characters are mapped to their Simplified forms behind the scenes to look up the reading; the original text you pasted is what stays on screen.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Does it get characters with more than one reading right?</summary>
+          <div class="faq-item">
+            <h3>Does it get characters with more than one reading right?</h3>
             <p>
               Mostly. The reading is chosen by the whole word: 行 is <code>háng</code> in 銀行 (bank) but <code>xíng</code> in 行走 (walk), and 長 is
               <code>zhǎng</code> in 長大 (grow up) but <code>cháng</code> in 長度 (length). Rare combinations missing from the word list can still come out wrong.
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Which standard does it follow?</summary>
+          <div class="faq-item">
+            <h3>Which standard does it follow?</h3>
             <p>Taiwan's standard Mandarin, as in the Ministry of Education dictionary. Common words read differently across the Taiwan Strait use the Taiwan reading — 垃圾 is <code>lè sè</code>, 星期 is <code>xīng qí</code> — and the neutral tone is kept only for particles like 的, 了, 嗎 and 們, so 朋友 is <code>péng yǒu</code>. Less common words may occasionally still follow the mainland reading.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Are the tone changes of 一 and 不 shown?</summary>
+          <div class="faq-item">
+            <h3>Are the tone changes of 一 and 不 shown?</h3>
             <p>Yes, as they are actually pronounced: 一起 is <code>yì qǐ</code>, 一個 is <code>yí gè</code> and 不是 is <code>bú shì</code>, so you can read it aloud as written.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can I use it for song lyrics?</summary>
+          <div class="faq-item">
+            <h3>Can I use it for song lyrics?</h3>
             <p>Yes. Paste the whole song and turn on Line by line: each Chinese line is followed by its pinyin, with tone changes marked as they are sung.</p>
-          </details>
+          </div>
         </section>
 
         <!--tool-index-->

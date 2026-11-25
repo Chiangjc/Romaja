@@ -89,52 +89,55 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>用羅馬拼音打韓文</h1>
-        <p class="lede">
-          打羅馬拼音，自動轉成韓文，不用另外背鍵盤位置。這是一個韓文線上鍵盤，網頁打開就能用，不用安裝，是新手韓文鍵盤裡最好上手的一種。
-        </p>
-
-        <p class="spelling-note">
-          <strong>照拼寫打，不是照發音打：</strong>
-          <span class="example-pair"><span class="ok">johayo</span></span>
-          <span class="example-pair"><span class="no">joayo</span></span>
-        </p>
-
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">한</span>
-          <div
-            id="editor"
-            class="editor"
-            tabindex="0"
-            contenteditable="true"
-            inputmode="text"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-            autocomplete="off"
-            role="textbox"
-            aria-multiline="true"
-            aria-label="羅馬拼音輸入"
-            data-placeholder="annyeonghaseyo jeoneun hagsaengibnida"
-          ></div>
-        </div>
-        <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
-
-        <div class="actions">
-          <button id="copy" type="button">複製</button>
-          <button id="clear" type="button">清空</button>
+        <div class="page-intro">
+          <h1>用羅馬拼音打韓文</h1>
+          <p class="lede">
+            打羅馬拼音，自動轉成韓文，不用另外背鍵盤位置。這是一個韓文線上鍵盤，網頁打開就能用，不用安裝，是新手韓文鍵盤裡最好上手的一種。
+          </p>
+          <!--direction-switch-->
         </div>
 
-        <div class="examples">
-          <p class="examples-label">試試看：</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="annyeonghaseyo">annyeonghaseyo</button></li>
-            <li><button type="button" data-example="gaeul">gaeul</button></li>
-            <li><button type="button" data-example="gamsahabnida">gamsahabnida</button></li>
-            <li><button type="button" data-example="andwae">andwae</button></li>
-            <li><button type="button" data-example="gochI">gochI</button></li>
-          </ul>
+        <div class="tool-card">
+          <p class="spelling-note">
+            <strong>照拼寫打，不是照發音打：</strong>
+            <span class="example-pair"><span class="ok">johayo</span></span>
+            <span class="example-pair"><span class="no">joayo</span></span>
+          </p>
+
+          <div class="editor-wrap">
+            <div
+              id="editor"
+              class="editor"
+              tabindex="0"
+              contenteditable="true"
+              inputmode="text"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+              autocomplete="off"
+              role="textbox"
+              aria-multiline="true"
+              aria-label="羅馬拼音輸入"
+              data-placeholder="annyeonghaseyo jeoneun hagsaengibnida"
+            ></div>
+          </div>
+          <p id="ime-warning" class="ime-warning" aria-live="polite"></p>
+
+          <div class="actions">
+            <button id="copy" type="button">複製</button>
+            <button id="clear" type="button">清空</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">試試看：</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="annyeonghaseyo">annyeonghaseyo</button></li>
+              <li><button type="button" data-example="gaeul">gaeul</button></li>
+              <li><button type="button" data-example="gamsahabnida">gamsahabnida</button></li>
+              <li><button type="button" data-example="andwae">andwae</button></li>
+              <li><button type="button" data-example="gochI">gochI</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -245,44 +248,44 @@
         <section class="section faq">
           <h2>常見問題</h2>
 
-          <details class="faq-item">
-            <summary>韓文鍵盤要下載或安裝才能用嗎？</summary>
+          <div class="faq-item">
+            <h3>韓文鍵盤要下載或安裝才能用嗎？</h3>
             <p>不用。這版線上韓文羅馬鍵盤是網頁版工具，打開就能打字，不用另外裝韓文輸入法，也不用去系統設定切換鍵盤。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>跟安裝두벌식韓文輸入法有什麼不同？</summary>
+          <div class="faq-item">
+            <h3>跟安裝두벌식韓文輸入法有什麼不同？</h3>
             <p>
               두벌식要先背熟每個字母在鍵盤上的位置，例如 <code>d</code> 對應 ㅇ、<code>k</code> 對應
               ㅏ（<a href="/dubeolsik/">두벌식鍵盤頁</a>有整張圖）。這個工具直接吃你已經會的羅馬拼音，打
               <code>annyeong</code> 就出안녕，不用重新背一套鍵盤位置。
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>要照發音打還是照拼字打韓文？</summary>
+          <div class="faq-item">
+            <h3>要照發音打還是照拼字打韓文？</h3>
             <p>
               預設照拼字打，例如「感謝」要打 <code>gamsahabnida</code>，不是唸起來的
               <code>gamsahamnida</code>。不過「-습니다/-ㅂ니다」這種敬語句尾的鼻音化最常見，就算打成
               <code>gamsahamnida</code>，候選字裡通常也找得到감사합니다，按 <code>↓</code>
               選就好；連音、口蓋音化這些其他音變目前還沒處理，遇到還是得照拼字打。
             </p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>人名或字典查不到的新詞也打得出來嗎？</summary>
+          <div class="faq-item">
+            <h3>人名或字典查不到的新詞也打得出來嗎？</h3>
             <p>打得出來。這個工具不查字典，是照韓文拼字規則直接組字，任何合法的羅馬拼音都能轉，包含人名、地名、還沒收錄的新詞。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>手機上可以用羅馬拼音打韓文嗎？</summary>
+          <div class="faq-item">
+            <h3>手機上可以用羅馬拼音打韓文嗎？</h3>
             <p>可以。點一下文字框就會叫出手機鍵盤，直接打字；手機沒有方向鍵，改成用點的來選候選字。不同廠牌鍵盤的自動校正行為不太一樣，如果打出來的字跟預期不同，可以參考上面「照拼寫打，不是照發音打」的說明。</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>有 app 嗎？</summary>
+          <div class="faq-item">
+            <h3>有 app 嗎？</h3>
             <p>目前沒有獨立 app，但可以用瀏覽器的「加入主畫面」功能，把這個網頁加到手機桌面，圖示點下去就直接打開，用起來跟 app 差不多。</p>
-          </details>
+          </div>
         </section>
 
         <section class="section about">

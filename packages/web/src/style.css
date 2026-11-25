@@ -1,6 +1,7 @@
 :root {
   color-scheme: light;
-  --paper: #f7f8f9;
+  --paper: #fff;
+  --subtle: #f6f7f9;
   --grid: #0057a3;
   --seal: #00457f;
   --seal-tint: rgba(0, 87, 163, 0.1);
@@ -60,7 +61,6 @@ header.site-header {
   z-index: 100;
   width: 100%;
   background: var(--grid);
-  margin-bottom: 3rem;
 }
 
 .site-header-inner {
@@ -180,34 +180,45 @@ header.site-header {
   font-weight: 700;
 }
 
-/* 輸入區 */
+/* 標題區：靠左，標題、一句說明，底下一條細線跟工具隔開 */
+
+.page-intro {
+  padding: 2rem 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
 
 h1 {
   font-family: var(--font-serif);
-  font-size: clamp(1.7rem, 1.3rem + 1.6vw, 2.3rem);
+  font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2rem);
   font-weight: 800;
   letter-spacing: 0.01em;
-  text-align: center;
+  line-height: 1.35;
   text-wrap: balance;
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.5rem;
 }
 
 .lede {
   color: var(--ink-soft);
-  text-align: center;
-  font-size: 1.1rem;
-  max-width: 38rem;
-  margin: 0 auto 3.5rem;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* 工具卡片：輸入框、按鈕、範例收在同一張有框線的卡片裡 */
+
+.tool-card {
+  margin-top: 1.75rem;
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid var(--border);
 }
 
 .spelling-note {
   font-size: 0.85rem;
   color: var(--ink-soft);
-  text-align: center;
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
   display: flex;
   align-items: baseline;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 0.4rem 0.6rem;
 }
@@ -246,37 +257,16 @@ h1 {
   position: relative;
 }
 
-.seal {
-  position: absolute;
-  top: -1rem;
-  left: 1.2rem;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 50%;
-  background: var(--grid);
-  color: #fff;
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 800;
-  border: 3px solid var(--paper);
-  box-shadow: 0 2px 6px rgba(20, 24, 31, 0.2);
-}
-
 .editor {
   width: 100%;
   box-sizing: border-box;
-  min-height: 4.2rem;
+  min-height: 7rem;
   font-family: var(--font-sans);
   font-size: 1.5rem;
   line-height: 1.8;
-  padding: 1.1rem 1.25rem 0.95rem;
-  background-color: var(--paper);
+  padding: 0.85rem 1rem;
+  background-color: #fff;
   border: 1px solid var(--border);
-  border-top: 6px solid var(--grid);
   border-radius: 0;
   color: var(--ink);
   white-space: pre-wrap;
@@ -286,11 +276,11 @@ h1 {
   -webkit-user-modify: read-write-plaintext-only;
 }
 
+/* 聚焦時用 box-shadow 加粗框線，不改 border 寬度，版面不會跳 */
 .editor:focus {
   outline: none;
-  border-width: 2px;
   border-color: var(--grid);
-  border-top-width: 7px;
+  box-shadow: 0 0 0 1px var(--grid);
 }
 
 .editor.empty::before {
@@ -389,52 +379,55 @@ h1 {
   font-family: var(--font-mono);
   color: var(--warn-ink);
   font-size: 0.85rem;
-  margin-top: 0.5rem;
+  margin: 0.3rem 0 0;
   min-height: 1.2em;
 }
 
 /* 動作按鈕 */
 
 .actions {
-  margin-top: 0.85rem;
+  margin-top: 0.3rem;
   display: flex;
-  justify-content: center;
-  gap: 0.6rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 button {
   font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius);
-  border: none;
-  background: var(--border);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  padding: 0.55rem 1.1rem;
+  border-radius: 0;
+  border: 1px solid #b9c0c9;
+  background: #fff;
   color: var(--ink);
   cursor: pointer;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
 }
 
 button:hover {
-  background: #c7cdd5;
+  border-color: var(--ink);
 }
 
 #copy {
   background: var(--grid);
-  color: var(--paper);
+  border-color: var(--grid);
+  color: #fff;
 }
 
 #copy:hover {
   background: var(--seal);
+  border-color: var(--seal);
 }
 
 /* 範例 */
 
 .examples {
-  margin-top: 2.25rem;
-  text-align: center;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--border);
 }
 
 .examples-label {
@@ -448,7 +441,7 @@ button:hover {
 .example-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0.5rem;
   list-style: none;
   padding: 0;
@@ -458,11 +451,10 @@ button:hover {
 .example-list button {
   font-family: var(--font-mono);
   font-weight: 400;
-  text-transform: none;
   letter-spacing: 0;
   font-size: 0.82rem;
-  padding: 0.35rem 0.85rem;
-  background: var(--paper);
+  padding: 0.3rem 0.75rem;
+  background: var(--subtle);
   border: 1px solid var(--border);
   color: var(--grid);
 }
@@ -475,29 +467,53 @@ button:hover {
 
 /* 使用說明 */
 
+/* 每個說明區塊之間一條細線，標題用正常大小的深色字，不再用灰色小字 */
+
 .section {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--border);
 }
 
 .section h2 {
   font-weight: 800;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
-  margin: 0 0 0.9rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border);
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 1rem;
 }
+
+/* 步驟：方框數字，跟內文並排 */
 
 .steps {
   margin: 0;
-  padding-left: 1.25rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
   color: var(--ink);
 }
 
 .steps li {
-  margin-bottom: 0.55rem;
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
 }
 
 /* 觸控裝置（手機/平板）看到的候選字操作說明跟滑鼠鍵盤裝置不同，用 pointer 偵測切換，預設顯示滑鼠鍵盤版本 */
@@ -531,14 +547,11 @@ p code {
 
 .rom-details summary {
   font-weight: 800;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--ink-soft);
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: var(--ink);
   cursor: pointer;
   list-style: none;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid var(--border);
 }
 
 .rom-details summary::-webkit-details-marker {
@@ -689,6 +702,8 @@ p code {
 .kbd-section {
   margin-top: 0;
   margin-bottom: 1.5rem;
+  padding-top: 0;
+  border-top: none;
 }
 
 .kbd-legend {
@@ -704,36 +719,23 @@ p code {
 
 /* 常見問題 */
 
+/* 常見問題：答案直接攤開，每題一張框線卡片 */
+
 .faq-item {
-  border-bottom: 1px solid var(--border);
-  padding: 0.9rem 0;
+  border: 1px solid var(--border);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
-.faq-item:first-of-type {
-  border-top: 1px solid var(--border);
-}
-
-.faq-item summary {
-  font-weight: 700;
-  cursor: pointer;
-  list-style: none;
-}
-
-.faq-item summary::-webkit-details-marker {
-  display: none;
-}
-
-.faq-item summary::before {
-  content: "▸ ";
-  color: var(--warn-ink);
-}
-
-.faq-item[open] summary::before {
-  content: "▾ ";
+.faq-item h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.5;
+  margin: 0;
 }
 
 .faq-item p {
-  margin: 0.6rem 0 0;
+  margin: 0.4rem 0 0;
   color: var(--ink-soft);
   font-size: 0.92rem;
 }
@@ -779,6 +781,14 @@ footer p {
 @media (max-width: 480px) {
   .page {
     padding: 0 1rem;
+  }
+
+  .tool-card {
+    padding: 1rem;
+  }
+
+  .faq-item {
+    padding: 0.85rem 1rem;
   }
 
   .site-header-inner {
@@ -866,19 +876,17 @@ footer p {
   font-family: var(--font-sans);
   font-size: 1.25rem;
   line-height: 1.7;
-  padding: 1.1rem 1.25rem 0.95rem;
-  background-color: var(--paper);
+  padding: 0.85rem 1rem;
+  background-color: #fff;
   border: 1px solid var(--border);
-  border-top: 6px solid var(--grid);
   border-radius: 0;
   color: var(--ink);
 }
 
 .rz-input:focus {
   outline: none;
-  border-width: 2px;
   border-color: var(--grid);
-  border-top-width: 7px;
+  box-shadow: 0 0 0 1px var(--grid);
 }
 
 .rz-input::placeholder {
@@ -908,16 +916,19 @@ footer p {
 .rz-output {
   margin-top: 0.75rem;
   min-height: 4.2rem;
-  padding: 1rem 1.25rem;
-  background: #fff;
+  padding: 0.85rem 1rem;
+  background: var(--subtle);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--grid);
   font-family: var(--font-mono);
   font-size: 1.05rem;
   line-height: 1.8;
   white-space: pre-wrap;
   word-break: break-word;
   color: var(--ink);
+}
+
+.rz-output + .actions {
+  margin-top: 0.75rem;
 }
 
 .rz-output.empty::before {
@@ -962,9 +973,9 @@ footer p {
   display: grid;
   grid-template-columns: minmax(0, 10rem) auto minmax(0, 10rem);
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 0.75rem;
-  margin: -1.25rem auto 1.75rem;
+  margin: 1.25rem 0 0;
 }
 
 .dir-side {
@@ -1047,7 +1058,6 @@ html[lang="en"] .direction-switch {
 @media (max-width: 480px) {
   .direction-switch {
     gap: 0.5rem;
-    margin-top: -1.5rem;
   }
 
   .dir-side {
@@ -1107,7 +1117,7 @@ html[lang="en"] .direction-switch {
 
 .lang-card[aria-current] {
   border-left-color: var(--ink-soft);
-  background: var(--paper);
+  background: var(--subtle);
 }
 
 .lang-card[aria-current] .lang-card-name::after {

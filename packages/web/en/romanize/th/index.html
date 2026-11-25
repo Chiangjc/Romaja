@@ -80,48 +80,51 @@
 
     <div class="page">
       <main>
-        <!--direction-switch-->
-        <h1>Thai to Romanization</h1>
+        <div class="page-intro">
+          <h1>Thai to Romanization</h1>
 
-        <p class="lede">Paste Thai and get romanization, split into words and syllables for you, so you can read it aloud before you can read Thai script.</p>
-
-        <div class="mode-switch" role="group" aria-label="Syllables">
-          <button type="button" data-sep="hyphen" class="mode-btn active" aria-pressed="true">Hyphenate syllables</button>
-          <button type="button" data-sep="none" class="mode-btn" aria-pressed="false">Joined</button>
+          <p class="lede">Paste Thai and get romanization, split into words and syllables for you, so you can read it aloud before you can read Thai script.</p>
+          <!--direction-switch-->
         </div>
 
-        <div class="editor-wrap">
-          <span class="seal" aria-hidden="true">ก</span>
-          <textarea
-            id="rz-input"
-            class="rz-input"
-            aria-label="Thai input"
-            placeholder="สวัสดีครับ"
-            autocapitalize="off"
-            autocorrect="off"
-            spellcheck="false"
-          ></textarea>
-        </div>
+        <div class="tool-card">
+          <div class="mode-switch" role="group" aria-label="Syllables">
+            <button type="button" data-sep="hyphen" class="mode-btn active" aria-pressed="true">Hyphenate syllables</button>
+            <button type="button" data-sep="none" class="mode-btn" aria-pressed="false">Joined</button>
+          </div>
 
-        <div class="rz-options">
-          <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
-        </div>
+          <div class="editor-wrap">
+            <textarea
+              id="rz-input"
+              class="rz-input"
+              aria-label="Thai input"
+              placeholder="สวัสดีครับ"
+              autocapitalize="off"
+              autocorrect="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
 
-        <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="sa-wat-di khrap"></div>
+          <div class="rz-options">
+            <label><input type="checkbox" id="opt-interlinear" /> Line by line</label>
+          </div>
 
-        <div class="actions">
-          <button id="copy" type="button">Copy</button>
-          <button id="clear" type="button">Clear</button>
-        </div>
+          <div id="rz-output" class="rz-output empty" aria-live="polite" data-placeholder="sa-wat-di khrap"></div>
 
-        <div class="examples">
-          <p class="examples-label">Try:</p>
-          <ul class="example-list">
-            <li><button type="button" data-example="ขอบคุณมากครับ">ขอบคุณมากครับ</button></li>
-            <li><button type="button" data-example="ฉันรักเธอ">ฉันรักเธอ</button></li>
-            <li><button type="button" data-example="ไม่เป็นไร">ไม่เป็นไร</button></li>
-            <li><button type="button" data-example="คิดถึงเธอทุกวัน">คิดถึงเธอทุกวัน</button></li>
-          </ul>
+          <div class="actions">
+            <button id="copy" type="button">Copy</button>
+            <button id="clear" type="button">Clear</button>
+          </div>
+
+          <div class="examples">
+            <p class="examples-label">Try:</p>
+            <ul class="example-list">
+              <li><button type="button" data-example="ขอบคุณมากครับ">ขอบคุณมากครับ</button></li>
+              <li><button type="button" data-example="ฉันรักเธอ">ฉันรักเธอ</button></li>
+              <li><button type="button" data-example="ไม่เป็นไร">ไม่เป็นไร</button></li>
+              <li><button type="button" data-example="คิดถึงเธอทุกวัน">คิดถึงเธอทุกวัน</button></li>
+            </ul>
+          </div>
         </div>
 
         <section class="section">
@@ -156,30 +159,30 @@
         <section class="section faq">
           <h2>FAQ</h2>
 
-          <details class="faq-item">
-            <summary>Why are there no tone marks?</summary>
+          <div class="faq-item">
+            <h3>Why are there no tone marks?</h3>
             <p>RTGS does not mark tones. Thai has five tones, but the official system writes only consonants and vowels; it is what you see on road signs, place names and passports. To practise tones, follow the tone marks in the Thai text.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Why do long and short vowels look the same?</summary>
+          <div class="faq-item">
+            <h3>Why do long and short vowels look the same?</h3>
             <p>RTGS does not distinguish vowel length: ข้าว (rice) and ขาว (white) are both <code>khao</code>. Listen to the original audio for vowel length.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Why does it differ from how Thai people spell their names in English?</summary>
+          <div class="faq-item">
+            <h3>Why does it differ from how Thai people spell their names in English?</h3>
             <p>Many personal and shop names use their own spellings, such as <code>v</code> for ว, <code>j</code> for จ, or letters based on the original Sanskrit. This tool follows RTGS, which spells by pronunciation, so it will differ from those.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Does it ever split words wrongly?</summary>
+          <div class="faq-item">
+            <h3>Does it ever split words wrongly?</h3>
             <p>Common words are mostly split correctly. Word splitting uses the Thai dictionary built into your browser, and syllables are worked out from Thai spelling rules. Names, new words and loanwords are occasionally split wrongly, and in Pali and Sanskrit loanwords where one consonant is pronounced twice (ผลไม้ <code>phon-la-mai</code>), only the common words it knows come out right.</p>
-          </details>
+          </div>
 
-          <details class="faq-item">
-            <summary>Can I use it for song lyrics?</summary>
+          <div class="faq-item">
+            <h3>Can I use it for song lyrics?</h3>
             <p>Yes. Paste the whole song and turn on Line by line: each Thai line is followed by its romanization. Hyphenated syllables make it easier to match the words to the melody.</p>
-          </details>
+          </div>
         </section>
 
         <!--tool-index-->
