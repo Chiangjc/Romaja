@@ -986,7 +986,7 @@ footer p {
 
 /* 英文的 Romanization | Dubeolsik 比中文長，兩側一起加寬，⇄ 仍在正中間 */
 html[lang="en"] .direction-switch {
-  grid-template-columns: minmax(0, 12.5rem) auto minmax(0, 12.5rem);
+  grid-template-columns: minmax(0, 14rem) auto minmax(0, 14rem);
 }
 
 /* 韓文打字頁的輸入側有兩種輸入法，直接在這一格裡切換 */
@@ -996,8 +996,9 @@ html[lang="en"] .direction-switch {
   padding: 0.2rem;
 }
 
+/* 寬度照字的長短分，不平分：平分的話 Romanization 會比 Dubeolsik 擠，粗體時超出格子 */
 .dir-choices a {
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
   padding: 0.2rem 0.3rem;
   border-radius: var(--radius);
