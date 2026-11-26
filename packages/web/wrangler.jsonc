@@ -7,9 +7,10 @@
     "directory": "dist",
     "binding": "ASSETS"
   },
-  // 寄信用 Cloudflare Email Routing。收件人不寫在這裡，用 secret FEEDBACK_TO 設定（見 worker/index.js）
-  "send_email": [{ "name": "FEEDBACK_MAIL" }],
+  // 寄信用 Cloudflare Email Routing，只准寄到 contact@latype.com
+  "send_email": [{ "name": "FEEDBACK_MAIL", "destination_address": "contact@latype.com" }],
   "vars": {
-    "FEEDBACK_FROM": "feedback@latype.com"
+    "FEEDBACK_FROM": "feedback@latype.com",
+    "FEEDBACK_TO": "contact@latype.com"
   }
 }

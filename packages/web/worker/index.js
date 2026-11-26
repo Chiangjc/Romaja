@@ -3,8 +3,7 @@
 // 回饋不存資料庫，直接用 Cloudflare Email Routing 寄到站長信箱：
 // - FEEDBACK_MAIL：wrangler.jsonc 的 send_email binding
 // - FEEDBACK_FROM：寄件人，必須是 latype.com 的地址（wrangler.jsonc 的 vars）
-// - FEEDBACK_TO：收件人，必須是 Email Routing 裡驗證過的地址。用 secret 設定，不寫進 repo：
-//     Cloudflare 後台 → Workers → romaja → Settings → Variables and Secrets
+// - FEEDBACK_TO：收件人 contact@latype.com（wrangler.jsonc 的 vars，binding 也限定只能寄到這個地址）
 //
 // 靜態檔比對得到時 Cloudflare 會直接回傳，不會進到這裡。
 
