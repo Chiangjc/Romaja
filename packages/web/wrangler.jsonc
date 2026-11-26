@@ -1,7 +1,15 @@
 {
   "name": "romaja",
   "compatibility_date": "2026-08-25",
+  // 靜態網站之外只有一支 Worker：處理 /api/feedback，把回饋寄給站長
+  "main": "worker/index.js",
   "assets": {
-    "directory": "dist"
+    "directory": "dist",
+    "binding": "ASSETS"
+  },
+  // 寄信用 Cloudflare Email Routing。收件人不寫在這裡，用 secret FEEDBACK_TO 設定（見 worker/index.js）
+  "send_email": [{ "name": "FEEDBACK_MAIL" }],
+  "vars": {
+    "FEEDBACK_FROM": "feedback@latype.com"
   }
 }

@@ -1,0 +1,169 @@
+/* 意見回饋：右下角的按鈕和對話框（feedback.ts） */
+
+.fb-btn {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 90;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--grid);
+  background: var(--grid);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(20, 24, 31, 0.18);
+  cursor: pointer;
+}
+
+.fb-btn:hover {
+  background: var(--seal);
+  border-color: var(--seal);
+}
+
+.fb-dlg {
+  width: min(28rem, calc(100vw - 2rem));
+  padding: 1.25rem 1.25rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 8px 32px rgba(20, 24, 31, 0.2);
+}
+
+.fb-dlg::backdrop {
+  background: rgba(20, 24, 31, 0.35);
+}
+
+.fb-form h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+}
+
+.fb-hint {
+  margin: 0 0 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+}
+
+.fb-kinds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+}
+
+.fb-kinds label {
+  cursor: pointer;
+}
+
+.fb-kinds input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.fb-kinds span {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+}
+
+.fb-kinds input:checked + span {
+  border-color: var(--grid);
+  background: var(--seal-tint);
+  color: var(--seal);
+  font-weight: 700;
+}
+
+.fb-kinds input:focus-visible + span {
+  outline: 2px solid var(--seal);
+  outline-offset: 2px;
+}
+
+.fb-field {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.fb-field textarea,
+.fb-field input {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 400;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.fb-field textarea {
+  resize: vertical;
+}
+
+.fb-field textarea:focus,
+.fb-field input:focus {
+  outline: 2px solid var(--seal);
+  outline-offset: -1px;
+  border-color: var(--seal);
+}
+
+.fb-sub {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* 機器人陷阱：真人看不到 */
+.fb-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.fb-status {
+  min-height: 1.4em;
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.fb-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.fb-send {
+  background: var(--grid);
+  border-color: var(--grid);
+  color: #fff;
+}
+
+.fb-send:hover {
+  background: var(--seal);
+  border-color: var(--seal);
+}
+
+.fb-send:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+@media print {
+  .fb-btn {
+    display: none;
+  }
+}
